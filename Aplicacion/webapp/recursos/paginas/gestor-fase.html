@@ -1,0 +1,153 @@
+<div 	data-ng-controller="GestorFaseControlador as faseCtrl"
+		data-ng-init="faseCtrl.init()"
+		class="container">
+<!--Seccion Encabezado -->
+	<div class="page-header">
+		<hgroup>
+			<h1 data-translate>{{faseCtrl.lbl.pag.fas.titulo}}</h1>
+			<h2 data-translate>{{faseCtrl.lbl.pag.fas.subtitulo}}</h2>
+			<p> </p>
+		</hgroup>
+	</div>
+<!--Seccion Notificaciones -->
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-xs-12">
+			<uib-alert 	id="idAlerta"
+						name="idAlerta"
+						data-ng-repeat="alert in faseCtrl.alerts| orderBy:'type'"
+						type="{{alert.type}}"
+						close="faseCtrl.cerrarAlerta($index)">
+				<span data-translate>{{alert.msg}}</span>
+			</uib-alert>
+		</div>
+	</div>
+<!--Seccion Contenido -->
+	<form	class="page form-horizontal"
+			id="frmAdministrar"
+			name="frmAdministrar"
+			novalidate>
+		<fieldset>
+			<!--<legend>Formulario Área</legend>-->
+            <h2 data-translate>{{faseCtrl.lbl.lbl.formulariofase}}</h2>
+            <p data-translate>{{faseCtrl.lbl.lbl.formularioinformativo}}</p>
+			<div class="form-group">
+				<label	id="lblFase"
+						name="lblFase"
+						for="lblFase"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+					<span data-translate>{{faseCtrl.lbl.lbl.fase}}</span>:
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<div class="input-group">
+						<input	id="txtFase"
+								name="txtFase"
+								type="text"
+								tabindex="1"
+								accesskey="f"
+								autofocus
+								maxlength="100"
+								class="k-textbox"
+								data-ng-model="faseCtrl.txtFase"
+								data-ng-blur="faseCtrl.validar()"
+								placeholder="{{inicioCtrl.traducirTexto(faseCtrl.lbl.plh.fase)}}"/>
+						<div class="input-group-addon informacion">
+		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(faseCtrl.lbl.tol.fase)}}"
+		                       data-tooltip-placement="top"
+		                       data-tooltip-class="mensaje-informacion"/>
+			            </div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label 	id="lblDescripcion"
+						name="lblDescripcion"
+						for="lblDescripcion"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+					<span data-translate>{{faseCtrl.lbl.lbl.descripcion}}</span>:
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<div class="input-group">
+					<textarea 	id="txtDescripcion"
+								name="txtDescripcion"
+								type="text"
+								tabindex="2"
+								accesskey="d"
+								class="k-textbox"
+								rows="6"
+								data-ng-model="faseCtrl.txtDescripcion"
+								data-ng-blur="faseCtrl.validar()"
+								placeholder="{{inicioCtrl.traducirTexto(faseCtrl.lbl.plh.descripcion)}}"/>
+						<div class="input-group-addon informacion">
+		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(faseCtrl.lbl.tol.descripcion)}}"
+		                       data-tooltip-placement="top"
+		                       data-tooltip-class="mensaje-informacion"/>
+		                </div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label 	id="lblEstado"
+						name="lblEstado"
+						for="lblEstado"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+						<span data-translate>{{faseCtrl.lbl.lbl.estado}}</span>:
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<div class="input-group">
+						<select id="cmbEstado"
+								name="cmbEstado"
+								tabindex="3"
+								accesskey="e"
+								kendo-drop-down-list="dropdownlist"
+								k-option-label="'{{inicioCtrl.traducirTexto(faseCtrl.lbl.plh.opcion)}}'"
+								k-options="faseCtrl.optionsEstado"
+								k-data-source="faseCtrl.cmbDsEstado"
+								data-ng-blur="faseCtrl.validar()"
+								k-ng-model="faseCtrl.cmbEstado"/>
+						<div class="input-group-addon informacion">
+			                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+			                       data-uib-tooltip="{{inicioCtrl.traducirTexto(faseCtrl.lbl.tol.estado)}}"
+			                       data-tooltip-placement="top"
+			                       data-tooltip-class="mensaje-informacion"/>
+			            </div>
+			        </div>
+				</div>
+			</div>
+<!--Seccion Botones -->
+			<div class="button-form">
+				<button id="btnAceptar"
+						name="btnAceptar"
+						tabindex="4"
+						class="k-button k-primary"
+						data-ng-model="faseCtrl.btnAceptar"
+						data-ng-disabled="faseCtrl.desBtnAceptar"
+						data-ng-click="faseCtrl.aceptar()"
+						data-translate>{{faseCtrl.boton1}}
+				</button>
+				<button id="btnLimpiar"
+						name="btnLimpiar"
+						tabindex="5"
+						class="k-button k-primary"
+						data-ng-click="faseCtrl.limpiarFiltro()"
+						data-translate>{{faseCtrl.boton2}}
+				</button>
+			</div>
+		</fieldset>
+	</form>
+	<br>
+<!--Seccion Tabla -->
+	<div class="table-responsive">
+		<table	id="tblAdministrar"
+				name="tblAdministrar"
+				attr-sample="tablaFases"
+				class="table table-responsive table-bordered table-striped table-hover"
+				data-datatable=""
+				data-dt-options="faseCtrl.dtAdministrarOptions"
+				data-dt-columns="faseCtrl.dtAdministrarColumns"
+				data-dt-instance="faseCtrl.dtAdministrar">
+			<thead class="cabecera-principal text-center"></thead>
+		</table>
+	</div>
+</div>

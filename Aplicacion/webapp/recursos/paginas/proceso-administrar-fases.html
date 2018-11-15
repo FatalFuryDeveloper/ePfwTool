@@ -1,0 +1,321 @@
+<div ng-show="pronuevo.mostrarFormularioFase">
+	<form	class="form-horizontal"
+			id="frmFasesProceso"
+			name="frmFasesProceso"
+			novalidate>
+		<fieldset>
+			<!--<legend>Formulario Área</legend>-->
+            <h2 data-translate>{{pronuevo.lbl.lbl.formulariofase}}</h2>
+            <p data-translate>{{pronuevo.lbl.lbl.formularioinformativo}}</p>
+			<div class="form-group">
+				<label	id="lblFase"
+						name="lblFase"
+						for="lblFase"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+					<span data-translate>{{pronuevo.lbl.lbl.fase}}</span>:
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<input	id="txtFase"
+							name="txtFase"
+							type="text"
+							tabindex="1"
+							accesskey="f"
+							autofocus
+							maxlength="100"
+							class="k-textbox"
+							data-ng-model="pronuevo.txtFase"
+							data-ng-blur="pronuevo.validarFase()"
+							placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.fase)}}"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label 	id="lblDescripcionFase"
+						name="lblDescripcionFase"
+						for="lblDescripcionFase"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+					<span data-translate>{{pronuevo.lbl.lbl.descripcion}}</span>:
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<textarea 	id="txtDescripcionFase"
+								name="txtDescripcionFase"
+								type="text"
+								tabindex="2"
+								rows="6"
+								class="k-textbox"
+								data-ng-model="pronuevo.txtDescripcionFase"
+								data-ng-blur="pronuevo.validarFase()"
+								placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.descripcion)}}"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label 	id="lblObjetivoFase"
+						name="lblObjetivoFase"
+						for="lblObjetivoFase"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+					<span data-translate>{{pronuevo.lbl.lbl.objetivo}}</span>:
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<textarea 	id="txtObjetivoFase"
+								name="txtObjetivoFase"
+								type="text"
+								tabindex="3"
+								class="k-textbox"
+								data-ng-model="pronuevo.txtObjetivoFase"
+								data-ng-blur="pronuevo.validarFase()"
+								placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.objetivo)}}"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label 	id="lblFechaInicioFase"
+						name="lblFechaInicioFase"
+						for="lblFechaInicioFase"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+					<span data-translate>{{pronuevo.lbl.lbl.fechainicio}}</span>
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<input 	id="dpkFechaInicioFase"
+							name="dpkFechaInicioFase"
+							type="text"
+							tabindex="4"
+							kendo-date-picker
+							maxlength="10"
+							k-format="'dd/MM/yyyy'"
+							k-options="fechaOptions"
+							data-validar-directiva="pronuevo.expRegular"
+							data-valor-final="pronuevo.expRegularFinal"
+							data-ng-model="pronuevo.dpkFechaInicioFase"
+							data-ng-blur="fechaInicioCambia(pronuevo.dpkFechaInicioFase,'fase');
+									validacionFechas(pronuevo.dpkFechaInicioFase, pronuevo.dpkFechaFinFase,'fase');
+									pronuevo.validarFase()"
+							placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.fechaformato)}}"
+							data-desactivar-opciones="'cut,copy,drop,paste'"/>
+				</div>
+				<div>
+					<span 	class="mensaje-error-solido col-lg-4 col-md-5 col-sm-12 col-xs-12"
+							data-ng-if="pronuevo.fechaInicioFase === false"
+							data-translate>{{pronuevo.lbl.lbl.fechainicioerror}}
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label  id="lblFechaFinFase"
+						name="lblFechaFinFase"
+						for="lblFechaFinFase"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+					<span data-translate>{{pronuevo.lbl.lbl.fechafin}}</span>
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<input 	id="dpkFechaFinFase"
+							name="dpkFechaFinFase"
+							type="text"
+							tabindex="5"
+							kendo-date-picker
+							maxlength="10"
+							k-format="'dd/MM/yyyy'"
+							k-options="fechaOptions"
+							data-validar-directiva="pronuevo.expRegular"
+							data-valor-final="pronuevo.expRegularFinal"
+							data-ng-model="pronuevo.dpkFechaFinFase"
+							data-ng-blur="fechaFinCambia(pronuevo.dpkFechaFinFase,'fase');
+							validacionFechas(pronuevo.dpkFechaInicioFase, pronuevo.dpkFechaFinFase,'fase');
+							pronuevo.validarFase()"
+							placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.fechaformato)}}"
+							data-desactivar-opciones="'cut,copy,drop,paste'"/>
+				</div>
+				<div>
+					<span 	class="mensaje-error-solido col-lg-4 col-md-5 col-sm-12 col-xs-12"
+							data-ng-if="pronuevo.fechaFinFase === false"
+							data-translate>{{pronuevo.lbl.lbl.fechafinerror}}
+					</span>
+					<span 	class="mensaje-error-solido col-lg-4 col-md-5 col-sm-12 col-xs-12"
+							data-ng-if="pronuevo.fechaFaseCorrecta === false"
+							data-translate>{{pronuevo.lbl.lbl.fechaerror}}
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label 	id="lblEstado"
+						name="lblEstado"
+						for="lblEstado"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+						<span data-translate>{{pronuevo.lbl.lbl.estado}}</span>:
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<select id="cmbEstadoFase"
+							name="cmbEstadoFase"
+							tabindex="6"
+							kendo-drop-down-list="dropdownlist"
+							k-option-label="'{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.opcion)}}'"
+							k-options="pronuevo.optionsEstado"
+							k-data-source="pronuevo.cmbDsEstado"
+							data-ng-blur="pronuevo.validarFase()"
+							k-ng-model="pronuevo.cmbEstadoFase">
+					</select>
+				</div>
+			</div>
+	<!--Seccion Botones -->
+			<div class="button-form">
+				<button id="btnAceptar"
+						name="btnAceptar"
+						tabindex="7"
+						class="k-button k-primary"
+						data-ng-disabled="pronuevo.desBtnAceptarFase"
+						data-ng-click="pronuevo.aceptarFase()"
+						data-translate>{{pronuevo.lbl.btn.actualizar}}
+				</button>
+				<button id="btnCancelar"
+						name="btnCancelar"
+						tabindex="8"
+						class="k-button k-primary"
+						data-ng-click="pronuevo.cancelarFase()"
+						data-translate>{{pronuevo.lbl.btn.cancelar}}
+				</button>
+				<button id="btnLimpiar"
+						name="btnLimpiar"
+						tabindex="9"
+						class="k-button k-primary"
+						data-ng-click="pronuevo.limpiarFiltroFase()"
+						data-translate>{{pronuevo.lbl.btn.limpiar}}
+				</button>
+			</div>
+		</fieldset>
+	</form>
+</div>
+<!--Seccion Tabla -->
+<div data-ng-show="pronuevo.mostrarTablaFase">
+<!--**************************************************************************
+ prueba mostrar lo que sea
+ **************************************************************************-->
+	 <div class="nestedDemo">
+		<!-- ********************************* PARA LISTA DE ITEMS***************************************-->
+		<script type="text/ng-template" id="list.html">
+		    <ul dnd-list="list">
+		        <li ng-repeat="item in list"
+		            dnd-draggable="item"
+		            dnd-effect-allowed="move"
+		            dnd-moved="list.splice($index, 1)"
+		            dnd-selected="fases.selected = item"
+		            ng-class="{selected: fases.selected === item}"
+		            ng-include="item.tipo + '.html'">
+		        </li>
+		    </ul>
+		</script>
+
+		<!-- ********************************* PARA CONTENEDOR***************************************-->
+		<script type="text/ng-template" id="Container.html">
+		    <div class="container-element box box-blue">
+		        <h3 data-translate>{{pronuevo.lbl.lbl.contenedor}}</h3>
+		        <div class="column" ng-repeat="list in item.columns" ng-include="'list.html'"></div>
+		        <div class="clearfix"></div>
+		    </div>
+		</script>
+
+		<!-- ********************************* PARA ITEM***************************************-->
+		<script type="text/ng-template" id="Item.html">
+		    <div class="item">
+			    <tr>
+			    	<td>
+			    		<div class="col-lg-1 col-md-1 col-xs-1">
+			    			<i 	class="glyphicon glyphicon-move"
+				    			data-uib-tooltip="Mover"
+				    			data-tooltip-placement="top"
+				    			tooltip-class="mensaje-ayuda-contextual"/>
+				    	</div>
+			    	</td>
+			    	<td>
+			    		<div class="col-lg-10 col-md-9 col-xs-8">
+			    			{{item.fase}}<!-- {{(item.id)}}-->
+						</div>
+			    	</td>
+			    	<td>
+			                <a
+			               		data-ng-click="fases.selected = item; pronuevo.administrarTareas(item)">
+			                   	<i 	class="icon-anexos icono-celeste"
+			                   		data-uib-tooltip="{{pronuevo.acciones.tareas}}"
+			                    	data-tooltip-placement="top"
+			                    	tooltip-class="mensaje-ayuda-contextual"/>
+			                </a>
+			                <a
+			               		data-ng-click="fases.selected = item; pronuevo.editarFase($index,item)">
+			                   	<i 	class="icon-editar icono-celeste"
+			                   		data-uib-tooltip="{{pronuevo.acciones.editar}}"
+			                    	data-tooltip-placement="top"
+			                    	tooltip-class="mensaje-ayuda-contextual"/>
+			                </a>
+			                <a
+			                	data-ng-click="pronuevo.eliminarFase($index,item)">
+			                    <i 	class="icon-eliminar  icono-rojo "
+			                    	data-uib-tooltip="{{pronuevo.acciones.eliminar}}"
+			                    	data-tooltip-placement="top"
+			                    	tooltip-class="mensaje-ayuda-contextual"/>
+			                </a>
+			    	</td>
+			    </tr>
+		    </div>
+		</script>
+
+		<!-- Main area with dropzones and source code -->
+		<div class="form-horizontal row">
+				<div class="col-lg-2 col-md-2 col-xs-12">
+				    <div class="toolbox box box-grey box-padding">
+				        <h3 data-translate>{{pronuevo.lbl.lbl.fasespredefinidas}}</h3>
+				        <ul>
+				            <li ng-repeat="item in fases.templates"
+				                dnd-draggable="item"
+				                dnd-effect-allowed="copy"
+				                dnd-copied="pronuevo.asignarNombreFase(item)">
+				                <button type="button"
+				                		class="btn btn-default btn-lg"
+				                		data-uib-tooltip="{{inicioCtrl.traducirTexto(item.ctf_nombre)}}"
+				                		ng-if="item.tipo === 'Item'">
+				                		{{item.nombre.substr(0, 15)}}
+				                </button>
+				                <button type="button"
+				                		class="btn btn-info btn-lg"
+				                		data-ng-if="item.tipo === 'Container'"
+				                		data-translate>{{pronuevo.lbl.lbl.contenedor}}</button>
+				            </li>
+				        </ul>
+				    </div>
+				    <!--<div class="toolbox box box-grey box-padding">
+				        <h3>Nuevos Elementos</h3>
+				        <ul>
+				            <li ng-repeat="item in fases.contenedor"
+				                dnd-draggable="item"
+				                dnd-effect-allowed="copy"
+				                dnd-copied="item.id = item.id + 1"
+				                >
+				                <button type="button" class="btn btn-default btn-lg" >{{item.type}}</button>
+				            </li>
+				        </ul>
+				    </div>
+				    <div ng-if="fases.selected" class="container toolbox box box-grey box-padding">
+				        <h3>Editar Seleccionado</h3>
+				        <strong>Fase: </strong> {{fases.selected.fase}}<br>
+				        <input type="text" ng-model="fases.selected.fase" class="form-control" style="margin-top: 5px" />
+				    </div>-->
+				    <div class="trashcan box box-grey box-padding">
+				        <h3 data-translate>{{pronuevo.lbl.lbl.eliminar}}</h3>
+				        <ul dnd-list="[]">
+				            <li><img src="recursos/imagenes/trashcan.png" height="100" width="100"></li>
+				        </ul>
+				    </div>
+				</div>
+		        <div class="col-lg-10 col-md-10  col-xs-12"
+		        	 ng-repeat="(zone, list) in fases.dropzones" >
+		            <div class="dropzone box box-yellow">
+		                <!-- The dropzone also uses the list template -->
+		                <h3 data-translate>{{pronuevo.lbl.lbl.fases}}</h3>
+		                <ul dnd-list="list">
+					        <div ng-include="'list.html'"></div>
+					    </ul>
+		            </div>
+		        </div>
+		    <!--<h2>Generated Model</h2>
+		    <pre>{{modelAsJson}}</pre>-->
+		</div>
+	</div>
+</div>
+<!--**************************************************************************
+ prueba mostrar lo que sea
+ **************************************************************************-->

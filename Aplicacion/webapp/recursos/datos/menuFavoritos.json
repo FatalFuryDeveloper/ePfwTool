@@ -1,0 +1,35 @@
+[           
+      {"nombre": "Certificados tributarios","url":"sri-web.moduloComprobantesElectronicos","id":2,"icono":"icon-documentos-certificados-tributarios"
+             			,"ngclass": "{active: collapseVar==2}", 
+                	"subItems": [
+                    	{"nombre": "Prueba_1","url":"sri-web.moduloComprobantesElectronicos","id":1}
+                    	
+      ]},
+      {"nombre": "Notificaciones electrónicas","url":"sri-web.ceProduccion","id":3,"icono":"icon-mensajes-correos"
+             			,"ngclass": "{active: collapseVar==3}", 
+                	"subItems": [
+                    	{"nombre": "Prueba_2","url":"sri-web.moduloComprobantesElectronicos","id":1}
+                    	
+      ]},
+      {"nombre": "Datos fiscales para IR","url":"sri-web.ceProduccion","id":4,"icono":"icon-estadisticas-datos-fiscales"
+             			,"ngclass": "{active: collapseVar==4}", 
+                	"subItems": [
+                    	{"nombre": "Prueba_3","url":"sri-web.moduloComprobantesElectronicos","id":1}
+                    	
+     ]},
+      {"nombre": "Seguimiento de trámites","url":"sri-web.ceProduccion","id":5,"icono":"icon-seguimiento-tramites"
+             			,"ngclass": "{active: collapseVar==5}", 
+                	"subItems": [
+                    	{"nombre": "Prueba_4","url":"sri-web.moduloComprobantesElectronicos","id":1}
+                    	
+      ]},
+      {"nombre": "Ayuda","url":"sri-web.ceProduccion","id":6,"icono":"icon-preguntas-frecuentes"
+             			,"ngclass": "{active: collapseVar==6}", 
+                	"subItems": [
+                    	{"nombre": "Manuales y Tutoriales","url":"sri-web.moduloComprobantesElectronicos","id":1},
+                    	{"nombre": "Preguntas frecuentes","url":"sri-web.moduloComprobantesElectronicos","id":2},
+                    	{"nombre": "Recorrido Virtual","url":"sri-web.moduloComprobantesElectronicos","id":3}
+                    	
+      ]}
+          
+    ]

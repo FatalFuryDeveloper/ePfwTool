@@ -1,0 +1,28 @@
+[
+    {
+        "nombre": "MEN.GESTOR",
+        "url": "sis-web.gestor",
+        "icono": "icon-comprobantes",
+        "id": 1,
+        "ngclass": "{active: collapseVar==1}",
+        "subItems": [
+            {
+                "nombre": "MEN.SUB.PARTICIPANTE",
+                "url": "sis-web.gestorparticipante"
+            }
+        ]
+    },
+    {
+        "nombre": "MEN.PROCESO",
+        "url": "sis-web.proceso",
+        "icono": "icon-declaraciones",
+        "id": 2,
+        "ngclass": "{active: collapseVar==1}",
+        "subItems": [
+            {
+                "nombre": "MEN.SUB.NUEVOPROCESO",
+                "url": "sis-web.procesonuevo"
+            }
+        ]
+    }
+]

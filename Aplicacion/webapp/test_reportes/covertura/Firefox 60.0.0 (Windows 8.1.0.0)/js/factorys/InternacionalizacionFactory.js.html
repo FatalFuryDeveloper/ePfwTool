@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for js\factorys\InternacionalizacionFactory.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">js/factorys/</a> InternacionalizacionFactory.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75.68% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>28/37</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>7/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75.68% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>28/37</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * @type    service
+ * @name    I18nFactory
+ * @desc    Este servicio actualiza el idioma actual donde el usuario final esta trabajando por las aplicaciones.
+ * @autor   Mauro Xavier Rivera Rasury (fatalfurydeveloper)
+ * @email   fatalfurydeveloper@gmail.com
+ * @since   01-09-2018
+ * @version 1.0
+ */
+(function(angular) {
+  'use strict';
+&nbsp;
+  angular.module("sri").factory("I18nFactory", I18nFactory);
+&nbsp;
+  I18nFactory.$inject = ['$translate', '$q'];
+&nbsp;
+  function I18nFactory($translate){
+    /**
+    * @author [aafc120216]
+    * @description Traducción instantanea de Textos
+    * @param {string} traduccionId Id de la Traducción
+    * @param {object} parametros Objeto parametros
+    * return {string} Mensaje de la traducción
+    */
+    function i18nTraduccion(traduccionId, parametros){
+      return $translate.instant(traduccionId, parametros);
+    }
+&nbsp;
+    /**
+    * @author [aafc120216]
+    * @description Traducción instantanea de Textos
+    * @param {string} traduccionId Id de la Traducción
+    * @param {object} parametros Objeto parametros
+    * return {string} Mensaje de la traducción
+    */
+    function i18nTraducirJson(lista){
+      var listaRetorno = [];
+      angular.forEach(lista, function(value,key){
+        listaRetorno.push( "'"+key+"':'" +i18nTraduccion(value)+"'");
+      });
+      return separarLista(listaRetorno);
+    }
+&nbsp;
+    /**
+     * @author Mauro Xavier Rivera Rasury (mjrr210316)
+     * @description Funcion para separar la lista seleccionada en tabla
+     * @param {lista} [lista] [lista seleccionada]
+     * @returns cadena
+     */
+    function separarLista(lista) {
+      var listaFormateada = JSON.stringify(lista);
+      var patron1 = /':'/gi;
+      var patron2 = /'","'/gi;
+        listaFormateada = listaFormateada.replace(patron1, '":"');
+        listaFormateada = listaFormateada.replace(patron2, '","');
+        listaFormateada = listaFormateada.replace('["\'', '{"');
+        listaFormateada = listaFormateada.replace('\'"]', '"}');
+        return JSON.parse(listaFormateada);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function CambiarIdiomaPagina(idioma){</span>
+<span class="cstat-no" title="statement not covered" >      angular.element('html').attr('lang', idioma);</span>
+    }
+&nbsp;
+    /**
+     * Permite la traducción del placeholder de un Combo
+     * Ejemplo:
+     * i18nFactory.i18nCombo('APP.MODULOS.DIS.CATALOGOS.TIPOSFORMULARIO','cmbTipoFormulario');
+     * @param {string} traduccionId
+     * @param {string} comboId
+     * @returns void
+     */
+<span class="fstat-no" title="function not covered" >    function i18nCombo(traduccionId, comboId){</span>
+<span class="cstat-no" title="statement not covered" >      var mensajeTraducido = $translate.instant(traduccionId);</span>
+<span class="cstat-no" title="statement not covered" >        angular.element('input[aria-owns='+comboId+'_listbox]').attr('placeholder', mensajeTraducido);</span>
+    }
+&nbsp;
+    /**
+     * La estructura del Arreglo de Combox de kendo
+     * El arreglo de entrada debe estar descrito de la siguiente manera:
+     * [{
+     *      traduccionId: "Id de Traduccion",
+     *      comboId: "Id del Combo de KendoUI"
+     * }]
+     * @param {Array} listaCombos
+     * @returns void
+     */
+<span class="fstat-no" title="function not covered" >    function i18nCombos(listaCombos){</span>
+<span class="cstat-no" title="statement not covered" >      listaCombos.forEach(<span class="fstat-no" title="function not covered" >function(elemento){</span></span>
+<span class="cstat-no" title="statement not covered" >        i18nCombo(elemento.traduccionId, elemento.comboId);</span>
+      });
+    }
+&nbsp;
+    /**
+     * Se obtiene el idioma para procesar la petición
+     * @returns {String} Idioma de la petición
+     */
+<span class="fstat-no" title="function not covered" >    function idiomaPeticion(){</span>
+<span class="cstat-no" title="statement not covered" >      var lang = angular.element('html').attr('lang'),</span>
+          idioma = (lang === 'es')?"ESP":((lang === 'en')?"ING":"QUI");
+<span class="cstat-no" title="statement not covered" >      return idioma;</span>
+    }
+&nbsp;
+    /**
+     * Se obtiene el idioma para la página
+     *
+     * @returns {String} Idioma de la página
+     */
+    function idiomaPgina(){
+      return angular.element('html').attr('lang');
+    }
+&nbsp;
+    /**
+     * Permite la traducción del placeholder de un DropDownList
+     * Ejemplo:
+     *
+     * i18nFactory.i18nDropDownList('APP.MODULOS.DIS.CATALOGOS.TIPOSFORMULARIO','ddlTipoFormulario');
+     *
+     * @param {string} traduccionId
+     * @param {string} dropDownListId
+     * @returns void
+     */
+<span class="fstat-no" title="function not covered" >    function i18nDropDownList(traduccionId, dropDownListId){</span>
+<span class="cstat-no" title="statement not covered" >      $translate(traduccionId).then(<span class="fstat-no" title="function not covered" >function(mensajeTraducido){</span></span>
+<span class="cstat-no" title="statement not covered" >        angular.element('span[aria-owns='+dropDownListId+'_listbox] span.k-input').html(mensajeTraducido);</span>
+      });
+    }
+&nbsp;
+    return {
+      i18nTraduccion: i18nTraduccion,
+      i18nTraducirJson: i18nTraducirJson,
+      cambiarIdiomaPagina: CambiarIdiomaPagina,
+      i18nCombo: i18nCombo,
+      i18nCombos: i18nCombos,
+      idioma: idiomaPgina,
+      i18nDropDownList: i18nDropDownList,
+      idiomaPeticion: idiomaPeticion
+    };
+  }
+}(window.angular));</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jun 16 2018 00:26:37 GMT+0200 (Hora de verano romance)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

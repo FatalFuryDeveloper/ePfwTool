@@ -1,0 +1,291 @@
+<form	class="form-horizontal"
+		id="frmInformacionGeneral"
+		name="frmInformacionGeneral"
+		novalidate>
+	<fieldset>
+		<!--<legend>Formulario Área</legend>-->
+        <h2 data-translate>{{pronuevo.lbl.lbl.formularioproceso}}</h2>
+        <p data-translate>{{pronuevo.lbl.lbl.formularioinformativo}}</p>
+		<div class="form-group">
+			<label	id="lblTituloProceso"
+					name="lblTituloProceso"
+					for="lblTituloProceso"
+					class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+				<span data-translate>{{pronuevo.lbl.lbl.titulo}}</span>:
+			</label>
+			<div class="col-lg-5 col-md-6 col-xs-12">
+				<div class="input-group">
+					<input	id="txtTituloProceso"
+							name="txtTituloProceso"
+							type="text"
+							tabindex="1"
+							accesskey="t"
+							autofocus
+							maxlength="100"
+							class="k-textbox"
+							data-ng-model="pronuevo.txtTituloProceso"
+							placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.titulo)}}"/>
+					<div class="input-group-addon informacion">
+	                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+	                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.fase)}}"
+	                       data-tooltip-placement="top"
+	                       data-tooltip-class="mensaje-informacion"/>
+		            </div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label	id="lblSubtituloProceso"
+					name="lblSubtituloProceso"
+					for="lblSubtituloProceso"
+					class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+				<span data-translate>{{pronuevo.lbl.lbl.subtitulo}}</span>:
+			</label>
+			<div class="col-lg-5 col-md-6 col-xs-12">
+				<div class="input-group">
+					<input	id="txtSubtituloProceso"
+							name="txtSubtituloProceso"
+							type="text"
+							tabindex="2"
+							class="k-textbox"
+							data-ng-model="pronuevo.txtSubtituloProceso"
+							placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.subtitulo)}}"/>
+					<div class="input-group-addon informacion">
+	                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+	                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.subtitulo)}}"
+	                       data-tooltip-placement="top"
+	                       data-tooltip-class="mensaje-informacion"/>
+		            </div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label 	id="lblDescripcion"
+					name="lblDescripcion"
+					for="lblDescripcion"
+					class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+				<span data-translate>{{pronuevo.lbl.lbl.descripcion}}</span>:
+			</label>
+			<div class="col-lg-5 col-md-6 col-xs-12">
+				<div class="input-group">
+					<textarea 	id="txtDescripcionProceso"
+								name="txtDescripcionProceso"
+								class="k-textbox"
+								tabindex="3"
+								rows="6"
+								data-ng-model="pronuevo.txtDescripcionProceso"
+								data-translate
+								placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.descripcion)}}"/>
+					<div class="input-group-addon informacion">
+	                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+	                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.descripcion)}}"
+	                       data-tooltip-placement="top"
+	                       data-tooltip-class="mensaje-informacion"/>
+		            </div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label 	id="lblObjetivo"
+					name="lblObjetivo"
+					for="lblObjetivo"
+					class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+				<span data-translate>{{pronuevo.lbl.lbl.objetivo}}</span>:
+			</label>
+			<div class="col-lg-5 col-md-6 col-xs-12">
+				<div class="input-group">
+					<textarea 	id="txtObjetivoProceso"
+								name="txtObjetivoProceso"
+								class="k-textbox"
+								tabindex="4"
+								rows="3"
+								data-ng-model="pronuevo.txtObjetivoProceso"
+								data-translate
+								placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.objetivo)}}"/>
+					<div class="input-group-addon informacion">
+	                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+	                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.objetivo)}}"
+	                       data-tooltip-placement="top"
+	                       data-tooltip-class="mensaje-informacion"/>
+		            </div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label 	id="lblAlcanceProceso"
+					name="lblAlcanceProceso"
+					for="lblAlcanceProceso"
+					class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+				<span data-translate>{{pronuevo.lbl.lbl.alcance}}</span>:
+			</label>
+			<div class="col-lg-5 col-md-6 col-xs-12">
+				<div class="input-group">
+					<textarea 	id="txtAlcanceProceso"
+								name="txtAlcanceProceso"
+								class="k-textbox"
+								tabindex="5"
+								rows="2"
+								data-ng-model="pronuevo.txtAlcanceProceso"
+								data-translate
+								placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.alcance)}}"/>
+					<div class="input-group-addon informacion">
+	                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+	                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.alcance)}}"
+	                       data-tooltip-placement="top"
+	                       data-tooltip-class="mensaje-informacion"/>
+		            </div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label 	id="lblFechaInicioProceso"
+					name="lblFechaInicioProceso"
+					for="lblFechaInicioProceso"
+					class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+				<span data-translate>{{pronuevo.lbl.lbl.fechainicio}}</span>
+			</label>
+			<div class="col-lg-5 col-md-6 col-xs-12">
+				<div class="input-group">
+					<input 	id="dpkFechaInicioProceso"
+							name="dpkFechaInicioProceso"
+							type="text"
+							tabindex="6"
+							kendo-date-picker
+							maxlength="10"
+							k-format="'dd/MM/yyyy'"
+							k-options="fechaOptions"
+							data-validar-directiva="pronuevo.expRegular"
+							data-valor-final="pronuevo.expRegularFinal"
+							data-ng-model="pronuevo.dpkFechaInicioProceso"
+							data-ng-blur="fechaInicioCambia(pronuevo.dpkFechaInicioProceso,'proceso');
+							validacionFechas(pronuevo.dpkFechaInicioProceso, pronuevo.dpkFechaFinProceso,'proceso')"
+							placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.fechaformato)}}"
+							data-desactivar-opciones="'cut,copy,drop,paste'"/>
+					<div class="input-group-addon informacion">
+	                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+	                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.fechaformato)}}"
+	                       data-tooltip-placement="top"
+	                       data-tooltip-class="mensaje-informacion"/>
+		            </div>
+				</div>
+			</div>
+			<div>
+				<span 	class="mensaje-error-solido col-lg-4 col-md-5 col-sm-12 col-xs-12"
+						data-ng-if="pronuevo.fechaInicioProceso === false"
+						data-translate>{{pronuevo.lbl.lbl.fechainicioerror}}
+				</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label  id="lblFechaFinProceso"
+					name="lblFechaFinProceso"
+					for="lblFechaFinProceso"
+					class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+				<span data-translate>{{pronuevo.lbl.lbl.fechafin}}</span>
+			</label>
+			<div class="col-lg-5 col-md-6 col-xs-12">
+				<div class="input-group">
+					<input 	id="dpkFechaFinProceso"
+							name="dpkFechaFinProceso"
+							type="text"
+							tabindex="7"
+							kendo-date-picker
+							maxlength="10"
+							k-format="'dd/MM/yyyy'"
+							k-options="fechaOptions"
+							data-validar-directiva="pronuevo.expRegular"
+							data-valor-final="pronuevo.expRegularFinal"
+							data-ng-model="pronuevo.dpkFechaFinProceso"
+							data-ng-blur="fechaFinCambia(pronuevo.dpkFechaFinProceso,'proceso');
+							validacionFechas(pronuevo.dpkFechaInicioProceso, pronuevo.dpkFechaFinProceso,'proceso')"
+							placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.fechaformato)}}"
+							data-desactivar-opciones="'cut,copy,drop,paste'"/>
+					<div class="input-group-addon informacion">
+	                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+	                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.fechaformato)}}"
+	                       data-tooltip-placement="top"
+	                       data-tooltip-class="mensaje-informacion"/>
+		            </div>
+				</div>
+			</div>
+			<div>
+				<span 	class="mensaje-error-solido col-lg-4 col-md-5 col-sm-12 col-xs-12"
+						data-ng-if="pronuevo.fechaFinProceso === false"
+						data-translate>{{pronuevo.lbl.lbl.fechafinerror}}
+				</span>
+				<span 	class="mensaje-error-solido col-lg-4 col-md-5 col-sm-12 col-xs-12"
+						data-ng-if="pronuevo.fechaProcesoCorrecta === false"
+						data-translate>{{pronuevo.lbl.lbl.fechaerror}}
+				</span>
+			</div>
+		</div>
+		<div class="form-group">
+				<label 	id="lblAreaProceso"
+						name="lblAreaProceso"
+						for="lblAreaProceso"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+						<span data-translate>{{pronuevo.lbl.lbl.area}}</span>:
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<div class="input-group">
+						<select id="cmbAreaProceso"
+								name="cmbAreaProceso"
+								tabindex="8"
+								kendo-drop-down-list="dropdownlist"
+								k-option-label="'{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.opcion)}}'"
+								k-options="pronuevo.optionsArea"
+								data-ng-blur="pronuevo.selectArea()"
+								k-data-source="pronuevo.cmbDsArea"
+								k-ng-model="pronuevo.cmbAreaProceso"/>
+						<div class="input-group-addon informacion">
+		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.tipoparticipante)}}"
+		                       data-tooltip-placement="top"
+		                       data-tooltip-class="mensaje-informacion"/>
+			            </div>
+					</div>
+				</div>
+			</div>
+		<div class="form-group">
+			<label 	id="lblEstadoProceso"
+					name="lblEstadoProceso"
+					for="lblEstadoProceso"
+					class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+					<span data-translate>{{pronuevo.lbl.lbl.estado}}</span>:
+			</label>
+			<div class="col-lg-5 col-md-6 col-xs-12">
+				<div class="input-group">
+					<select id="cmbEstadoProceso"
+							name="cmbEstadoProceso"
+							tabindex="9"
+							kendo-drop-down-list="dropdownlist"
+							k-option-label="'{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.opcion)}}'"
+							k-options="pronuevo.optionsEstado"
+							k-data-source="pronuevo.cmbDsEstado"
+							k-ng-model="pronuevo.cmbEstadoProceso"/>
+					<div class="input-group-addon informacion">
+	                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+	                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.estado)}}"
+	                       data-tooltip-placement="top"
+	                       data-tooltip-class="mensaje-informacion"/>
+		            </div>
+				</div>
+			</div>
+		</div>
+		<div class="button-form">
+			<button id="btnLimpiar"
+					name="btnLimpiar"
+					tabindex="10"
+					class="k-button k-primary"
+					data-ng-click="pronuevo.limpiarProceso()"
+					data-translate>{{pronuevo.lbl.btn.limpiar}}
+			</button>
+		</div>
+	</fieldset>
+</form>
+<!--
+<div class="row-fluid">
+	<div>
+		<iframe class="pruebaPDF" type="application/pdf" width="100%" height="550" frameborder="0" style="position:relative;z-index:999"></iframe>
+	</div>
+</div>-->

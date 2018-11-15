@@ -1,0 +1,199 @@
+<div data-ng-controller="ConfiguracionCuentaControlador as conctrl"
+    data-ng-init="conctrl.init()"
+    class="container">
+<!--Seccion Encabezado -->
+    <div class="page-header">
+        <hgroup>
+            <h1 data-translate>{{conctrl.lbl.pag.con.titulo}}</h1>
+            <h2 data-translate>{{conctrl.lbl.pag.con.subtitulo}}</h2>
+            <p> </p>
+        </hgroup>
+    </div>
+<!--Seccion Notificaciones -->
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-xs-12">
+            <uib-alert  id="idAlerta"
+                        name="idAlerta"
+                        data-ng-repeat="alert in conctrl.alerts| orderBy:'type'"
+                        type="{{alert.type}}"
+                        close="conctrl.cerrarAlerta($index)">
+                <span data-translate>{{alert.msg}}</span>
+            </uib-alert>
+        </div>
+    </div>
+<!--Seccion Contenido -->
+    <form   class="page form-horizontal"
+            id="frmAdministrar"
+            name="frmAdministrar"
+            novalidate>
+        <fieldset>
+            <div class="form-group">
+                <ul class="list-unstyled user-info">
+                    <li align="center">
+                        <img data-ng-src="{{conctrl.imagenPerfil}}"
+                            class="img-responsive center-block img-circle"
+                            role="presentation"
+                            height="100"
+                            width="100" />
+                    </li>
+                    <li class="letra-md"><span data-translate>{{inicioCtrl.usuario.name}}</span></li>
+                    <li class="middle letra-sm"><span data-translate>{{inicioCtrl.usuario.nickname}}</span></li>
+                    <li class="last"><span data-translate>{{inicioCtrl.usuario.email}}</span></li>
+                </ul>
+            </div>
+            <!--<legend>Formulario Área</legend>-->
+            <h2 data-translate>{{conctrl.lbl.lbl.formulariousuario}}</h2>
+            <p data-translate>{{conctrl.lbl.lbl.formularioinformativo}}</p>
+            <div class="form-group">
+                <label  id="lblUsuario"
+                        name="lblUsuario"
+                        for="lblUsuario"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                    <span data-translate>{{conctrl.lbl.lbl.usuario}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <input  id="txtUsuario"
+                                name="txtUsuario"
+                                type="text"
+                                tabindex="1"
+                                accesskey="u"
+                                autofocus
+                                mixlength="5"
+                                maxlength="100"
+                                class="k-textbox"
+                                data-ng-model="conctrl.txtUsuario"
+                                data-ng-blur="conctrl.validar()"
+                                placeholder="{{inicioCtrl.traducirTexto(conctrl.lbl.plh.usuario)}}"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(conctrl.lbl.tol.usuario)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  id="lblEmail"
+                        name="lblEmail"
+                        for="lblEmail"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                    <span data-translate>{{conctrl.lbl.lbl.email}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <input  id="txtEmail"
+                                name="txtEmail"
+                                type="text"
+                                tabindex="2"
+                                mixlength="7"
+                                maxlength="100"
+                                data-validar-directiva="conctrl.expRegular2"
+                                data-valor-final="conctrl.expRegularFinal2"
+                                class="k-textbox"
+                                disabled="true"
+                                data-ng-model="conctrl.txtEmail"
+                                data-ng-blur="conctrl.validarEmail();conctrl.validar()"
+                                placeholder="{{inicioCtrl.traducirTexto(conctrl.lbl.plh.email)}}"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(conctrl.lbl.tol.email)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"/>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span   class="mensaje-error-solido col-sm-12 col-xs-12"
+                            data-ng-show="conctrl.tooltipEmailRegistrado"
+                            data-translate>{{conctrl.lbl.lbl.emailregistrado}}
+                    </span>
+                    <span   class="mensaje-error-solido col-sm-12 col-xs-12"
+                            data-ng-show="conctrl.tooltipEmailIncorrecto"
+                            data-translate>{{conctrl.lbl.lbl.emailincorrecto}}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  id="lblClave"
+                        name="lblClave"
+                        for="lblClave"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                    <span data-translate>{{conctrl.lbl.lbl.clave}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <input  id="txtClave"
+                                name="txtClave"
+                                type="password"
+                                tabindex="3"
+                                maxlength="100"
+                                class="k-textbox"
+                                data-ng-model="conctrl.txtClave"
+                                data-ng-blur="conctrl.validar()"
+                                placeholder="{{inicioCtrl.traducirTexto(conctrl.lbl.plh.clave)}}"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(conctrl.lbl.tol.clave)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  id="lblConfirmarClave"
+                        name="lblConfirmarClave"
+                        for="lblConfirmarClave"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                    <span data-translate>{{conctrl.lbl.lbl.confirmarclave}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <input  id="txtConfirmarClave"
+                                name="txtConfirmarClave"
+                                type="password"
+                                tabindex="4"
+                                maxlength="100"
+                                class="k-textbox"
+                                data-ng-model="conctrl.txtConfirmarClave"
+                                data-ng-blur="conctrl.validar()"
+                                placeholder="{{inicioCtrl.traducirTexto(conctrl.lbl.plh.confirmarclave)}}"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(conctrl.lbl.tol.confirmarclave)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"/>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span   class="mensaje-error-solido col-sm-12 col-xs-12"
+                            data-ng-show="conctrl.tooltipClave"
+                            data-translate>{{conctrl.lbl.lbl.claveincorrecta}}
+                    </span>
+                </div>
+            </div>
+    <!--Seccion Botones -->
+            <div class="button-form">
+                <button id="btnAceptar"
+                        name="btnAceptar"
+                        tabindex="5"
+                        class="k-button k-primary"
+                        data-ng-model="conctrl.btnAceptar"
+                        data-ng-disabled="conctrl.desBtnAceptar"
+                        data-ng-click="conctrl.aceptar()"
+                        data-translate>{{conctrl.lbl.btn.actualizar}}
+                </button>
+                <button id="btnLimpiar"
+                        name="btnLimpiar"
+                        tabindex="5"
+                        class="k-button k-primary"
+                        data-ng-click="conctrl.limpiarFiltro()"
+                        data-translate>{{conctrl.lbl.btn.limpiar}}
+                </button>
+            </div>
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,6 @@
+[
+    {"nombre": "Actividad 1","url":"sri-web.home","id":1 ,"ngclass": "{active: collapseVar==2}"},
+    {"nombre": "Actividad 2","url":"sri-web.home","id":2 ,"ngclass": "{active: collapseVar==2}"},
+    {"nombre": "Actividad 3","url":"sri-web.home","id":3 ,"ngclass": "{active: collapseVar==2}"},
+    {"nombre": "Actividad 4","url":"sri-web.home","id":4 ,"ngclass": "{active: collapseVar==2}"}
+]

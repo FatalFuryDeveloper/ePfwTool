@@ -1,0 +1,60 @@
+[
+    {
+        "nombre": "MEN.GESTOR",
+        "url": "sis-web.gestor",
+        "icono": "icon-comprobantes",
+        "id": 1,
+        "ngclass": "{active: collapseVar==1}",
+        "subItems": [
+            {
+                "nombre": "MEN.SUB.AREA",
+                "url": "sis-web.gestorarea"
+            },
+            {
+                "nombre": "MEN.SUB.FASE",
+                "url": "sis-web.gestorfase"
+            },
+            {
+                "nombre": "MEN.SUB.NIVEL",
+                "url": "sis-web.gestornivel"
+            },
+            {
+                "nombre": "MEN.SUB.METODO",
+                "url": "sis-web.gestormetodo"
+            },
+            {
+                "nombre": "MEN.SUB.PARTICIPANTE",
+                "url": "sis-web.gestorparticipante"
+            },
+            {
+                "nombre": "MEN.SUB.TAREA",
+                "url": "sis-web.gestortarea"
+            },
+            {
+                "nombre": "MEN.SUB.TIPOPARTICIPANTE",
+                "url": "sis-web.gestortipoparticipante"
+            },
+            {
+                "nombre": "MEN.SUB.TIPOUSUARIO",
+                "url": "sis-web.gestortipousuario"
+            },
+            {
+                "nombre": "MEN.SUB.USUARIO",
+                "url": "sis-web.gestorusuario"
+            }
+        ]
+    },
+    {
+        "nombre": "MEN.PROCESO",
+        "url": "sis-web.proceso",
+        "icono": "icon-declaraciones",
+        "id": 2,
+        "ngclass": "{active: collapseVar==1}",
+        "subItems": [
+            {
+                "nombre": "MEN.SUB.NUEVOPROCESO",
+                "url": "sis-web.procesonuevo"
+            }
+        ]
+    }
+]

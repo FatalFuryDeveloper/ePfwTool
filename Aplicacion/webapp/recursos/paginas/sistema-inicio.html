@@ -1,0 +1,73 @@
+<div    data-ng-style="model.estilo"
+        id="contenidoInicio"
+        class="wrapper">
+    <header class="main-header">
+        <nav    class="navbar navbar-default navbar-static-top cabecera-principal"
+                role="navigation">
+            <div    id="cabeceraPrincipal"
+                    data-ng-include="'recursos/paginas/sistema-cabecera.html'">
+            </div>
+        </nav>
+<!-- Accesibilidad -->
+        <div class="boton-accesibilidad">
+            <a  type="button"
+                data-toggle="dropdown"
+                data-ng-click="inicioCtrl.ShowHide(false)"
+                class="btn pestania-accesibilidad semi-circulo-izquierda hidden-xs dropdown-toggle">
+                <i class="icon-accesibilidad"></i>
+            </a>
+            <menu-accesibilidad></menu-accesibilidad>
+        </div>
+    </header>
+<!-- Barra Navegacion -->
+    <aside  class="main-sidebar"
+            data-ng-class="{'noneStyle' : model.noneStyle}">
+        <section    class="sidebar navbar-nav">
+            <div    id="cabeceraPrincipal">
+                <data-menu-sistema-directiva id="menuNavegacion"></data-menu-sistema-directiva>
+            </div>
+        </section>
+    </aside>
+<!--Contenido-->
+    <div    class="content-wrapper"
+            data-ng-class="inicioCtrl.getClass(model.isCollapsed)">
+        <div>
+            <!--cabecera de la pagina -->
+            <section >
+                <div class="breadcrumb">
+                    <ui-breadcrumbs displayname-property="data.displayName"
+                                    abstract-proxy-property="data.proxy"
+                                    template-url="recursos/libs/externos/angular-utils-ui-breadcrumbs/uiBreadcrumbs.tpl.html">
+                    </ui-breadcrumbs>
+                </div>
+            </section>
+            <!--  cuerpo del contenido -->
+            <section id="contenido-principal">
+                <section id="contenidoAplicaciones" data-ui-view></section>
+            </section>
+        </div>
+    </div>
+<!-- Footer -->
+    <footer data-ng-style="model.estilo"
+            id="pieAplicaciones"
+            class="main-footer"
+            data-ng-class="inicioCtrl.getClassResponsive(model.isCollapsed)">
+            <div class="container text-center" >
+                        <div class="row">
+                            <div class="col-sm-12 footer-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 footer-copyright">
+                                &copy; Participacion Ciudadana 2018.
+                            </div>
+                        </div>
+                    </div>
+                    <br><br><br>
+     </footer>
+    <!--modal imagen perfil-->
+    <data-menu-imagen ></data-menu-imagen>
+</div>

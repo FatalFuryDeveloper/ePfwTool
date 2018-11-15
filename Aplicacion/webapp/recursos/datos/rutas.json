@@ -1,0 +1,180 @@
+[
+    {
+        "name": "sri-web.accesso",
+        "templateUrl": "recursos/paginas/principal.html",
+        "url": "/Acceso",
+        "displayName": "Acceso",
+        "resolve": {
+            "name": "cargaRecursos",
+            "files": [
+            ]
+        }
+    },
+    {
+        "name": "sri-web.accesso.iniciosesion",
+        "templateUrl": "recursos/paginas/inicio-sesion.html",
+        "url": "/InicioSesion",
+        "displayName": "Inicio_Sesion",
+        "resolve": {
+            "name": "cargaRecursos",
+            "files": [
+                "recursos/js/controladores/InicioSesionControlador.js"
+            ]
+        }
+    },
+    {
+        "name": "sri-web.accesso.registrarse",
+        "templateUrl": "recursos/paginas/registrar-usuario.html",
+        "url": "/Registrarse",
+        "displayName": "Registrarse",
+        "resolve": {
+            "name": "cargaRecursos",
+            "files": [
+                "recursos/js/controladores/RegistrarUsuarioControlador.js"
+            ]
+        }
+    },
+    {
+        "name": "sis-web.gestor.fase",
+        "templateUrl": "recursos/paginas/gestor-fase.html",
+        "url": "/Fase",
+        "displayName": "Fase",
+        "resolve": {
+            "name": "cargaRecursos",
+            "files": [
+                "recursos/js/controladores/GestorFaseControlador.js"
+            ]
+        }
+    },
+    {
+        "name": "sis-web.gestor.metodo",
+        "templateUrl": "recursos/paginas/gestor-metodo.html",
+        "url": "/Metodo",
+        "displayName": "Metodo",
+        "resolve": {
+            "name": "cargaRecursos",
+            "files": [
+                "recursos/js/controladores/GestorMetodoControlador.js"
+            ]
+        }
+    },
+    {
+        "name": "sis-web.gestor.nivel",
+        "templateUrl": "recursos/paginas/gestor-nivel.html",
+        "url": "/Nivel",
+        "displayName": "Nivel",
+        "resolve": {
+            "name": "cargaRecursos",
+            "files": [
+                "recursos/js/controladores/GestorNivelControlador.js"
+            ]
+        }
+    },
+    {
+        "name": "sis-web.gestor.tarea",
+        "templateUrl": "recursos/paginas/gestor-tarea.html",
+        "url": "/Tarea",
+        "displayName": "Tarea",
+        "resolve": {
+            "name": "cargaRecursos",
+            "files": [
+                "recursos/js/controladores/GestorTareaControlador.js"
+            ]
+        }
+    },
+    {
+        "name": "sis-web.gestor.participante",
+        "templateUrl": "recursos/paginas/gestor-participante.html",
+        "url": "/Participante",
+        "displayName": "Participante",
+        "resolve": {
+            "name": "cargaRecursos",
+            "files": [
+                "recursos/js/controladores/GestorParticipanteControlador.js"
+            ]
+        }
+    },
+    {
+        "name": "sis-web.gestor.tipoparticipante",
+        "templateUrl": "recursos/paginas/gestor-tipo-participante.html",
+        "url": "/TipoParticipante",
+        "displayName": "Tipo Participante",
+        "resolve": {
+            "name": "cargaRecursos",
+            "files": [
+                "recursos/js/controladores/GestorTipoParticipanteControlador.js"
+            ]
+        }
+    },
+    {
+        "name": "sis-web.gestor.tipousuario",
+        "templateUrl": "recursos/paginas/gestor-tipo-usuario.html",
+        "url": "/TipoUsuario",
+        "displayName": "Tipo Usuario",
+        "resolve": {
+            "name": "cargaRecursos",
+            "files": [
+                "recursos/js/controladores/GestorTipoUsuarioControlador.js"
+            ]
+        }
+    },
+    {
+        "name": "sis-web.gestor.usuario",
+        "templateUrl": "recursos/paginas/gestor-usuario.html",
+        "url": "/Usuario",
+        "displayName": "Usuario",
+        "resolve": {
+            "name": "cargaRecursos",
+            "files": [
+                "recursos/js/controladores/GestorUsuarioControlador.js"
+            ]
+        }
+    },
+    {
+        "name": "sis-web.proceso",
+        "templateUrl": "recursos/paginas/principal.html",
+        "url": "/Proceso",
+        "displayName": "Proceso",
+        "resolve": {
+            "name": "cargaRecursos",
+            "files": [
+            ]
+        }
+    },
+    {
+        "name": "sis-web.proceso.gestionproceso",
+        "templateUrl": "recursos/paginas/proceso-nuevo.html",
+        "url": "/CrearProceso",
+        "displayName": "Crear Proceso",
+        "resolve": {
+            "name": "cargaRecursos",
+            "files": [
+                "recursos/js/controladores/ProcesoNuevoControlador.js"
+            ]
+        }
+    },
+    {
+        "name": "sis-web.proceso.listaproceso",
+        "templateUrl": "recursos/paginas/proceso-lista.html",
+        "url": "/ListaProceso",
+        "displayName": "Lista Proceso",
+        "resolve": {
+            "name": "cargaRecursos",
+            "files": [
+                "recursos/js/controladores/ProcesoListaControlador.js"
+            ]
+        }
+    },
+    {
+        "name": "sis-web.configuracioncuenta",
+        "templateUrl": "recursos/paginas/configuracion-cuenta.html",
+        "url": "/ConfiguracionCuentas",
+        "displayName": "Configuracion Cuenta",
+        "resolve": {
+            "name": "cargaRecursos",
+            "files": [
+                "recursos/js/controladores/ConfiguracionCuentaControlador.js"
+            ]
+        }
+    }
+]

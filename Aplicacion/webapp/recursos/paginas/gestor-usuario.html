@@ -1,0 +1,250 @@
+<div 	data-ng-controller="GestorUsuarioControlador as usuarioCtrl"
+		data-ng-init="usuarioCtrl.init()"
+		class="container">
+<!--Seccion Encabezado -->
+	<div class="page-header">
+		<hgroup>
+			<h1 data-translate>{{usuarioCtrl.lbl.pag.usu.titulo}}</h1>
+			<h2 data-translate>{{usuarioCtrl.lbl.pag.usu.subtitulo}}</h2>
+			<p> </p>
+		</hgroup>
+	</div>
+<!--Seccion Notificaciones -->
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-xs-12">
+			<uib-alert 	id="idAlerta"
+						name="idAlerta"
+						data-ng-repeat="alert in usuarioCtrl.alerts| orderBy:'type'"
+						type="{{alert.type}}">
+				<span data-translate>{{alert.msg}}</span>
+			</uib-alert>
+		</div>
+	</div>
+<!--Seccion Contenido -->
+    <form	class="form-horizontal"
+			id="frmAdministrar"
+			name="frmAdministrar"
+			novalidate>
+		<fieldset>
+			<!--<legend>Formulario Área</legend>-->
+            <h2 data-translate>{{usuarioCtrl.lbl.lbl.formulariousuario}}</h2>
+            <p data-translate>{{usuarioCtrl.lbl.lbl.formularioinformativo}}</p>
+			<div class="form-group">
+				<label	id="lblUsuario"
+						name="lblUsuario"
+						for="lblUsuario"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+					<span data-translate>{{usuarioCtrl.lbl.lbl.usuario}}</span>:
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<div class="input-group">
+						<input	id="txtUsuario"
+								name="txtUsuario"
+								type="text"
+								tabindex="1"
+								accesskey="u"
+								autofocus
+								mixlength="5"
+								maxlength="100"
+								class="k-textbox"
+								data-ng-model="usuarioCtrl.txtUsuario"
+								data-ng-blur="usuarioCtrl.validar()"
+								placeholder="{{inicioCtrl.traducirTexto(usuarioCtrl.lbl.plh.usuario)}}"/>
+						<div class="input-group-addon informacion">
+		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(usuarioCtrl.lbl.tol.usuario)}}"
+		                       data-tooltip-placement="top"
+		                       data-tooltip-class="mensaje-informacion"/>
+			            </div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label	id="lblEmail"
+						name="lblEmail"
+						for="lblEmail"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+					<span data-translate>{{usuarioCtrl.lbl.lbl.email}}</span>:
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<div class="input-group">
+						<input	id="txtEmail"
+								name="txtEmail"
+								type="text"
+								tabindex="2"
+								mixlength="7"
+								maxlength="100"
+								data-validar-directiva="usuarioCtrl.expRegular2"
+								data-valor-final="usuarioCtrl.expRegularFinal2"
+								class="k-textbox"
+								data-ng-model="usuarioCtrl.txtEmail"
+								data-ng-blur="usuarioCtrl.validarEmail();usuarioCtrl.validar()"
+								placeholder="{{inicioCtrl.traducirTexto(usuarioCtrl.lbl.plh.email)}}"/>
+						<div class="input-group-addon informacion">
+		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(usuarioCtrl.lbl.tol.email)}}"
+		                       data-tooltip-placement="top"
+		                       data-tooltip-class="mensaje-informacion"/>
+			            </div>
+					</div>
+				</div>
+				<div>
+					<span 	class="mensaje-error-solido col-sm-12 col-xs-12"
+							data-ng-show="usuarioCtrl.tooltipEmailRegistrado"
+							data-translate>{{usuarioCtrl.lbl.lbl.emailregistrado}}
+					</span>
+					<span 	class="mensaje-error-solido col-sm-12 col-xs-12"
+							data-ng-show="usuarioCtrl.tooltipEmailIncorrecto"
+							data-translate>{{usuarioCtrl.lbl.lbl.emailincorrecto}}
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label 	id="lblTipo"
+						name="lblTipo"
+						for="lblTipo"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+						<span data-translate>{{usuarioCtrl.lbl.lbl.tipousuario}}</span>:
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<div class="input-group">
+						<select id="cmbTipo"
+								name="cmbTipo"
+								tabindex="3"
+								kendo-drop-down-list="dropdownlist"
+								k-option-label="'{{inicioCtrl.traducirTexto(usuarioCtrl.lbl.plh.opcion)}}'"
+								k-options="usuarioCtrl.optionsTipo"
+								k-data-source="usuarioCtrl.cmbDsTipo"
+								data-ng-blur="usuarioCtrl.validar()"
+								k-ng-model="usuarioCtrl.cmbTipo"/>
+						<div class="input-group-addon informacion">
+		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(usuarioCtrl.lbl.tol.tipousuario)}}"
+		                       data-tooltip-placement="top"
+		                       data-tooltip-class="mensaje-informacion"/>
+			            </div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label 	id="lblClave"
+						name="lblClave"
+						for="lblClave"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+					<span data-translate>{{usuarioCtrl.lbl.lbl.clave}}</span>:
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<div class="input-group">
+						<input 	id="txtClave"
+								name="txtClave"
+								type="password"
+								tabindex="4"
+								maxlength="100"
+								class="k-textbox"
+								data-ng-model="usuarioCtrl.txtClave"
+								data-ng-blur="usuarioCtrl.validar()"
+								placeholder="{{inicioCtrl.traducirTexto(usuarioCtrl.lbl.plh.clave)}}"/>
+						<div class="input-group-addon informacion">
+		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(usuarioCtrl.lbl.tol.clave)}}"
+		                       data-tooltip-placement="top"
+		                       data-tooltip-class="mensaje-informacion"/>
+			            </div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label 	id="lblConfirmarClave"
+						name="lblConfirmarClave"
+						for="lblConfirmarClave"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+					<span data-translate>{{usuarioCtrl.lbl.lbl.confirmarclave}}</span>:
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<div class="input-group">
+						<input 	id="txtConfirmarClave"
+								name="txtConfirmarClave"
+								type="password"
+								tabindex="5"
+								maxlength="100"
+								class="k-textbox"
+								data-ng-model="usuarioCtrl.txtConfirmarClave"
+								data-ng-blur="usuarioCtrl.validar()"
+								placeholder="{{inicioCtrl.traducirTexto(usuarioCtrl.lbl.plh.confirmarclave)}}"/>
+						<div class="input-group-addon informacion">
+		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(usuarioCtrl.lbl.tol.confirmarclave)}}"
+		                       data-tooltip-placement="top"
+		                       data-tooltip-class="mensaje-informacion"/>
+			            </div>
+					</div>
+				</div>
+				<div>
+					<span 	class="mensaje-error-solido col-sm-12 col-xs-12"
+							data-ng-show="usuarioCtrl.tooltipClave"
+							data-translate>{{usuarioCtrl.lbl.lbl.claveincorrecta}}
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label 	id="lblEstado"
+						name="lblEstado"
+						for="lblEstado"
+						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+						<span data-translate>{{usuarioCtrl.lbl.lbl.estado}}</span>:
+				</label>
+				<div class="col-lg-5 col-md-6 col-xs-12">
+					<div class="input-group">
+						<select id="cmbEstado"
+								name="cmbEstado"
+								tabindex="6"
+								kendo-drop-down-list="dropdownlist"
+								k-option-label="'{{inicioCtrl.traducirTexto(usuarioCtrl.lbl.plh.opcion)}}'"
+								k-options="usuarioCtrl.optionsEstado"
+								k-data-source="usuarioCtrl.cmbDsEstado"
+								data-ng-blur="usuarioCtrl.validar()"
+								k-ng-model="usuarioCtrl.cmbEstado"/>
+						<div class="input-group-addon informacion">
+		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
+		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(usuarioCtrl.lbl.tol.estado)}}"
+		                       data-tooltip-placement="top"
+		                       data-tooltip-class="mensaje-informacion"/>
+			            </div>
+					</div>
+				</div>
+			</div>
+	<!--Seccion Botones -->
+			<div class="button-form">
+				<button id="btnAceptar"
+						name="btnAceptar"
+						tabindex="7"
+						class="k-button k-primary"
+						data-ng-model="usuarioCtrl.btnAceptar"
+						data-ng-disabled="usuarioCtrl.desBtnAceptar"
+						data-ng-click="usuarioCtrl.aceptar()"
+						data-translate>{{usuarioCtrl.boton1}}
+				</button>
+				<button id="btnLimpiar"
+						name="btnLimpiar"
+						tabindex="8"
+						class="k-button k-primary"
+						data-ng-click="usuarioCtrl.limpiarFiltro()"
+						data-translate>{{usuarioCtrl.boton2}}
+				</button>
+			</div>
+		</fieldset>
+	</form>
+	<br>
+<!--Seccion Tabla -->
+	<div class="table-responsive">
+		<table	id="tblAdministrar"
+				name="tblAdministrar"
+				class="table table-responsive table-bordered table-striped table-hover"
+				data-datatable=""
+				data-dt-options="usuarioCtrl.dtAdministrarOptions"
+				data-dt-columns="usuarioCtrl.dtAdministrarColumns"
+				data-dt-instance="usuarioCtrl.dtAdministrar">
+			<thead class="cabecera-principal text-center"></thead>
+		</table>
+	</div>
+</div>

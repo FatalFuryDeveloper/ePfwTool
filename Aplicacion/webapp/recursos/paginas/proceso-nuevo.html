@@ -1,0 +1,208 @@
+<div 	data-ng-controller="ProcesoNuevoControlador as pronuevo"
+		data-ng-init="pronuevo.init()"
+		class="container">
+<!--Seccion Encabezado -->
+	<div class="page-header">
+		<hgroup>
+			<h1 data-translate>{{pronuevo.lbl.pag.pro.titulo}}</h1>
+			<h2 data-translate>{{pronuevo.lbl.pag.pro.subtitulo}}</h2>
+			<p> </p>
+		</hgroup>
+	</div>
+<!--Seccion Notificaciones -->
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-xs-12">
+			<uib-alert 	id="idAlerta"
+						name="idAlerta"
+						data-ng-repeat="alert in pronuevo.alerts| orderBy:'type'"
+						type="{{alert.type}}"
+						close="closeAlert($index)">
+				<span data-translate>{{alert.msg}}</span>
+			</uib-alert>
+		</div>
+	</div>
+	<div ng-show="pronuevo.mostrarTablaProceso">
+		<div class="barra-herramientas">
+	        <a  data-ng-click="pronuevo.nuevoProceso()">
+	        	<i class="icon-nuevo icono-verde icono-generales"/>
+	           <span data-translate>{{pronuevo.lbl.bar.nuevo}}</span>
+	        </a>
+		</div>
+		<div class="table-responsive">
+			<table	id="tblAdministrarProceso"
+					name="tblAdministrarProceso"
+					class="table table-responsive table-bordered table-striped table-hover"
+					data-datatable=""
+					data-dt-options="pronuevo.dtAdministrarProcesoOptions"
+					data-dt-columns="pronuevo.dtAdministrarProcesoColumns"
+					data-dt-instance="pronuevo.dtAdministrarProceso">
+				<thead class="cabecera-principal text-center"></thead>
+			</table>
+		</div>
+	</div>
+<!--Seccion Contenido -->
+	<div ng-show="pronuevo.mostrarNuevoProceso">
+		<div id="rootwizard">
+			<ul class="nav nav-pills">
+				<li class="uib-tab">
+					<a class='previousSelector'>
+					<div role="button"
+						data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.wiz.anterior)}}"
+			            data-tooltip-class="mensaje-informacion"> < </div>
+			        </a>
+				</li>
+				<li class="uib-tab active">
+					<a 	id="boton-numero1"
+						href="#tab1"
+						data-toggle="tab">
+		                <div role="button"
+							data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.wiz.pro.w1)}}"
+			                data-tooltip-class="mensaje-informacion">
+		                1
+		                </div>
+		            </a>
+				</li>
+				<li class="espacio-ciruclo uib-tab ">
+					<a 	id="boton-numero2"
+						href="#tab2"
+						data-toggle="tab">
+		                <div role="button"
+							data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.wiz.pro.w2)}}"
+			                data-tooltip-class="mensaje-informacion">
+		                2
+		                </div>
+		            </a>
+		        </li>
+				<li class="espacio-ciruclo uib-tab">
+					<a 	id="boton-numero3"
+						href="#tab3"
+						data-toggle="tab">
+		                <div role="button"
+							data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.wiz.pro.w3)}}"
+			                data-tooltip-class="mensaje-informacion">
+		                3
+		                </div>
+		            </a>
+		        </li>
+				<li class="espacio-ciruclo uib-tab">
+					<a 	id="boton-numero4"
+						href="#tab4"
+						data-toggle="tab">
+		                <div role="button"
+							data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.wiz.pro.w4)}}"
+			                data-tooltip-class="mensaje-informacion">
+		                4
+		                </div>
+		            </a>
+		        </li>
+		        <li class="espacio-ciruclo uib-tab">
+					<a 	id="boton-numero5"
+						href="#tab5"
+						data-toggle="tab">
+		                <div role="button"
+							data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.wiz.pro.w5)}}"
+			                data-tooltip-class="mensaje-informacion">
+		                5
+		                </div>
+		            </a>
+		        </li>
+		        <li class="espacio-ciruclo uib-tab">
+					<a 	id="boton-numero6"
+						href="#tab6"
+						data-toggle="tab">
+		                <div role="button"
+							data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.wiz.pro.w6)}}"
+			                data-tooltip-class="mensaje-informacion">
+		                6
+		                </div>
+		            </a>
+		        </li>
+				<li class="uib-tab">
+					<a class='nextSelector'>
+						<div role="button"
+							data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.wiz.siguiente)}}"
+			            	data-tooltip-class="mensaje-informacion"> > </div>
+			        </a>
+				</li>
+			</ul>
+			<div id="bar" class="progress">
+      			<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+    		</div>
+			<div class="tab-content">
+<!-- SECCION TAB1-->
+				<div class="tab-pane active" id="tab1">
+					<div class="row" align="center">
+						<h1 data-translate=>{{pronuevo.lbl.wiz.pro.w1}} </h1>
+					</div>
+					<div data-ng-include src="'recursos/paginas/proceso-informacion-general.html'"></div>
+			    </div>
+<!-- SECCION TAB2-->
+			    <div class="tab-pane" id="tab2">
+			    	<div class="row" align="center">
+						<h1 data-translate=>{{pronuevo.lbl.wiz.pro.w2}} </h1>
+					</div>
+					<div ng-show="pronuevo.mostrarTarea" data-ng-include src="'recursos/paginas/proceso-administrar-tareas.html'"></div>
+					<div ng-show="pronuevo.mostrarFase" data-ng-include src="'recursos/paginas/proceso-administrar-fases.html'"></div>
+				</div>
+<!-- SECCION TAB3-->
+				<div class="tab-pane" id="tab3">
+					<div class="row" align="center">
+						<h1 data-translate=>{{pronuevo.lbl.wiz.pro.w3}} </h1>
+					</div>
+					<div data-ng-include src="'recursos/paginas/proceso-administrar-participantes.html'"></div>
+				</div>
+<!-- SECCION TAB4-->
+				<div class="tab-pane" id="tab4">
+					<div class="row" align="center">
+						<h1 data-translate=>{{pronuevo.lbl.wiz.pro.w4}} </h1>
+					</div>
+					<div data-ng-include src="'recursos/paginas/proceso-administrar-metodos.html'"></div>
+				</div>
+<!-- SECCION TAB5-->
+				<div class="tab-pane" id="tab5">
+					<div class="row" align="center">
+						<h1 data-translate=>{{pronuevo.lbl.wiz.pro.w5}} </h1>
+					</div>
+					<div data-ng-include src="'recursos/paginas/proceso-administrar-criterios.html'"></div>
+				</div>
+<!-- SECCION TAB5-->
+				<div class="tab-pane" id="tab6">
+					<div class="row" align="center">
+						<h1 data-translate=>{{pronuevo.lbl.wiz.pro.w6}} </h1>
+					</div>
+					<div data-ng-include src="'recursos/paginas/proceso-vista-general.html'"></div>
+				</div>
+				<!--<ul class="pager wizard">
+					<li class="previousSelector previous"><a  data-translate>{{pronuevo.lbl.btn.anterior}}</a></li>
+					<li class="next"><a class="nextSelector" data-translate>{{pronuevo.lbl.btn.siguiente}}</a></li>
+				</ul>-->
+			</div>
+
+
+			<!--
+			<div>
+	      		<h2>Datos Proceso</h2>
+		      	<code style="display: block; padding: 8px;">{{pronuevo.datosProceso | json}}</code>
+		    </div>
+			<h2>Datos del Proceso (Desarrollo)</h2>
+		    <pre>{{pronuevo.datosProceso}}</pre>-->
+			<div class="button-form">
+				<button id="btnAceptar"
+						name="btnAceptar"
+						tabindex="1"
+						class="k-button k-primary"
+						data-ng-show="pronuevo.mostrarBtnGuardarProceso"
+						data-ng-click="pronuevo.guardarProceso()"
+						data-translate>{{pronuevo.btnProceso}}
+				</button>
+				<button id="btnLimpiar"
+						name="btnLimpiar"
+						tabindex="2"
+						class="k-button k-primary"
+						data-ng-click="pronuevo.cancelarNuevoProceso()"
+						data-translate>{{pronuevo.lbl.btn.cancelar}}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,7 @@
+ [ 
+        {"nombre":"Editar imagen","url":"sri-web.home","id":1,"ngclass": "{active: collapseVar==1}", "ayudaContextual": "Ventana con opciones de avatars para modificar su perfil"}, 
+        {"nombre":"Actualizaci\u00f3n de datos","url":"sri-web.home","id":2,"ngclass": "{active: collapseVar==1}", "ayudaContextual": "Actualizaci\u00f3n de datos"},
+        {"nombre":"Cambio de clave","url":"sri-web.home","id":3,"ngclass": "{active: collapseVar==1}", "ayudaContextual": "Cambio de clave"}, 
+        {"nombre":"Administraci\u00f3n de usuarios","url":"sri-web.home","id":4,"ngclass": "{active: collapseVar==1}", "ayudaContextual": "Administraci\u00f3n de usuarios"}
+          
+    ]

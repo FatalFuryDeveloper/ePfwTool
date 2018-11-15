@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+    <head>
+		<!-- Metas -->
+        <meta name="codification" charset="utf-8">
+        <meta name="compatible" http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Servicios de Participacion Ciudadana">
+        <meta name="author" content="FatalFuryDeveloper">
+        <meta name="keywords" content="Participacion Ciudadana">
+        <meta name="storage" http-equiv="Cache-control" content="no-cache, no-store">
+        <meta name="pragma" http-equiv="Pragma" content="no-cache">
+        <meta name="expire" http-equiv="Expires" content="Sun, 29 Apr 2018 00:00:01 GMT">
+
+        <!-- Titulo de la Pagina -->
+        <title>Participacion Ciudadana</title>
+
+         <!-- Icono de la Pagina -->
+        <link rel="shortcut icon" type="image/ico" href="recursos/imagenes/favicon.png">
+
+		<!-- Hojas de Estilos CSS -->
+        <link rel="stylesheet" type="text/css" href="recursos/libs/externos/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href='recursos/libs/externos/morrisjs/morris.css' />
+        <link rel="stylesheet" type="text/css" href="recursos/libs/externos/fontawesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href='recursos/libs/externos/metisMenu/dist/metisMenu.css' />
+        <link rel="stylesheet" type="text/css" href="recursos/libs/externos/angular-loading-bar/build/loading-bar.min.css" />
+        <link rel="stylesheet" type="text/css" href='recursos/libs/externos/datatables/media/css/jquery.dataTables.css' />
+        <link rel="stylesheet" type="text/css" href="recursos/libs/externos/bootstrap-fileinput/css/fileinput.min.css" />
+        <link rel="stylesheet" type="text/css" href="recursos/libs/externos/angular-datatables/dist/css/angular-datatables.min.css" />
+        <link rel="stylesheet" type="text/css" href="recursos/libs/externos/kendo-ui-core/styles/kendo.common-bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="recursos/libs/externos/kendo-ui-core/styles/kendo.bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="recursos/libs/externos/angular-datatables/dist/css/angular-datatables.min.css" />
+        <link rel="stylesheet" type="text/css" href="recursos/css/sri-fuente-iconos.css" />
+        <link rel="stylesheet" type="text/css" href="recursos/css/sri-tema.css" />
+        <link rel="stylesheet" type="text/css" href="recursos/css/sri.css" />
+        <link rel="stylesheet" type="text/css" href="recursos/css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="recursos/css/multi.css" />
+        <link rel="stylesheet" type="text/css" href="recursos/css/nested.css" />
+        <link rel="stylesheet" type="text/css" href="recursos/css/prism.css"/>
+        <link rel="stylesheet" type="text/css" href="recursos/css/demo-framework.css"/>
+
+    </head>
+    <body class="serviciosenlinea" id="sribody" role="main">
+
+        <!-- Inicializacion del Modulo y Controlador del Sitio -->
+        <div data-ng-app="sri" data-ng-controller="InicioControlador as inicioCtrl" data-ng-init="inicioCtrl.init()">
+            <div data-ui-view></div>
+        </div>
+
+        <!-- Los scripts van al final del body para que no bloqueen la carga de la pagina -->
+        <script type="text/javascript" src="recursos/libs/externos/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/datatables/media/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/datatables/media/js/dataTables.bootstrap.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/bootstrap-fileinput/js/fileinput.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/bootstrap-fileinput/js/fileinput_locale_es.js"></script>
+        <script type="text/javascript" src="recursos/libs/sri/util.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular/angular.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-aria/angular-aria.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/morrisjs/morris.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/metisMenu/dist/metisMenu.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-animate/angular-animate.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-route/angular-route.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-resource/angular-resource.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-loading-bar/build/loading-bar.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-translate/angular-translate.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-translate-loader-partial/angular-translate-loader-partial.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-dynamic-locale/dist/tmhDynamicLocale.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-mocks/angular-mocks.js"></script>
+		<script type="text/javascript" src="recursos/libs/externos/angular-cookies/angular-cookies.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/oclazyload/dist/ocLazyLoad.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-utils-ui-breadcrumbs/uiBreadcrumbs.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/kendo-ui-core/js/kendo.ui.core.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-gettext/dist/angular-gettext.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-mass-autocomplete/massautocomplete.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/ng-file-upload/ng-file-upload.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/kendo-ui-core/js/cultures/kendo.culture.es-EC.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/kendo-ui-core/js/messages/kendo.messages.es-ES.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/kendo-ui-core/js/kendo.tooltip.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-datatables/dist/angular-datatables.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/twitter-bootstrap-wizard/jquery.bootstrap.wizard.js"></script>
+        <script type="text/javascript" src="recursos/libs/externos/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/sri/angular-drag-and-drop-lists.js"></script>
+        <script type="text/javascript" src="recursos/libs/sri/RowSorter.js"></script>
+        <script type="text/javascript" src="recursos/libs/sri/jspdf.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/sri/plugins/addimage.js"></script>
+
+        <!-- Script del Sistema -->
+        <script type="text/javascript" src="recursos/js/modulo.js"></script>
+        <script type="text/javascript" src="recursos/js/rutasProvider.js"></script>
+        <script type="text/javascript" src="recursos/js/controladores/InicioControlador.js"></script>
+        <script type="text/javascript" src="recursos/js/constantes/SitioConstanteValue.js"></script>
+        <script type="text/javascript" src="recursos/js/constantes/SistemaConstanteValue.js"></script>
+        <script type="text/javascript" src="recursos/js/factorys/AlertaFactory.js"></script>
+        <script type="text/javascript" src="recursos/js/factorys/FiltroMenuFactory.js"></script>
+        <script type="text/javascript" src="recursos/js/factorys/InternacionalizacionFactory.js"></script>
+        <script type="text/javascript" src="recursos/js/factorys/SesionFactory.js"></script>
+        <script type="text/javascript" src="recursos/js/factorys/TablaFactory.js"></script>
+        <script type="text/javascript" src="recursos/js/factorys/PDFFactory.js"></script>
+        <script type="text/javascript" src="recursos/js/directivas/ValidacionesDirectiva.js"></script>
+        <script type="text/javascript" src="recursos/js/directivas/DesactivarOpcionesDirectiva.js"></script>
+        <script type="text/javascript" src="recursos/js/servicios/InternacionalizacionServicio.js"></script>
+        <script type="text/javascript" src="recursos/js/controladores/ModalControlador.js"></script>
+        <script type="text/javascript" src="recursos/js/servicios/ComunServicio.js"></script>
+
+        <!-- Dont Use
+        <script type="text/javascript" src="recursos/libs/sri/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="recursos/libs/sri/jquery-migrate-3.0.0.min.js"></script>
+        <script type="text/javascript" src="recursos/js/factorys/NotificacionesFactory.js"></script>
+        <script type="text/javascript" src="recursos/js/factorys/MenuPerfilFactory.js"></script>
+        <script type="text/javascript" src="recursos/js/gestor.modulo.js"></script>
+        <script type="text/javascript" src="recursos/js/controladores/ConfiguracionCuentaControlador.js"></script>
+        <script type="text/javascript" src="recursos/js/controladores/GestorControlador.js"></script>
+        <script type="text/javascript" src="recursos/js/controladores/InicioSesionControlador.js"></script>
+        -->
+    </body>
+</html>

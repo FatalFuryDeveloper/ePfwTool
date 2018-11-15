@@ -1,0 +1,15 @@
+<ul data-ng-show="model.isVisible"
+    class="dropdown-menu-accesibilidad"
+    data-ng-class="inicioCtrl.getClassAccesibilidadLogin(model.isAccesibilidadLogin)">
+  <li class=" dropdown-submenu estilo-lista">
+    <a role="button" class="btnColor"><span class="color-texto glyphicon glyphicon-font"></span></a>
+    <ul class="dropdown-menu dropdown-menu-accesibilidad-colores"  data-ng-class="inicioCtrl.getClassAccesibilidadSubMenuLogin(model.isAccesibilidadLogin)">
+      <li class="estilo-lista" data-ng-click=" model.estilo.color='#FFFFFF'; model.estilo.backgroundColor='black';estiloMenu()"><a>Blanco - Negro</a></li>
+      <li class="estilo-lista" data-ng-click=" model.estilo.color='#000000'; model.estilo.backgroundColor='white';estiloMenu()"><a>Negro- Blanco</a></li>
+      <li class="estilo-lista" data-ng-click=" model.estilo.color='#000000'; model.estilo.backgroundColor='yellow';estiloMenu()"><a>Negro - Amarillo</a></li>
+      <li class="estilo-lista" data-ng-click=" model.estilo.color='#FFFF00'; model.estilo.backgroundColor='black';estiloMenu()"><a>Amarillo - Negro</a></li>
+    </ul>
+  </li>
+  <li class="estilo-lista mostrarOpcionMovil" data-ng-click="increase()" ><a data-toggle="dropdown"><span class="color-texto glyphicon glyphicon-plus-sign"></span></a></li>
+	<li class="estilo-lista mostrarOpcionMovil" data-ng-click="decrease()" ><a data-toggle="dropdown"><span class="color-texto glyphicon glyphicon-minus-sign"></span></a></li>
+</ul>

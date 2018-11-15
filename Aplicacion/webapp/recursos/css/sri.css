@@ -1,0 +1,1046 @@
+/*!
+ * Nombre: sri.css
+ * Descripci�n: Hoja de estilos propios del sri.
+ * Dependencias: N/A
+ * Autor: Gabriela Coello
+ * Copyright SRI-2015, 2016.
+ */
+
+/*estilo para ocultar boton de cerrar sesion barra derecha*/
+.accesibilidadMenuDerecha {
+	display: none !important;
+}
+
+/*--------------------------------------------------------------*/
+/*
+ * Cambios sobre el css original
+ */
+/*--------------------------------------------------------------*/
+
+
+.cabecera-principal {
+    color: white !important;
+}
+
+/*--------------------------------------------------------------*/
+/*
+ * Sidebar : Menu Lateral
+ */
+/*--------------------------------------------------------------*/
+.main-sidebar {
+	top: -4px;
+	left: 2px;
+	padding-top: 50px;
+	min-height: 100%;
+	width: 250px;
+	z-index: 810;
+	/*efecto al cambiar tama�o pantalla*/
+	-webkit-transition: -webkit-transform 0.5s
+		cubic-bezier(0.32, 1.25, 0.375, 1.15);
+	-moz-transition: -moz-transform 0.5s
+		cubic-bezier(0.32, 1.25, 0.375, 1.15);
+	-o-transition: -o-transform 0.5s cubic-bezier(0.32, 1.25, 0.375, 1.15);
+	transition: transform 0.5s cubic-bezier(0.32, 1.25, 0.375, 1.15);
+}
+@media ( max-width : 767px) {
+	/*css pie de pagina*/
+	.main-footer { /*ok*/
+		-moz-background-origin: padding;
+		-webkit-background-origin: padding;
+		background-origin: padding-box;
+		background: url(../imagenes/fondos/fondo-pie.png) repeat-x bottom left;
+		padding-top: 35%;
+		font-size: 10px;
+		margin-left: 0;
+	}
+	.main-footer.responsive { /*ok*/
+		margin-top: 0;
+		/*Permite ajustar el pie de pagina para que se muestre en dispositivos moviles*/
+		padding-bottom: 207px;
+	}
+	.main-sidebar { /*ok*/
+		display: none;
+	}
+	li.sidebar-search { /*ok*/
+		display: none;
+	}
+	/*css para ajustar el contenedor central en movil*/
+	.content-wrapper { /*ok*/
+		position: relative;
+		margin-top: 8%;
+		z-index: 3;
+	}
+	.noneStyle { /*ok*/
+		margin-top: -8px;
+		margin-left: 20px;
+		min-height: auto;
+		z-index: 3500 !important;
+		width: 103% !important;
+		padding-top: 0px;
+		display: block;
+	}
+	.noneStyle ul { /*ok*/
+		font-size: 12px !important;
+	}
+	.noneStyle section { /*ok*/
+		width: 97% !important;
+	}
+	.noneStyle.input-group-btn span {
+		display: none !important;
+	}
+	.noneStyle section:hover { /*ok*/
+		width: 97% !important;
+	}
+	.noneStyle section ul:hover { /*ok*/
+		width: 100% !important;
+	}
+	.noneStyle section ul { /*ok*/
+		width: 100% !important;
+	}
+	.breadcrumb { /*ok*/
+		margin-top: -25px;
+	}
+	a.boton-menu {
+		display: none;
+	}
+}
+/*mensajes y notificaciones*/
+.alert{
+    font-family: 'Roboto Light Normal';
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+.alert-danger {
+	background-color: #F1DEDE;
+	border-color: #da4453;
+	color: #da4453;
+}
+
+/*.alert.alert-danger div>span:before {
+    content: 'Error: ';
+    font-weight: bold;
+}*/
+
+.alert-info {
+	background-color: #DAEDF6;
+	border-color: #5185C5;
+	color: #5185C5;
+}
+
+/*.alert.alert-info div>span:before {
+    content: 'Información: ';
+    font-weight: bold;
+}*/
+
+
+.alert-success {
+	background-color: #E3F0DA;
+	border-color: #8CBF52;
+	color: #5F6A75;
+}
+/*
+.alert.alert-success div>span:before {
+    content: 'Éxito: ';
+    font-weight: bold;
+}*/
+
+.alert-warning {
+	background-color: #FCF8E4;
+	border-color: #F6BB41;
+	color: #5F6A75;
+}
+/*.alert.alert-warning div>span:before {
+    content: 'Advertencia: ';
+    font-weight: bold;
+}*/
+
+/********Alertas de vencimiento**************/
+.alert-vencimiento {
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 0;
+	border-radius: 0px;
+	font-size: 10px;
+	width: 75%;
+	color: #FFFFFF;
+}
+
+@media ( max-width : 767px) {
+	.alert-vencimiento {
+		padding: 0px;
+		margin-bottom: 20px;
+		border: 0;
+		border-radius: 0px;
+		font-size: 10px;
+		width: 100%;
+		color: #fff;
+	}
+}
+
+.alert-vencimiento-danger {
+	background-color: #ED6D55;
+}
+
+.alert-vencimiento-info {
+	background-color: #00B1D7;
+}
+
+.alert-vencimiento-success {
+	background-color: #96C568;
+}
+
+.boton-cabecera:hover {
+	background-color: #E6E9ED;
+	color: #3BAFDA;
+}
+
+.cabecera-principal {
+	background: #0C4597;
+	border-radius: 0;
+	padding-top: 0px;
+	border-style: none;
+	width: 100%;
+}
+
+.circulo {
+	width: 40px;
+	height: 40px;
+	-moz-border-radius: 40px;
+	-webkit-border-radius: 40px;
+	border-radius: 40px;
+	float: right;
+}
+
+.dias-vencimiento {
+	font-size: 18px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.dropdown-submenu {
+	position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+	top: 0px;
+	right: 100%;
+	margin-right: -2px;
+	-moz-border-radius: 0 6px 6px 6px;
+	border-radius: 6px 0 6px 6px;
+	width: 120px;
+}
+/** Oculta un elemento pero lo deja para la accesibilidad**/
+.elemento-accesible {
+	display: none;
+}
+
+/*estilo para sombra cuando se despliega el menu derecho*/
+.fade-content {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #434A54;
+	opacity: 0.5;
+	display: block !important;
+	z-index: 3; /*logra que todos los objetos se queden bajo el fade*/
+}
+
+/*estilo para chevron de menu*/
+.flecha-menu {
+	/*padding-top: 12px;  REVISAR SI SE QUITA DEBIDO */
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+/*
+.iconoVerde {
+	color: #A1C96A;
+}
+
+.iconoRojo {
+	color: #EA5565;
+}
+
+.iconoCeleste {
+	color: #4FC1EA;
+}
+
+.iconoNaranja {
+	color: #F6BB41;
+}
+
+.iconoNegro {
+	color: #656D78;
+}
+
+.iconoGris {
+	color: #AAB2BD;
+}
+
+.logo {
+	max-width: 100px;
+	margin-top: -4px;
+}
+*/
+.menu-accesibilidad-login {
+	top: 25px !important;
+}
+
+.navbar-top-links {
+	margin-right: 0;
+	font-size: 20px;
+	-webkit-transition: -webkit-transform 0.5s ease;
+	-moz-transition: -moz-transform 0.5s ease;
+	-o-transition: -o-transform 0.5s ease;
+	transition: transform 0.30s ease;
+}
+
+.navbar-top-links .dropdown-menu li {
+	display: block;
+	color: #fff;
+}
+
+.navbar-top-links li a {
+	padding: 15px;
+	min-height: 50px;
+	color: #FFFFFF;
+}
+
+.notificacion-burbuja {
+	position: absolute;
+	top: 12px;
+	left: 27px;
+	font-size: 0.7em;
+	color: #F5F7FA;
+	width: 12px;
+	height: 12px;
+	text-align: center;
+	line-height: 12px;
+	border-radius: 50%;
+	background: #EA5565;
+	border: 1px solid #DA4453;
+	z-index: 3;
+	background-image: -webkit-linear-gradient(top, #EA5565, #DA4453);
+	background-image: -moz-linear-gradient(top, #EA5565, #DA4453);
+	background-image: -o-linear-gradient(top, #EA5565, #DA4453);
+	background-image: linear-gradient(bottom, #EA5565, #DA4453);
+	-webkit-box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 1px
+		rgba(0, 0, 0, 0.12);
+	box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 1px
+		rgba(0, 0, 0, 0.12);
+}
+
+/*estilo para informacion de usuario en sesion*/
+p.alineacion-userInfo {
+	color: #F5F7FA !important;
+	margin-bottom: auto;
+	margin-top: 8px;
+	text-align: right;
+}
+
+p.itemNotificacionesMenuDerecho {
+	white-space: normal;
+}
+
+/*---pestanias de accesibilidad----*/
+.pestania-accesibilidad {
+	border: 2px #c2cad2;
+	background: #c2cad2;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 25px;
+	color: #FFFFFF;
+	position: relative;
+}
+
+/*estilo pesta�a chat*/
+.pestania-chat {
+	border: 2px #c2cad2;
+	background: #c2cad2;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 25px;
+	color: #FFFFFF;
+	position: relative;
+}
+
+span.itemNotificacionesMenuDerecho {
+	white-space: normal;
+	vertical-align: middle;
+	text-align: left;
+	display: inline-block;
+}
+
+.semi-circulo-izquierda {
+	width: 55px;
+	height: 40px;
+	-moz-border-radius: 0 100px 100px 0;
+	-webkit-border-radius: 0 100px 100px 0;
+	border-radius: 40px 0px 0px 40px;
+	top: 10px;
+	float: right;
+}
+
+.semi-circulo-izquierda:hover, .circulo:hover {
+	background-color: #33afd9;
+	color: #FFFFFF;
+}
+
+.sr-right {
+	float: right;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+.tamanioIcono {
+	position: relative;
+	z-index: 3;
+	font-size: 20px;
+	float: left;
+	top: 8px;
+}
+
+/***** CODIGO SRI-INTRA *********/
+/*estilos para alinear contenido de menu - texto- icono - flecha*/
+.alineacionIconoMenu {
+	vertical-align: middle;
+	display: table-cell;
+	padding-right: 10px;
+}
+
+.alinearTextoMenu {
+	vertical-align: middle;
+	display: table-cell;
+	text-align: left;
+	width: 198px;
+}
+
+/*estilos para mostrar menu al acercar mouse*/
+.noneStyle {
+	width: 28px;
+	z-index: 1000;
+	-webkit-transition: width 0.8s;
+	-moz-transition: width 0.8s;
+	-o-transition: width 0.8s;
+	transition: width 0.8s;
+}
+
+.noneStyle section:hover {
+	width: 250px;
+	-webkit-transition: width 0.8s;
+	-moz-transition: width 0.8s;
+	-o-transition: width 0.8s;
+	transition: width 0.8s;
+}
+
+.noneStyle ul:hover {
+	font-size: 12px !important;
+}
+
+/*estilos para mostrar sidebar solo de iconos*/
+.noneStyle section {
+	width: 48px;
+	-webkit-transition: width 0.5s;
+	-moz-transition: width 0.5s;
+	-o-transition: width 0.5s;
+	transition: width 0.5s;
+}
+
+.noneStyle ul {
+	font-size: 0px;
+}
+
+.noneStyle .sidebar .boton-search {
+	margin-left: -26px;
+	z-index: 2;
+}
+
+.noneStyle .sidebar .boton-search:hover {
+	margin-left: 0px;
+	z-index: 0;
+}
+
+/*estilos para estados del menu*/
+li ul li:active {
+	background-color: #fff;
+}
+
+/*li ul li a:focus {
+	background-color: transparent !important;
+}*/
+
+@media ( max-width : 767px) {
+	/*css menu movil*/
+	.noneStyle {
+		margin-top: -8px;
+		margin-left: 20px;
+		min-height: auto;
+		z-index: 3500 !important;
+		width: 103% !important;
+		padding-top: 0px;
+		display: block;
+	}
+	.noneStyle section {
+		width: 97% !important;
+	}
+	.noneStyle ul {
+		font-size: 12px !important;
+	}
+	.noneStyle section ul {
+		width: 100% !important;
+	}
+	.noneStyle section:hover {
+		width: 97% !important;
+	}
+	.noneStyle section ul:hover {
+		width: 100% !important;
+	}
+
+	/*css icono chat*/
+	.pestania-chat.responsive {
+		margin-top: 206px; /*muestra pesta�a de chat*/
+	}
+}
+
+@media ( min-width : 768px) {
+	.sidebar-collapse {
+		margin-left: 55px;
+	}
+	.sidebar-open {
+		-webkit-transform: translate(250px, 0);
+		-ms-transform: translate(250px, 0);
+		-o-transform: translate(250px, 0);
+		transform: translate(250px, 0);
+	}
+	.contenedor-controles-open {
+		max-width: 98%;
+	}
+	.contenedor-controles-collapsed {
+		max-width: 78%;
+	}
+}
+
+@media ( max-width : 767px) {
+	.sidebar-open {
+		margin-top: 35px;
+	}
+	.contenedor-controles-open, .contenedor-controles-collapsed {
+		max-width: 98%;
+	}
+	.main-header {
+		margin-bottom: 0;
+	}
+	.sidebar-collapse {
+		display: none;
+	}
+	.alinearTextoMenu {
+		width: 100% !important;
+	}
+}
+
+.letra-md {
+	font-size: 12pt;
+}
+
+.letra-sm {
+	font-size: 11pt !important;;
+}
+
+a.botonSalirMovil {
+	display: none;
+}
+
+/*estilos tab menu central*/
+.tabs-below .nav-tabs, .tabs-right .nav-tabs, .tabs-left .nav-tabs {
+	border-bottom: 0;
+}
+
+.tabs-below .nav-tabs {
+	border-top: 1px solid #ddd;
+}
+
+/*estilos menu interno, perfil, favoritos*/
+.btn-menuPerfil {
+	border: 1px solid #ddd !important;
+	color: #434A54;
+	width: 230px;
+	font-weight: bold;
+}
+
+.mostrarMenu {
+	display: none !important;
+}
+
+a.list-group-item {
+	border: none;
+	border-bottom: 1px solid #ddd;
+	color: #434A54;
+}
+
+ul.list-group.panel {
+	list-style-type: none;
+	background-color: transparent;
+}
+
+.panel {
+	box-shadow: none;
+}
+
+.menuPerfilCentro {
+	margin-top: -40px;
+	width: 230px;
+	border-left: 5px solid #3BAFDA;
+	border-right: 1px solid #ddd;
+}
+
+.menuRuc {
+	left: 76px;
+	width: 230px;
+	border-left: 5px solid #8DC052;
+	border-right: 1px solid #ddd;
+	border-top: solid #ddd;
+}
+
+div.alinearMenuFavorito {
+	margin-top: -268px;
+	width: 230px;
+	border-right: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+}
+
+.alinearMenuFavorito {
+	left: 1px;
+	float: right !important;
+	margin-bottom: 0 !important;
+}
+
+div.alinearMenuFavorito li, div.alinearMenuFavorito li ul li {
+	margin-top: 1px;
+	list-style-type: none;
+}
+
+.sizeIconMenuFavorito {
+	font-size: 20px;
+}
+
+.flecha-favorito {
+	color: #AAB2BD;
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+ul.bordeLista {
+	border-bottom: 1px solid #ddd;
+}
+
+li ul li a {
+	color: #656D78;
+}
+
+.not-active {
+	pointer-events: none;
+	cursor: default;
+}
+
+@media ( min-width : 992px) {
+	.menuPerfilCentro {
+		margin-top: -40px;
+		margin-left: -20px;
+	}
+	.menuRuc {
+		left: 32px;
+		top: 18px;
+		margin-left: -20px;
+	}
+	div.alinearMenuFavorito {
+		margin-right: -28px;
+		margin-top: -268px !important;
+	}
+	.alinearMenuFavorito {
+		left: -18px;
+	}
+}
+
+@media ( min-width : 1200px) {
+	.menuPerfilCentro {
+		margin-top: -40px;
+		margin-left: 0px;
+	}
+	.menuRuc {
+		left: 76px;
+		top: 18px;
+		margin-left: 0px;
+	}
+	div.alinearMenuFavorito {
+		margin-right: 0px;
+	}
+	.alinearMenuFavorito {
+		left: -57px;
+	}
+}
+
+@media ( max-width : 767px) {
+	.mostrarMenu {
+		display: block !important;
+	}
+	.menuPerfilCentro {
+		margin: -2px -1px;
+		top: initial;
+		width: 100%;
+		border: none;
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+	}
+	.menuRuc {
+		left: 0px;
+		margin: 0px -1px !important;
+		width: 100%;
+		border: none;
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+	}
+	.alinearMenuFavorito {
+		left: initial;
+		float: left !important;
+	}
+	.not-active {
+		pointer-events: all;
+		cursor: pointer;
+	}
+	.tabs-below .nav-tabs {
+		border-top: none;
+	}
+	.btn-menuPerfil {
+		color: #fff;
+		padding-right: 8px !important;
+		padding-left: 8px !important;
+		width: auto;
+		background-color: #AAB2BD;
+	}
+	div.alinearMenuFavorito {
+		margin: 0px -1px !important;
+		width: 100% !important;
+	}
+	.mostrarOpcionesMenu {
+		display: none !important;
+	}
+	.mostrarOpcionesMenu.responsive {
+		display: initial !important;
+	}
+	a.list-group-item {
+		border: none;
+		border-bottom: 1px solid #ddd;
+		margin-bottom: 0;
+	}
+	a.botonSalirMovil {
+		font-size: 20px;
+		float: right;
+		display: block !important;
+		color: #434A54;
+	}
+	.nav-tabs>li {
+		width: 33%;
+		text-align: center;
+	}
+}
+
+/*estilos para modal de imagenes de perfil*/
+.modal {
+	position: absolute;
+	top: 170px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10040;
+	overflow: auto;
+	overflow-y: auto;
+}
+
+.modal-header {
+	border-bottom: none;
+}
+
+.radio input[type=radio] {
+	margin-left: 0;
+}
+
+.radio {
+	padding-left: 10px;
+}
+
+.labelRadioSelected {
+	color: #4FC1EA;
+}
+
+.imgPerfilSelected {
+	background-color: #4FC1EA;
+}
+
+@media ( max-width : 767px) and (orientation: landscape) {
+	.col-xs-landscape-offset-6 {
+		margin-left: 50%;
+	}
+	.nav-tabs>li>a {
+		margin-right: 0px !important;
+	}
+	ul.list-group.panel {
+		width: 99.3%;
+	}
+	.dropdown-submenu>.dropdown-menu {
+		margin-right: 142px !important;
+	}
+}
+
+@media ( max-width : 767px) and (orientation: portrait) {
+	.ajuste-opcion-perfil {
+		padding-bottom: 13px !important;
+	}
+	.btn-menuPerfil {
+		padding-right: 4px !important;
+		padding-left: 4px !important;
+		font-size: 11px;
+	}
+	.nav-tabs>li>a {
+		margin-right: 0px !important;
+	}
+	.ajuste-opcion-favoritos {
+		padding-bottom: 4px !important;
+		padding-top: 4px !important;
+	}
+}
+/***** CODIGO SRI-INTRA *********/
+
+/****************************************/
+/******BORRAR****************************/
+/****************************************/
+.main-header .sidebar-toggle {
+	float: left;
+	padding: 11px 15px; /*Se cambia para ajustar el espacio del link*/
+	color: #F5F7FA;
+	font-size: 20px;
+}
+
+ul.dropdown-menu.listaNotificaciones li {
+	color: #DA4453 !important;
+	list-style: disc !important;
+	display: list-item !important;
+	list-style-position: inside !important;
+	border-bottom: 1.5px solid #e7e7e7;
+	border-right: 1.5px solid #e7e7e7;
+}
+
+/****************************************/
+/******BORRAR****************************/
+/****************************************/
+
+/*CSS que permite mostrar la barra de botones de la cabacera
+ desde el bot�n de men� que aparece cuando la pantalla se reduce a 768px*/
+@media screen and (max-width:767px) {
+	.main-header .sidebar-toggle {
+		padding: 11px 15px;
+	}
+	ul.navbar-top-links.responsive {
+		position: relative;
+		display: inline-block;
+		background-color: #656D78;
+		/*se coloca este color para los espacios entre los botones de la derecha*/
+		font-size: 12px;
+		width: 100%;
+	}
+	ul.navbar-top-linksLogin.responsive {
+		position: relative;
+		display: inline-block;
+	}
+	ul.navbar-top-links.responsive li a {
+		display: block;
+		text-align: center;
+	}
+	ul.navbar-top-linksLogin.responsive li a {
+		display: block;
+		text-align: left;
+	}
+	.navbar-top-links li:last-child {
+		margin-right: 0px !important;
+	}
+	.navbar-top-links li a.botonesMenuDerecha {
+		padding: 15px 24px !important;
+		padding-top: 18px !important;
+	}
+	.navbar-top-links {
+		float: right;
+		/*margin-right: -15px;*/
+		display: none; /*desaparece la barra inferior*/
+	}
+
+	/*estilo para ocultar boton de cerrar sesion barra derecha*/
+	.salirMenuDerecha {
+		display: none !important;
+	}
+
+	/*estilo para ocultar boton de cerrar sesion barra derecha*/
+	.accesibilidadMenuDerecha.responsive {
+		display: inline-block !important;
+	}
+
+	/*tamanio botones menu derecha*/
+	.sizeItemMenuDerecha {
+		padding-left: 25px !important;
+		padding-right: 25px !important;
+	}
+
+	/*tamanio fuente boton accesibilidad*/
+	.sizeFontAccesibilidad {
+		font-size: 19px !important;
+	}
+	/*notificacion burbuja moviles*/
+	.notificacion-burbuja {
+		top: 14px !important;
+		left: 48px !important;
+	}
+	ul.dropdown-menu {
+		font-size: 11px;
+	}
+
+	/*estilos para menu interno de barra derecha*/
+	ul.navbar-top-links.responsive ul li a {
+		background-color: #fff !important;
+		color: #434A54;
+		text-align: left;
+	}
+	ul.navbar-top-links.responsive ul li {
+		border-bottom: 1.5px solid #E6E9ED;
+		border-right: 1.5px solid #E6E9ED;
+		margin-left: 0px;
+		width: 100%;
+	}
+	ul.navbar-top-links.responsive li {
+		margin-left: -3px;
+		width: 25%;
+		background-color: transparent;
+	}
+	ul.dropdown-menu {
+		font-size: 11px;
+	}
+	ul.dropdown-menu.listaNotificaciones {
+		width: 300% !important;
+		padding: 0;
+	}
+
+	/*estilo para tama�o menu idioma*/
+	ul.dropdown-menu.menuIdioma {
+		min-width: 200%;
+		width: 138px;
+	}
+	.open>.dropdown-menu.menuPerfil {
+		display: block !important;
+		width: 398%;
+	}
+	.open>.dropdown-menu.menuPerfil a:hover {
+		color: #19a2d3 !important;
+	}
+	.open>.dropdown-menu.menuPerfil a:active {
+		color: #ACBCC5 !important;
+	}
+	.sizeFontIdioma {
+		/*font-weight: bold;
+    vertical-align: middle !important;*/
+		margin-left: -6px;
+		margin-right: -2px;
+	}
+	.main-header .right_bar {
+		padding: 11px 15px;
+		display: none;
+		float: right;
+		color: #fff;
+		font-size: 20px;
+		display: inline;
+	}
+	.navbar-top-links ul {
+		float: right;
+		padding: 0;
+		margin-top: 0px;
+	}
+	.navbar-top-links .dropdown-menu li a, .navbar-top-links .dropdown-menu-accesibilidad li a
+		{
+		padding: 3px 20px !important;
+		min-height: 0;
+	}
+	.navbar-top-links {
+		float: right;
+		/*margin-right: -15px;*/
+		display: none; /*desaparece la barra inferior*/
+	}
+	.navbar-top-links li a:hover {
+		background-color: #656D78 !important;
+		/*cambia el color del fondo cuando la pantalla se reduce a 768px*/
+		color: #fff !important;
+	}
+	.navbar-top-links li {
+		display: inline-table;
+	}
+	.navbar-top-links li a {
+		padding: 15px 24px !important;
+		min-height: 50px;
+		background-color: #434A54 !important;
+		/*cambia el color del fondo cuando la pantalla se reduce a 768px*/
+		margin-right: 2px;
+	}
+	.navbar-top-links ul {
+		float: right;
+		padding: 0;
+		margin-top: 0px;
+	}
+
+	/*Mostrar opciones de accesibilidad*/
+	.mostrarOpcionMovil {
+		display: none !important;
+	}
+
+	/*estilo que controla la secci�n de los botones de la derecha de la cabecera*/
+	.menu_derecha {
+		width: 100%;
+		margin-top: 50px;
+		float: right;
+		background-color: transparent;
+		position: absolute;
+		margin-left: -185px;
+		-webkit-transition: right .3s ease-in-out;
+		-moz-transition: right .3s ease-in-out;
+		-o-transition: right .3s ease-in-out;
+		transition: right .3s ease-in-out;
+	}
+	ul.dropdown-menu {
+		font-size: 11px;
+	}
+	.dropdown-submenu>.dropdown-menu {
+		margin-right: 66px !important;
+	}
+	.navbar-right .dropdown-menu {
+		left: 0 !important;
+		right: auto;
+	}
+	.userInfo {
+		display: none !important;
+	}
+	.hidden-xs {
+		display: none !important;
+	}
+    
+    .btn-file span.hidden-xs {
+        display: initial!important;
+    }
+    
+    .file-caption-name {
+    position: absolute;
+    }
+}

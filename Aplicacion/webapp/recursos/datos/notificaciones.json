@@ -1,0 +1,5 @@
+ [
+   	{"notificacion":"Nuevo Proyecto Receptado_1","url":"sri-web.home","id":1, "mes":"Abril", "anio":"2015","ngclass": "{active: collapseVar==2}"},
+    {"notificacion":"Nuevo Proyecto Receptado_2","url":"sri-web.home","id":2, "mes":"Mayo" , "anio":"2015","ngclass": "{active: collapseVar==2}"},
+    {"notificacion":"Nuevo Proyecto Receptado_3","url":"sri-web.home","id":3, "mes":"Junio", "anio":"2015","ngclass": "{active: collapseVar==2}"}
+]

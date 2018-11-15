@@ -1,0 +1,59 @@
+<div class="menuPerfilCentro" id="itemsMenuPerfil" >
+	<li role="listitem"
+		data-ng-class="[{{itemPerfil.ngclass}}, conctrl.getClassResponsiveMenuConf(opcionesPerfil.isCollapsedPerfil)]"
+		data-ng-repeat="itemPerfil in items"
+		data-uib-collapse="conctrl.opcionesPerfil.isCollapsedPerfil"
+		class="mostrarOpcionesMenu"  >
+			<a 	id="btnItemMenuPerfil"
+				data-ui-sref={{itemPerfil.url}}
+				tabindex="0"
+				role="button"
+				data-toggle="modal"
+				aria-expanded="true"
+				data-parent="#MenuPerfil"
+				data-target="#ModalPerfil{{itemPerfil.id}}"
+				class="list-group-item"
+				title="{{itemPerfil.ayudaContextual}}" >
+				 {{itemPerfil.nombre}}
+			</a>
+		</li>
+</div>
+<div class="menuRuc">
+	<li role="listitem"
+		data-ng-class="[{{itemRuc.ngclass}}, conctrl.getClassResponsiveMenuConf(opcionesPerfil.isCollapsedRuc)]"
+		data-ng-repeat="itemRuc in itemsRuc"
+		data-uib-collapse="conctrl.opcionesPerfil.isCollapsedRuc"
+		class="mostrarOpcionesMenu">
+		<a  data-ui-sref={{itemRuc.url}}
+			tabindex="0"
+			role="button"
+			data-toggle="collapse"
+			aria-expanded="true"
+			data-parent="#MenuRuc"
+			class=" list-group-item">
+			{{itemRuc.nombre}}
+		</a>
+	</li>
+</div>
+<div class="alinearMenuFavorito">
+  		<li role="listitem" data-ng-class="[{{itemFavoritos.ngclass}}, conctrl.getClassResponsiveMenuConf(opcionesPerfil.isCollapsedFavorito)]"
+  		data-ng-repeat="itemFavoritos in itemsFavoritos" data-uib-collapse="conctrl.opcionesPerfil.isCollapsedFavorito" class="mostrarOpcionesMenu">
+   			<a  class="list-group-item"
+   				data-toggle="collapse"
+   				aria-expanded="true"
+      			data-ui-sref={{itemFavoritos.url}}
+      			tabindex="0"
+      			data-ng-click="checkFavorito(itemFavoritos.id);showDetailFavorito(itemFavoritos.id)">
+      			<i class="{{itemFavoritos.icono}} alineacionIconoMenu sizeIconMenuFavorito" ></i>
+      			<span class="alinearTextoMenu">{{itemFavoritos.nombre}}</span>
+      			<span  data-ng-hide="active==itemFavoritos.id" class="glyphicon glyphicon glyphicon-chevron-down pull-right flecha-favorito"></span>
+				<span  data-ng-show="active==itemFavoritos.id" class="glyphicon glyphicon-chevron-up pull-right flecha-favorito"></span>
+      		</a>
+      		 <ul class="collapse bordeLista" id="SubMenuFavorito" aria-labelledby="heading1"
+      			data-ng-show="itemFavoritos.subItems.length" data-uib-collapse="collapseVarFavorito!=itemFavoritos.id">
+      			<li role="listitem" data-ui-sref-active="active" id="itemSubMenuFavoritoHijo" data-ng-repeat="subItemHijo in itemFavoritos.subItems">
+        			<a  class="list-group-item" role="button" data-ui-sref={{subItemHijo.url}} tabindex="0">{{subItemHijo.nombre}}</a>
+        		</li>
+      		</ul>
+      	</li>
+</div>
