@@ -52,6 +52,9 @@
 		case "eliminar":
 			eliminar();
 			break;
+		case "eliminarProceso":
+			eliminarProceso();
+			break;
 	}
 
 	#Funcion para realizar una consulta (SELECT) de todos los registros de la Tabla Niveles
@@ -211,6 +214,17 @@
 		$resultado 	= mysql_query("UPDATE proceso SET  pro_titulo =  '$titulo', pro_subtitulo =  '$subtitulo', pro_descripcion =  '$descripcion', pro_alcance =  '$alcance', pro_fecha_inicio =  '$fechainicio', pro_fecha_fin =  '$fechafin', pro_estado =  '$estado' WHERE pro_id = $id ");
 		validarError();
 	}
+
+	#Funcion para realizar una modificacion (UPDATE) de un registro especifico de la tabla Niveles
+	function eliminarProceso(){
+		global $conexion, $data;
+		$id 			= $data["id"];
+		$resultado 	= mysql_query("DELETE * FROM fase WHERE fas_id_pro = '$id' ");
+		$resultado 	= mysql_query("DELETE * FROM participante_proceso WHERE pra_id_proceso = '$id' ");
+		$resultado 	= mysql_query("DELETE * FROM metodo WHERE met_id_pro = '$id' ");
+		validarError();
+	}
+
 
 	#Funcion para realizar una modificacion (UPDATE) de un registro especifico de la tabla Niveles
 	function cambiarEstado(){

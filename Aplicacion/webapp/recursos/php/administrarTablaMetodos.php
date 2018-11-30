@@ -1,6 +1,6 @@
 <?php
 	include('conexion.php');
-	$conexion 	= conexionMysql();
+	$conexion 	= conexionMysqli();
     $data 		= json_decode(file_get_contents('php://input'), true);
     $funcion 	= $data["funcion"];
 	switch ($funcion) {
@@ -37,8 +37,8 @@
     function consultar(){
     	global $conexion, $data;
 		$eliminado 	= $data["eliminado"];
-		#$resultado= mysql_query("SELECT * FROM catalogo_metodo WHERE ctm_eliminado='$eliminado'");
-		$resultado= mysql_query("SELECT * FROM catalogo_metodo, catalogo_nivel WHERE ctm_id_nivel=ctn_id AND ctm_eliminado='$eliminado'");
+		#$resultado= mysqli_query($conexion,"SELECT * FROM catalogo_metodo WHERE ctm_eliminado='$eliminado'");
+		$resultado= mysqli_query($conexion,"SELECT * FROM catalogo_metodo, catalogo_nivel WHERE ctm_id_nivel=ctn_id AND ctm_eliminado='$eliminado'");
 		codificarJSON($resultado);
 	}
 
@@ -46,7 +46,7 @@
     function consultaMetodosNiveles(){
     	global $conexion, $data;
 		$eliminado 	= $data["eliminado"];
-		$resultado= mysql_query("SELECT * FROM catalogo_metodo_nivel, catalogo_metodo, catalogo_nivel WHERE cmn_id_nivel=ctn_id AND cmn_id_metodo=ctm_id ORDER BY ctn_id ASC");
+		$resultado= mysqli_query($conexion,"SELECT * FROM catalogo_metodo_nivel, catalogo_metodo, catalogo_nivel WHERE cmn_id_nivel=ctn_id AND cmn_id_metodo=ctm_id ORDER BY ctn_id ASC");
 		codificarJSON($resultado);
 	}
 
@@ -54,7 +54,7 @@
     function consultarNiveles(){
     	global $conexion, $data;
     	$id 		= $data["id"];
-		$resultado= mysql_query("SELECT * FROM catalogo_metodo_nivel, catalogo_nivel WHERE cmn_id_nivel=ctn_id AND cmn_id_metodo='$id'");
+		$resultado= mysqli_query($conexion,"SELECT * FROM catalogo_metodo_nivel, catalogo_nivel WHERE cmn_id_nivel=ctn_id AND cmn_id_metodo='$id'");
 		codificarJSON($resultado);
 	}
 
@@ -62,7 +62,7 @@
 	function consultarMetodo(){
 		global $conexion, $data;
 		$id 		= $data["id"];
-		$resultado  = mysql_query("SELECT * FROM catalogo_metodo WHERE ctm_id='$id'");
+		$resultado  = mysqli_query($conexion,"SELECT * FROM catalogo_metodo WHERE ctm_id='$id'");
 		codificarJSON($resultado);
 	}
 
@@ -75,7 +75,7 @@
 		$nivel 		= $data["nivel"];
 		$estado		= $data["estado"];
 		$eliminado	= $data["eliminado"];
-		$resultado  = mysql_query("INSERT INTO catalogo_metodo (ctm_nombre, ctm_descripcion, ctm_imagen, ctm_id_nivel, ctm_estado, ctm_eliminado) VALUES ('$nombre', '$descripcion', '$imagen', '$nivel', '$estado','$eliminado')");
+		$resultado  = mysqli_query($conexion,"INSERT INTO catalogo_metodo (ctm_nombre, ctm_descripcion, ctm_imagen, ctm_id_nivel, ctm_estado, ctm_eliminado) VALUES ('$nombre', '$descripcion', '$imagen', '$nivel', '$estado','$eliminado')");
 		validarError();
 		//codificarJSON($resultado);
 		#codificarJSON(mysql_insert_id());
@@ -87,7 +87,7 @@
 		global $conexion, $data;
 		$nivel 		= $data["nivel"];
 		$metodo 	= $data["id"];
-		$resultado  = mysql_query("INSERT INTO catalogo_metodo_nivel (cmn_id_nivel, cmn_id_metodo) VALUES ('$nivel', '$metodo') ");
+		$resultado  = mysqli_query($conexion,"INSERT INTO catalogo_metodo_nivel (cmn_id_nivel, cmn_id_metodo) VALUES ('$nivel', '$metodo') ");
 		codificarJSON($resultado);
 		validarError();
 	}
@@ -101,7 +101,7 @@
 		$imagen 	= $data["imagen"];
 		$nivel 		= $data["nivel"];
 		$estado		= $data["estado"];
-		$resultado 	= mysql_query("UPDATE catalogo_metodo SET ctm_nombre='$nombre', ctm_descripcion='$descripcion', ctm_imagen='$imagen', ctm_id_nivel='$nivel', ctm_estado='$estado' WHERE ctm_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_metodo SET ctm_nombre='$nombre', ctm_descripcion='$descripcion', ctm_imagen='$imagen', ctm_id_nivel='$nivel', ctm_estado='$estado' WHERE ctm_id='$id'");
 		validarError();
 	}
 
@@ -110,7 +110,7 @@
 		global $conexion, $data;
 		$id 		= $data["id"];
 		$estado		= $data["estado"];
-		$resultado 	= mysql_query("UPDATE catalogo_metodo SET ctm_estado='$estado' WHERE ctm_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_metodo SET ctm_estado='$estado' WHERE ctm_id='$id'");
 		validarError();
 	}
 
@@ -119,14 +119,14 @@
 		global $conexion, $data;
 		$id 		= $data["id"];
 		$eliminado 	= $data["eliminado"];
-		$resultado 	= mysql_query("UPDATE catalogo_metodo SET ctm_eliminado='$eliminado' WHERE ctm_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_metodo SET ctm_eliminado='$eliminado' WHERE ctm_id='$id'");
 		validarError();
 	}
 
 	#Funcion para armar en formato JSON el retorno de los CRUD
 	function codificarJSON($codificar){
 		$datos = array();
-	  	while($res=mysql_fetch_array($codificar))
+	  	while($res=mysqli_fetch_array($codificar))
 		{
 				$datos[] = $res;
 		}
@@ -134,7 +134,7 @@
 	}
 
 	function validarError(){
-		if(mysql_errno()!=0){
+		if(mysqli_errno()!=0){
 			echo json_encode(0);
 		}
 		else		{

@@ -1,6 +1,6 @@
 <?php
 	include('conexion.php');
-	$conexion 	= conexionMysql();
+	$conexion 	= conexionMysqli();
     $data 		= json_decode(file_get_contents('php://input'), true);
     $funcion 	= $data["funcion"];
 	switch ($funcion) {
@@ -28,7 +28,7 @@
     function consultar(){
     	global $conexion, $data;
 		$eliminado 	= $data["eliminado"];
-		$resultado= mysql_query("SELECT * FROM catalogo_tipo_participante WHERE ctp_eliminado='$eliminado'");
+		$resultado= mysqli_query($conexion,"SELECT * FROM catalogo_tipo_participante WHERE ctp_eliminado='$eliminado'");
 		codificarJSON($resultado);
 	}
 
@@ -36,7 +36,7 @@
 	function consultarTipoParticipante(){
 		global $conexion, $data;
 		$id 	= $data["id"];
-		$resultado  = mysql_query("SELECT * FROM catalogo_tipo_participante WHERE ctp_id='$id' ");
+		$resultado  = mysqli_query($conexion,"SELECT * FROM catalogo_tipo_participante WHERE ctp_id='$id' ");
 		codificarJSON($resultado);
 	}
 
@@ -47,7 +47,7 @@
 		$descripcion= $data["descripcion"];
 		$estado 	= $data["estado"];
 		$eliminado 	= $data["eliminado"];
-		$resultado  = mysql_query("INSERT INTO catalogo_tipo_participante (ctp_nombre, ctp_descripcion, ctp_estado, ctp_eliminado )VALUES ('$nombre', '$descripcion', '$estado', '$eliminado') ");
+		$resultado  = mysqli_query($conexion,"INSERT INTO catalogo_tipo_participante (ctp_nombre, ctp_descripcion, ctp_estado, ctp_eliminado )VALUES ('$nombre', '$descripcion', '$estado', '$eliminado') ");
 		validarError();
 	}
 
@@ -59,7 +59,7 @@
 		$descripcion= $data["descripcion"];
 		$estado 	= $data["estado"];
 		$eliminado 	= $data["eliminado"];
-		$resultado 	= mysql_query("UPDATE catalogo_tipo_participante SET ctp_nombre='$nombre', ctp_descripcion='$descripcion', ctp_estado='$estado' WHERE ctp_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_tipo_participante SET ctp_nombre='$nombre', ctp_descripcion='$descripcion', ctp_estado='$estado' WHERE ctp_id='$id'");
 		validarError();
 	}
 
@@ -68,7 +68,7 @@
 		global $conexion, $data;
 		$id 		= $data["id"];
 		$estado		= $data["estado"];
-		$resultado 	= mysql_query("UPDATE catalogo_tipo_participante SET ctp_estado='$estado' WHERE ctp_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_tipo_participante SET ctp_estado='$estado' WHERE ctp_id='$id'");
 		validarError();
 	}
 
@@ -78,14 +78,14 @@
 		global $conexion, $data;
 		$id 		= $data["id"];
 		$eliminado 	= $data["eliminado"];
-		$resultado 	= mysql_query("UPDATE catalogo_tipo_participante SET ctp_eliminado='$eliminado' WHERE ctp_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_tipo_participante SET ctp_eliminado='$eliminado' WHERE ctp_id='$id'");
 		validarError();
 	}
 
 	#Funcion para armar en formato JSON el retorno de los CRUD
 	function codificarJSON($codificar){
 		$datos = array();
-	  	while($res=mysql_fetch_array($codificar))
+	  	while($res=mysqli_fetch_array($codificar))
 		{
 				$datos[] = $res;
 		}
@@ -93,7 +93,7 @@
 	}
 
 	function validarError(){
-		if(mysql_errno()!=0){
+		if(mysqli_errno()!=0){
 			echo json_encode(0);
 		}
 		else		{

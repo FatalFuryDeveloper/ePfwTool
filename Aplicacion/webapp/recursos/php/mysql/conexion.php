@@ -1,13 +1,19 @@
 <?php
 	#Funcion de Coneccion a Base de Datos en Postgrest
 	function conexion(){
-		$conexion=pg_connect("host='localhost' dbname=decidim_application_development port=5432 user=decidim_application password=123456")or die("Error de Conexion con el servidor".pg_last_error());
+		#DATOS SERVIDOR
+		$servername = "localhost";
+		$database 	= "decidim_application_development";
+		$port 		= "5432";
+		$username 	= "decidim_application";
+		$password 	= "123456";
+		$conexion=pg_connect("host=$servername dbname=$database port=$port user=$username password=$password")or die("Error de Conexion con el servidor".pg_last_error());
 		return $conexion;
 	}
 
 	#Funcion de Coneccion a Base de Datos en Mysql
 	function conexionMysql(){
-		#DATOS SERVIDOR LOCAL
+		#DATOS SERVIDOR
 		$conexion=mysql_connect("localhost","root","")or die("No se puede conectar con el servidor");
 		mysql_select_db("bd_participacion",$conexion)or die("no se puede conectar a la base de datos");
 		mysql_set_charset('utf8');

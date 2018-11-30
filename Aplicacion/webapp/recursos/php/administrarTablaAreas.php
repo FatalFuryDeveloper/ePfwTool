@@ -1,6 +1,6 @@
 <?php
 	include('conexion.php');
-	$conexion 	= conexionMysql();
+	$conexion 	= conexionMysqli();
     $data 		= json_decode(file_get_contents('php://input'), true);
     $funcion 	= $data["funcion"];
 	switch ($funcion) {
@@ -28,7 +28,7 @@
     function consultar(){
     	global $conexion, $data;
 		$eliminado 	= $data["eliminado"];
-		$resultado= mysql_query("SELECT * FROM catalogo_area WHERE cta_eliminado='$eliminado'");
+		$resultado= mysqli_query($conexion,"SELECT * FROM catalogo_area WHERE cta_eliminado='$eliminado'");
 		codificarJSON($resultado);
 	}
 
@@ -36,7 +36,7 @@
 	function consultarArea(){
 		global $conexion, $data;
 		$id 		= $data["id"];
-		$resultado  = mysql_query("SELECT * FROM catalogo_area WHERE cta_id='$id'");
+		$resultado  = mysqli_query($conexion,"SELECT * FROM catalogo_area WHERE cta_id='$id'");
 		codificarJSON($resultado);
 	}
 
@@ -46,7 +46,7 @@
 		$nombre 	= $data["nombre"];
 		$descripcion= $data["descripcion"];
 		$estado		= $data["estado"];
-		$resultado  = mysql_query("INSERT INTO catalogo_area (cta_nombre, cta_descripcion, cta_estado, cta_eliminado) VALUES ('$nombre', '$descripcion', '$estado','false') ");
+		$resultado  = mysqli_query($conexion,"INSERT INTO catalogo_area (cta_nombre, cta_descripcion, cta_estado, cta_eliminado) VALUES ('$nombre', '$descripcion', '$estado','false') ");
 		validarError();
 	}
 
@@ -57,7 +57,7 @@
 		$nombre 	= $data["nombre"];
 		$descripcion= $data["descripcion"];
 		$estado		= $data["estado"];
-		$resultado 	= mysql_query("UPDATE catalogo_area SET cta_nombre='$nombre', cta_descripcion='$descripcion', cta_estado='$estado' WHERE cta_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_area SET cta_nombre='$nombre', cta_descripcion='$descripcion', cta_estado='$estado' WHERE cta_id='$id'");
 		validarError();
 	}
 
@@ -66,7 +66,7 @@
 		global $conexion, $data;
 		$id 		= $data["id"];
 		$estado		= $data["estado"];
-		$resultado 	= mysql_query("UPDATE catalogo_area SET cta_estado='$estado' WHERE cta_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_area SET cta_estado='$estado' WHERE cta_id='$id'");
 		validarError();
 	}
 
@@ -75,13 +75,13 @@
 		global $conexion, $data;
 		$id 		= $data["id"];
 		$eliminado 	= $data["eliminado"];
-		$resultado 	= mysql_query("UPDATE catalogo_area SET cta_eliminado='$eliminado' WHERE cta_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_area SET cta_eliminado='$eliminado' WHERE cta_id='$id'");
 		validarError();
 	}
 
 	function codificarJSON($codificar){
 		$datos = array();
-	  	while($res=mysql_fetch_array($codificar))
+	  	while($res=mysqli_fetch_array($codificar))
 		{
 				$datos[] = $res;
 		}
@@ -89,7 +89,7 @@
 	}
 
 	function validarError(){
-		if(mysql_errno()!=0)		{
+		if(mysqli_errno()!=0)		{
 			echo json_encode(0);
 		}
 		else		{

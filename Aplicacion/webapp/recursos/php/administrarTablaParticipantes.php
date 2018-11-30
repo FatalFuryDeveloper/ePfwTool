@@ -1,6 +1,6 @@
 <?php
 	include('conexion.php');
-	$conexion 	= conexionMysql();
+	$conexion 	= conexionMysqli();
     $data 		= json_decode(file_get_contents('php://input'), true);
     $funcion 	= $data["funcion"];
 	switch ($funcion) {
@@ -35,7 +35,7 @@
     	global $conexion, $data;
 		$eliminado 	= $data["eliminado"];
 		$usuario 	= $data["usuario"];
-		$resultado= mysql_query("SELECT * FROM participante, catalogo_tipo_participante WHERE par_id_usu='$usuario' AND par_id_tip=ctp_id AND par_eliminado='$eliminado'");
+		$resultado= mysqli_query($conexion,"SELECT * FROM participante, catalogo_tipo_participante WHERE par_id_usu='$usuario' AND par_id_tip=ctp_id AND par_eliminado='$eliminado'");
 		codificarJSON($resultado);
 	}
 
@@ -43,7 +43,7 @@
     function consultarParticipanteAdministrador(){
     	global $conexion, $data;
 		$eliminado 	= $data["eliminado"];
-		$resultado= mysql_query("SELECT * FROM participante, catalogo_tipo_participante WHERE par_id_tip=ctp_id AND par_eliminado='$eliminado'");
+		$resultado= mysqli_query($conexion,"SELECT * FROM participante, catalogo_tipo_participante WHERE par_id_tip=ctp_id AND par_eliminado='$eliminado'");
 		codificarJSON($resultado);
 	}
 
@@ -52,7 +52,7 @@
 		global $conexion, $data;
 		$participante 	= $data["participante"];
 		$password   = $data["password"];
-		$resultado  = mysql_query("SELECT * FROM participante WHERE par_email='$participante' ");
+		$resultado  = mysqli_query($conexion,"SELECT * FROM participante WHERE par_email='$participante' ");
 		codificarJSON($resultado);
 	}
 
@@ -60,7 +60,7 @@
 	function consultarEmailParticipante(){
 		global $conexion, $data;
 		$email 	= $data["email"];
-		$resultado  = mysql_query("SELECT * FROM participante WHERE par_email='$email'");
+		$resultado  = mysqli_query($conexion,"SELECT * FROM participante WHERE par_email='$email'");
 		codificarJSON($resultado);
 	}
 
@@ -74,7 +74,7 @@
 		$estado 	= $data["estado"];
 		$usuario	= $data["usuario"];
 		$tipo		= $data["tipo"];
-		$resultado  = mysql_query("INSERT INTO participante(par_nombre, par_email, par_predefinido, par_estado, par_eliminado, par_id_usu, par_id_tip)VALUES ('$participante', '$email', '$predefinido', '$estado', '$eliminado', '$usuario', '$tipo' ) ");
+		$resultado  = mysqli_query($conexion,"INSERT INTO participante(par_nombre, par_email, par_predefinido, par_estado, par_eliminado, par_id_usu, par_id_tip)VALUES ('$participante', '$email', '$predefinido', '$estado', '$eliminado', '$usuario', '$tipo' ) ");
 		validarError();
 	}
 
@@ -86,7 +86,7 @@
 		$email 		= $data["email"];
 		$estado 	= $data["estado"];
 		$tipo		= $data["tipo"];
-		$resultado 	= mysql_query("UPDATE participante SET par_nombre='$participante', par_email='$email', par_estado='$estado', par_id_tip='$tipo' WHERE par_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE participante SET par_nombre='$participante', par_email='$email', par_estado='$estado', par_id_tip='$tipo' WHERE par_id='$id'");
 		validarError();
 	}
 
@@ -95,7 +95,7 @@
 		global $conexion, $data;
 		$id 		= $data["id"];
 		$estado		= $data["estado"];
-		$resultado 	= mysql_query("UPDATE participante SET par_estado='$estado' WHERE par_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE participante SET par_estado='$estado' WHERE par_id='$id'");
 		validarError();
 	}
 
@@ -105,14 +105,14 @@
 		global $conexion, $data;
 		$id 		= $data["id"];
 		$eliminado 	= $data["eliminado"];
-		$resultado 	= mysql_query("UPDATE participante SET par_eliminado='$eliminado' WHERE par_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE participante SET par_eliminado='$eliminado' WHERE par_id='$id'");
 		validarError();
 	}
 
 	#Funcion para armar en formato JSON el retorno de los CRUD
 	function codificarJSON($codificar){
 		$datos = array();
-	  	while($res=mysql_fetch_array($codificar))
+	  	while($res=mysqli_fetch_array($codificar))
 		{
 				$datos[] = $res;
 		}
@@ -121,7 +121,7 @@
 
 	#Funcion para validar query (1-Error)
 	function validarError(){
-		if(mysql_errno()!=0){
+		if(mysqli_errno()!=0){
 			echo json_encode(0);
 		}
 		else		{

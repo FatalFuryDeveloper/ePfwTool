@@ -14,6 +14,9 @@
 		case "insertarFase":
 			insertarFase();
 			break;
+		case "insertarComponente":
+			insertarComponente();
+			break;
 		case "eliminar":
 			eliminar();
 			break;
@@ -64,11 +67,11 @@
 		#validarError($resultado);
 	}
 
-		#Funcion para realizar una insercion (INSERT) en la tabla Niveles
+	#Funcion para realizar una insercion (INSERT) en la tabla Fases
 	function insertarFase(){
 		global $conexion, $data;
 		$title			= '{"en": "'.$data["title"].'", "es":"'.$data["title"].'"}';
-		$description	= '{"en": "'.$data["description"].'", "es":"'.$data["description"].'"}';
+		$description	= '{"en": "'.$data["description"].'", "es":"'.$data["description"].'", "ca":"'.$data["description"].'"}';
 		$start_date		= $data["start_date"];
 		$end_date		= $data["end_date"];
 		$procces_id		= $data["proceso_id"];
@@ -77,6 +80,22 @@
 		$active			= $data["active"];
 		$position		= $data["position"];
 		$resultado  = pg_query("INSERT INTO decidim_participatory_process_steps (title, description, start_date, end_date, decidim_participatory_process_id, created_at, updated_at, active, position) VALUES ('$title', '$description', '$start_date', '$end_date', '$procces_id', '$created_at', '$updated_at', '$active', '$position') RETURNING id ");
+		codificarJSON($resultado);
+		#validarError($resultado);
+	}
+
+	#Funcion para realizar una insercion (INSERT) en la tabla Componentes
+	function insertarComponente(){
+		global $conexion, $data;
+		$manifest_name	= $data["manifest_name"];
+		$name			= '{"en": "'.$data["name"].'", "es":"'.$data["name"].'"}';
+		$space_id		= $data["space_id"];
+		$settings		= '{}';
+		$weight			= (int)$data["weight"];
+		$permissions	= $data["permissions"];
+		$published_at	= $data["published_at"];
+		$space_type		= $data["space_type"];
+		$resultado  = pg_query("INSERT INTO decidim_components (manifest_name, name, participatory_space_id, settings, weight, permissions, published_at, participatory_space_type) VALUES ('$manifest_name', '$name', '$space_id', '$settings', '$weight', null, null, '$space_type') RETURNING id ");
 		codificarJSON($resultado);
 		#validarError($resultado);
 	}

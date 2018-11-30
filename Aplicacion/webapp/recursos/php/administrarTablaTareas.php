@@ -1,6 +1,6 @@
 <?php
 	include('conexion.php');
-	$conexion 	= conexionMysql();
+	$conexion 	= conexionMysqli();
     $data 		= json_decode(file_get_contents('php://input'), true);
     $funcion 	= $data["funcion"];
 	switch ($funcion) {
@@ -31,7 +31,7 @@
     function consultar(){
     	global $conexion, $data;
 		$eliminado	= $data["eliminado"];
-		$resultado= mysql_query("SELECT * FROM catalogo_tarea WHERE ctt_eliminado='$eliminado' ORDER BY ctt_orden ASC");
+		$resultado= mysqli_query($conexion,"SELECT * FROM catalogo_tarea WHERE ctt_eliminado='$eliminado' ORDER BY ctt_orden ASC");
 		codificarJSON($resultado);
 	}
 
@@ -39,7 +39,7 @@
 	function consultarFase(){
 		global $conexion, $data;
 		$id 		= $data["id"];
-		$resultado  = mysql_query("SELECT * FROM catalogo_tarea WHERE ctt_id='$id'");
+		$resultado  = mysqli_query($conexion,"SELECT * FROM catalogo_tarea WHERE ctt_id='$id'");
 		codificarJSON($resultado);
 	}
 
@@ -51,7 +51,7 @@
 		$estado		= $data["estado"];
 		$orden		= $data["orden"];
 		$eliminado	= $data["eliminado"];
-		$resultado  = mysql_query("INSERT INTO catalogo_tarea (ctt_nombre, ctt_descripcion, ctt_estado, ctt_orden, ctt_eliminado ) VALUES ('$nombre', '$descripcion', '$estado', '$orden', '$eliminado') ");
+		$resultado  = mysqli_query($conexion,"INSERT INTO catalogo_tarea (ctt_nombre, ctt_descripcion, ctt_estado, ctt_orden, ctt_eliminado ) VALUES ('$nombre', '$descripcion', '$estado', '$orden', '$eliminado') ");
 		validarError();
 	}
 
@@ -62,7 +62,7 @@
 		$nombre 	= $data["nombre"];
 		$descripcion= $data["descripcion"];
 		$estado		= $data["estado"];
-		$resultado 	= mysql_query("UPDATE catalogo_tarea SET ctt_nombre='$nombre', ctt_descripcion='$descripcion', ctt_estado='$estado' WHERE ctt_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_tarea SET ctt_nombre='$nombre', ctt_descripcion='$descripcion', ctt_estado='$estado' WHERE ctt_id='$id'");
 		validarError();
 	}
 
@@ -71,7 +71,7 @@
 		global $conexion, $data;
 		$id 		= $data["id"];
 		$estado		= $data["estado"];
-		$resultado 	= mysql_query("UPDATE catalogo_tarea SET ctt_estado='$estado' WHERE ctt_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_tarea SET ctt_estado='$estado' WHERE ctt_id='$id'");
 		validarError();
 	}
 
@@ -80,7 +80,7 @@
 		global $conexion, $data;
 		$id 		= $data["id"];
 		$orden		= $data["orden"];
-		$resultado 	= mysql_query("UPDATE catalogo_tarea SET ctt_orden='$orden' WHERE ctt_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_tarea SET ctt_orden='$orden' WHERE ctt_id='$id'");
 		validarError();
 	}
 
@@ -89,7 +89,7 @@
 		global $conexion, $data;
 		$id 		= $data["id"];
 		$eliminado 	= $data["eliminado"];
-		$resultado 	= mysql_query("UPDATE catalogo_tarea SET ctt_eliminado='$eliminado' WHERE ctt_id='$id'");
+		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_tarea SET ctt_eliminado='$eliminado' WHERE ctt_id='$id'");
 		validarError();
 	}
 
@@ -97,7 +97,7 @@
 	#Funcion para armar en formato JSON el retorno de los CRUD
 	function codificarJSON($codificar){
 		$datos = array();
-	  	while($res=mysql_fetch_array($codificar))
+	  	while($res=mysqli_fetch_array($codificar))
 		{
 				$datos[] = $res;
 		}
@@ -106,7 +106,7 @@
 
 	#Funcion para validar query (1-Error)
 	function validarError(){
-		if(mysql_errno()!=0)		{
+		if(mysqli_errno()!=0)		{
 			echo json_encode(0);
 		}
 		else		{
