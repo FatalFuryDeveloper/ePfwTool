@@ -126,7 +126,7 @@
 		$area			= $data["area"];
 		$usuario		= $data["usuario"];
 		$resultado  = mysqli_query($conexion,"INSERT INTO proceso (pro_titulo, pro_subtitulo, pro_descripcion, pro_objetivo, pro_alcance, pro_fecha_inicio, pro_fecha_fin, pro_estado, pro_eliminado, pro_id_area, pro_id_usuario) VALUES ('$titulo', '$subtitulo', '$descripcion', '$objetivo', '$alcance', '$fechainicio', '$fechafin', '$estado', '$eliminado', '$area', '$usuario')");
-		echo mysql_insert_id();
+		echo mysqli_insert_id();
 		#validarError();
 	}
 
@@ -144,7 +144,7 @@
 		$eliminado		= $data["eliminado"];
 		$proceso		= $data["proceso"];
 		$resultado  = mysqli_query($conexion,"INSERT INTO fase (fas_nombre, fas_descripcion, fas_objetivo, fas_fecha_inicio, fas_fecha_fin, fas_orden, fas_tipo, fas_estado, fas_eliminado, fas_id_pro) VALUES ('$fase', '$descripcion', '$objetivo', '$fechainicio', '$fechafin', '$orden', '$tipo', '$estado', '$eliminado', '$proceso')");
-		echo mysql_insert_id();
+		echo mysqli_insert_id();
 		#validarError();
 	}
 
