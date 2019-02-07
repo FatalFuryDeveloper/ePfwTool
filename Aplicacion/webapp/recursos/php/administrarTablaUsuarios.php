@@ -133,7 +133,8 @@
 
 	#Funcion para validar query (1-Error)
 	function validarError(){
-		if(mysqli_errno()!=0){
+		global $conexion;
+		if(mysqli_errno($conexion)!=0){
 			echo json_encode(0);
 		}
 		else		{
