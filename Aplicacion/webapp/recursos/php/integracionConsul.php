@@ -3,7 +3,6 @@
 	$conexion 	= conexion();
     $data 		= json_decode(file_get_contents('php://input'), true);
     $funcion 	= $data["funcion"];
-
 	switch ($funcion) {
 		case "consultar":
 			consultar();
@@ -18,16 +17,14 @@
 			eliminar();
 			break;
 	}
-
 	#Funcion para realizar una consulta (SELECT) de todos los registros de la Tabla Niveles
     function consultar(){
     	global $conexion, $data;
 		$eliminado 		= $data["eliminado"];
 		$usuario 		= $data["usuario"];
-		$resultado= pg_query("SELECT * FROM decidim_users WHERE email='$usuario' AND id='$password'");
+		$resultado= pg_query($conexion, "SELECT * FROM decidim_users WHERE email='$usuario' AND id='$password'");
 		codificarJSON($resultado);
 	}
-
 	#Funcion para realizar una insercion (INSERT) en la tabla Niveles
 	function insertarProceso(){
 		global $conexion, $data;
@@ -59,11 +56,9 @@
 		$start_date		= $data["start_date"];
 		$private_space	= false;
 		$reference		= $data["reference"];
-		$resultado  = pg_query("INSERT INTO decidim_participatory_processes (slug, hashtag, decidim_organization_id, created_at, updated_at, title, subtitle, short_description, description, hero_image, banner_image, promoted, published_at, developer_group, end_date, meta_scope, local_area, target, participatory_scope, participatory_structure, decidim_scope_id, decidim_participatory_process_group_id, show_statistics, announcement, scopes_enabled, start_date, private_space, reference) VALUES ('$slug', '$hashtag', '$dec_org_id', '$created_at', '$updated_at', '$title', '$subtitle', '$sh_description', '$description', '$hero_image', '$banner_image', '$promoted', '$published_at', '$developer_group', '$end_date', '$meta_scope', '$local_area', '$target', '$par_scope', '$par_structure', '$dec_scope_id', '$pro_group_id', true, null, false, '$start_date', false, '$reference') RETURNING id, slug  ");
-		codificarJSON($resultado);
-		#validarError($resultado);
+		$resultado  = pg_query($conexion, "INSERT INTO decidim_participatory_processes (slug, hashtag, decidim_organization_id, created_at, updated_at, title, subtitle, short_description, description, hero_image, banner_image, promoted, published_at, developer_group, end_date, meta_scope, local_area, target, participatory_scope, participatory_structure, decidim_scope_id, decidim_participatory_process_group_id, show_statistics, announcement, scopes_enabled, start_date, private_space, reference) VALUES ('$slug', '$hashtag', '$dec_org_id', '$created_at', '$updated_at', '$title', '$subtitle', '$sh_description', '$description', '$hero_image', '$banner_image', '$promoted', '$published_at', '$developer_group', '$end_date', '$meta_scope', '$local_area', '$target', '$par_scope', '$par_structure', '$dec_scope_id', '$pro_group_id', true, null, false, '$start_date', false, '$reference') RETURNING id, slug  ");
+		validarErrorPG($resultado);
 	}
-
 		#Funcion para realizar una insercion (INSERT) en la tabla Niveles
 	function insertarFase(){
 		global $conexion, $data;
@@ -76,11 +71,9 @@
 		$updated_at		= $data["updated_at"];
 		$active			= $data["active"];
 		$position		= $data["position"];
-		$resultado  = pg_query("INSERT INTO decidim_participatory_process_steps (title, description, start_date, end_date, decidim_participatory_process_id, created_at, updated_at, active, position) VALUES ('$title', '$description', '$start_date', '$end_date', '$procces_id', '$created_at', '$updated_at', '$active', '$position') RETURNING id ");
-		codificarJSON($resultado);
-		#validarError($resultado);
+		$resultado  = pg_query($conexion, "INSERT INTO decidim_participatory_process_steps (title, description, start_date, end_date, decidim_participatory_process_id, created_at, updated_at, active, position) VALUES ('$title', '$description', '$start_date', '$end_date', '$procces_id', '$created_at', '$updated_at', '$active', '$position') RETURNING id ");
+		validarErrorPG($resultado);
 	}
-
 	function codificarJSON($codificar){
 		$datos = array();
 	  	while($res=pg_fetch_array($codificar))
@@ -90,4 +83,19 @@
 		echo json_encode($datos);
 	}
 
+	#Funcion para validar query
+	function validarErrorPG($resultado){
+		global $conexion;
+		$datos = array();
+		if(pg_last_error($conexion) > 0){
+		  	$datos = 1;
+		}else{
+			while($res=pg_fetch_array($resultado))
+			{
+					$datos[] = $res;
+			}
+		}
+		pg_close($conexion);
+		echo json_encode($datos);
+	}
 ?>

@@ -60,7 +60,7 @@
 		$eliminado 		= $data["eliminado"];
 		$usuario 		= $data["usuario"];
 		$resultado= mysqli_query($conexion,"SELECT * FROM proceso, catalogo_area, usuario WHERE usu_id=pro_id_usuario AND pro_id_usuario='$usuario' AND cta_id=pro_id_area AND pro_eliminado='$eliminado'");
-		codificarJSON($resultado);
+		echo validarError($conexion, false, $resultado);
 	}
 
 	#Funcion para realizar una consulta (SELECT) de todos los registros de la Tabla Niveles
@@ -68,7 +68,7 @@
     	global $conexion, $data;
 		$proceso 			= $data["proceso"];
 		$resultado= mysqli_query($conexion,"SELECT * FROM proceso, catalogo_area, usuario WHERE usu_id=pro_id_usuario AND cta_id=pro_id_area AND pro_id='$proceso'");
-		codificarJSON($resultado);
+		echo validarError($conexion, false, $resultado);
 	}
 
 	#Funcion para realizar una consulta (SELECT) de todos los registros de la Tabla Niveles
@@ -76,7 +76,7 @@
     	global $conexion, $data;
 		$proceso 	= $data["proceso"];
 		$resultado= mysqli_query($conexion,"SELECT * FROM fase WHERE fas_id_pro='$proceso'");
-		codificarJSON($resultado);
+		echo validarError($conexion, false, $resultado);
 	}
 
 	#Funcion para realizar una consulta (SELECT) de todos los registros de la Tabla Niveles
@@ -84,7 +84,7 @@
     	global $conexion, $data;
 		$fase 	= $data["fase"];
 		$resultado= mysqli_query($conexion,"SELECT * FROM tarea WHERE tar_id_fase='$fase'");
-		codificarJSON($resultado);
+		echo validarError($conexion, false, $resultado);
 	}
 
 	#Funcion para realizar una consulta (SELECT) de todos los registros de la Tabla Niveles
@@ -92,7 +92,7 @@
     	global $conexion, $data;
 		$fase 	= $data["fase"];
 		$resultado= mysqli_query($conexion,"SELECT * FROM criterio WHERE cri_id_fas='$fase'");
-		codificarJSON($resultado);
+		echo validarError($conexion, false, $resultado);
 	}
 
 	#Funcion para realizar una consulta (SELECT) de todos los registros de la Tabla Niveles
@@ -100,7 +100,7 @@
     	global $conexion, $data;
 		$proceso 	= $data["proceso"];
 		$resultado= mysqli_query($conexion,"SELECT * FROM participante_proceso, participante, catalogo_tipo_participante WHERE  par_id_tip=ctp_id AND pra_id_participante=par_id AND pra_id_proceso='$proceso'");
-		codificarJSON($resultado);
+		echo validarError($conexion, false, $resultado);
 	}
 
 	#Funcion para realizar una consulta (SELECT) de todos los registros de la Tabla Niveles
@@ -108,7 +108,7 @@
     	global $conexion, $data;
 		$proceso 	= $data["proceso"];
 		$resultado= mysqli_query($conexion,"SELECT * FROM metodo, catalogo_metodo WHERE mep_id_metodo=ctm_id AND mep_id_proceso='$proceso'");
-		codificarJSON($resultado);
+		echo validarError($conexion, false, $resultado);
 	}
 
 	#Funcion para realizar una insercion (INSERT) en la tabla Niveles
@@ -127,7 +127,7 @@
 		$usuario		= $data["usuario"];
 		$resultado  = mysqli_query($conexion,"INSERT INTO proceso (pro_titulo, pro_subtitulo, pro_descripcion, pro_objetivo, pro_alcance, pro_fecha_inicio, pro_fecha_fin, pro_estado, pro_eliminado, pro_id_area, pro_id_usuario) VALUES ('$titulo', '$subtitulo', '$descripcion', '$objetivo', '$alcance', '$fechainicio', '$fechafin', '$estado', '$eliminado', '$area', '$usuario')");
 		echo mysqli_insert_id($conexion);
-		#validarError();
+		#echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar una insercion (INSERT) en la tabla Niveles
@@ -145,7 +145,7 @@
 		$proceso		= $data["proceso"];
 		$resultado  = mysqli_query($conexion,"INSERT INTO fase (fas_nombre, fas_descripcion, fas_objetivo, fas_fecha_inicio, fas_fecha_fin, fas_orden, fas_tipo, fas_estado, fas_eliminado, fas_id_pro) VALUES ('$fase', '$descripcion', '$objetivo', '$fechainicio', '$fechafin', '$orden', '$tipo', '$estado', '$eliminado', '$proceso')");
 		echo mysqli_insert_id($conexion);
-		#validarError();
+		#echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar una insercion (INSERT) en la tabla Niveles
@@ -161,7 +161,7 @@
 		$eliminado		= $data["eliminado"];
 		$fase			= $data["fase"];
 		$resultado  = mysqli_query($conexion,"INSERT INTO tarea ( tar_nombre, tar_descripcion, tar_fecha_inicio, tar_fecha_fin, tar_orden, tar_tipo, tar_estado, tar_eliminado, tar_id_fase) VALUES ('$tarea', '$descripcion', '$fechainicio', '$fechafin', '$orden', '$tipo', '$estado', '$eliminado', '$fase')");
-		validarError();
+		echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar una insercion (INSERT) en la tabla Niveles
@@ -172,7 +172,7 @@
 		$rango			= $data["rango"];
 		$fase			= $data["fase"];
 		$resultado  = mysqli_query($conexion,"INSERT INTO criterio ( cri_nombre, cri_indicador, cri_rango, cri_id_fas) VALUES ('$nombre', '$indicador', '$rango', '$fase')");
-		validarError();
+		echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar una insercion (INSERT) en la tabla Niveles
@@ -183,7 +183,7 @@
 		$estado			= $data["estado"];
 		$eliminado		= $data["eliminado"];
 		$resultado  = mysqli_query($conexion,"INSERT INTO participante_proceso ( pra_id_proceso, pra_id_participante, pra_estado, pra_eliminado) VALUES ('$proceso', '$participante', '$estado', '$eliminado')");
-		validarError();
+		echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar una insercion (INSERT) en la tabla Niveles
@@ -194,7 +194,7 @@
 		$estado			= $data["estado"];
 		$eliminado		= $data["eliminado"];
 		$resultado  = mysqli_query($conexion,"INSERT INTO metodo (mep_id_proceso, mep_id_metodo, mep_estado, mep_eliminado) VALUES ('$proceso', '$metodo', '$estado', '$eliminado')");
-		validarError();
+		echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar una modificacion (UPDATE) de un registro especifico de la tabla Niveles
@@ -209,7 +209,7 @@
 		$fechafin		= $data["fechafin"];
 		$estado			= $data["estado"];
 		$resultado 	= mysqli_query($conexion,"UPDATE proceso SET  pro_titulo =  '$titulo', pro_subtitulo =  '$subtitulo', pro_descripcion =  '$descripcion', pro_alcance =  '$alcance', pro_fecha_inicio =  '$fechainicio', pro_fecha_fin =  '$fechafin', pro_estado =  '$estado' WHERE pro_id = $id ");
-		validarError();
+		echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar una modificacion (UPDATE) de un registro especifico de la tabla Niveles
@@ -218,7 +218,7 @@
 		$id 		= $data["id"];
 		$estado		= $data["estado"];
 		$resultado 	= mysqli_query($conexion,"UPDATE proceso SET pro_estado='$estado' WHERE pro_id='$id'");
-		validarError();
+		echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar un eliminado logico (UPDATE) de un registro especifico de la tabla Niveles
@@ -227,26 +227,6 @@
 		$id 		= $data["id"];
 		$eliminado 	= $data["eliminado"];
 		$resultado 	= mysqli_query($conexion,"UPDATE proceso SET pro_eliminado='$eliminado' WHERE pro_id='$id'");
-		validarError();
-	}
-
-	function codificarJSON($codificar){
-		$datos = array();
-	  	while($res=mysqli_fetch_array($codificar))
-		{
-				$datos[] = $res;
-		}
-		echo json_encode($datos);
-	}
-
-	#Funcion para validar query (1-Error)
-	function validarError(){
-		global $conexion;
-		if(mysqli_errno($conexion)!=0){
-			echo json_encode(0);
-		}
-		else		{
-			echo json_encode(1);
-		}
+		echo validarError($conexion, true, $resultado);
 	}
 ?>

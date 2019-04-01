@@ -18,11 +18,26 @@
 	function conexionMysqli(){
 		#DATOS SERVIDOR INTERNET
 		$servername = "localhost";
-		$database = "id7025716_participacion";
-		$username = "id7025716_participacion";
-		$password = "123456789";
+		$database = "bd_participacion";
+		$username = "root";
+		$password = "";
 		$conexion = mysqli_connect($servername, $username, $password, $database);
 		mysqli_set_charset($conexion,"utf8");
 		return $conexion;
+	}
+
+	#Funcion para validar query
+	function validarError($conexion, $tipo, $resultado){
+		$datos = array();
+		if($tipo == false){
+		  	while($res=mysqli_fetch_array($resultado))
+			{
+					$datos[] = $res;
+			}
+		}else{
+			$datos = mysqli_errno($conexion);
+		}
+		mysqli_close($conexion);
+		return json_encode($datos);
 	}
 ?>

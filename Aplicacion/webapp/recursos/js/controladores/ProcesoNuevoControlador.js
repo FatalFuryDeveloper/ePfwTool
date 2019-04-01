@@ -262,7 +262,7 @@
             var datos = armarTramaProcesoConsul(vm.lbl.tip.post,vm.rutaConsul,vm.lbl.fun.insertarProceso);
             ComunServicio.invocarPeticion(datos).then(function (respuesta) {
                 //console.log("respuesta"+JSON.stringify(respuesta));
-                if(respuesta.data[0].id !== undefined){
+                if(respuesta.data.length > 0){
                     vm.idProcesoConsul = respuesta.data[0].id;
                     vm.slugProcesoConsul = respuesta.data[0].slug;
                     //console.log("respuesta"+JSON.stringify(vm.idProcesoConsul));

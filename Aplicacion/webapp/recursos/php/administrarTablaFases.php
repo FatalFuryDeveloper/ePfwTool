@@ -32,7 +32,7 @@
     	global $conexion, $data;
 		$eliminado	= $data["eliminado"];
 		$resultado= mysqli_query($conexion,"SELECT * FROM catalogo_fase WHERE ctf_eliminado='$eliminado' ORDER BY ctf_orden ASC");
-		codificarJSON($resultado);
+		echo validarError($conexion, false, $resultado);
 	}
 
 	#Funcion para realizar una consulta (SELECT) de un registro especifico de la tabla Fases
@@ -40,7 +40,7 @@
 		global $conexion, $data;
 		$id 		= $data["id"];
 		$resultado  = mysqli_query($conexion,"SELECT * FROM catalogo_fase WHERE ctf_id='$id'");
-		codificarJSON($resultado);
+		echo validarError($conexion, false, $resultado);
 	}
 
 	#Funcion para realizar una insercion (INSERT) en la tabla Fases
@@ -52,7 +52,7 @@
 		$eliminado	= $data["eliminado"];
 		$orden	= $data["orden"];
 		$resultado  = mysqli_query($conexion,"INSERT INTO catalogo_fase (ctf_nombre, ctf_descripcion, ctf_estado, ctf_eliminado, ctf_orden ) VALUES ('$nombre', '$descripcion', '$estado','$eliminado', '$orden') ");
-		validarError();
+		echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar una modificacion (UPDATE) de un registro especifico de la tabla Fases
@@ -63,7 +63,7 @@
 		$descripcion= $data["descripcion"];
 		$estado		= $data["estado"];
 		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_fase SET ctf_nombre='$nombre', ctf_descripcion='$descripcion', ctf_estado='$estado' WHERE ctf_id='$id'");
-		validarError();
+		echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar una modificacion (UPDATE) de un registro especifico de la tabla Fases
@@ -72,7 +72,7 @@
 		$id 		= $data["id"];
 		$estado		= $data["estado"];
 		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_fase SET ctf_estado='$estado' WHERE ctf_id='$id'");
-		validarError();
+		echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar una modificacion (UPDATE) de un registro especifico de la tabla Fases
@@ -81,7 +81,7 @@
 		$id 		= $data["id"];
 		$orden		= $data["orden"];
 		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_fase SET ctf_orden='$orden' WHERE ctf_id='$id'");
-		validarError();
+		echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar un eliminado logico (UPDATE) de un registro especifico de la tabla Fases
@@ -90,28 +90,6 @@
 		$id 		= $data["id"];
 		$eliminado 	= $data["eliminado"];
 		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_fase SET ctf_eliminado='$eliminado' WHERE ctf_id='$id'");
-		validarError();
-	}
-
-
-	#Funcion para armar en formato JSON el retorno de los CRUD
-	function codificarJSON($codificar){
-		$datos = array();
-	  	while($res=mysqli_fetch_array($codificar))
-		{
-				$datos[] = $res;
-		}
-		echo json_encode($datos);
-	}
-
-	#Funcion para validar query (1-Error)
-	function validarError(){
-		global $conexion;
-		if(mysqli_errno($conexion)!=0){
-			echo json_encode(0);
-		}
-		else		{
-			echo json_encode(1);
-		}
+		echo validarError($conexion, true, $resultado);
 	}
 ?>

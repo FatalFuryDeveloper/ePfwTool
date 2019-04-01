@@ -39,7 +39,7 @@
 		$eliminado 	= $data["eliminado"];
 		#$resultado= mysqli_query($conexion,"SELECT * FROM catalogo_metodo WHERE ctm_eliminado='$eliminado'");
 		$resultado= mysqli_query($conexion,"SELECT * FROM catalogo_metodo, catalogo_nivel WHERE ctm_id_nivel=ctn_id AND ctm_eliminado='$eliminado'");
-		codificarJSON($resultado);
+		echo validarError($conexion, false, $resultado);
 	}
 
 	#Funcion para realizar una consulta (SELECT) de todos los registros de la Tabla Metodo
@@ -47,7 +47,7 @@
     	global $conexion, $data;
 		$eliminado 	= $data["eliminado"];
 		$resultado= mysqli_query($conexion,"SELECT * FROM catalogo_metodo_nivel, catalogo_metodo, catalogo_nivel WHERE cmn_id_nivel=ctn_id AND cmn_id_metodo=ctm_id ORDER BY ctn_id ASC");
-		codificarJSON($resultado);
+		echo validarError($conexion, false, $resultado);
 	}
 
 	#Funcion para realizar una consulta (SELECT) de todos los registros de la Tabla Niveles
@@ -55,7 +55,7 @@
     	global $conexion, $data;
     	$id 		= $data["id"];
 		$resultado= mysqli_query($conexion,"SELECT * FROM catalogo_metodo_nivel, catalogo_nivel WHERE cmn_id_nivel=ctn_id AND cmn_id_metodo='$id'");
-		codificarJSON($resultado);
+		echo validarError($conexion, false, $resultado);
 	}
 
 	#Funcion para realizar una consulta (SELECT) de un registro especifico de la tabla Niveles
@@ -63,7 +63,7 @@
 		global $conexion, $data;
 		$id 		= $data["id"];
 		$resultado  = mysqli_query($conexion,"SELECT * FROM catalogo_metodo WHERE ctm_id='$id'");
-		codificarJSON($resultado);
+		echo validarError($conexion, false, $resultado);
 	}
 
 	#Funcion para realizar una insercion (INSERT) en la tabla Metodo
@@ -76,8 +76,8 @@
 		$estado		= $data["estado"];
 		$eliminado	= $data["eliminado"];
 		$resultado  = mysqli_query($conexion,"INSERT INTO catalogo_metodo (ctm_nombre, ctm_descripcion, ctm_imagen, ctm_id_nivel, ctm_estado, ctm_eliminado) VALUES ('$nombre', '$descripcion', '$imagen', '$nivel', '$estado','$eliminado')");
-		validarError();
-		//codificarJSON($resultado);
+		echo validarError($conexion, true, $resultado);
+		//echo validarError($conexion, false, $resultado);
 		#codificarJSON(mysql_insert_id());
 		#echo mysql_insert_id();
 	}
@@ -88,8 +88,8 @@
 		$nivel 		= $data["nivel"];
 		$metodo 	= $data["id"];
 		$resultado  = mysqli_query($conexion,"INSERT INTO catalogo_metodo_nivel (cmn_id_nivel, cmn_id_metodo) VALUES ('$nivel', '$metodo') ");
-		codificarJSON($resultado);
-		validarError();
+		echo validarError($conexion, false, $resultado);
+		echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar una modificacion (UPDATE) de un registro especifico de la tabla Niveles
@@ -102,7 +102,7 @@
 		$nivel 		= $data["nivel"];
 		$estado		= $data["estado"];
 		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_metodo SET ctm_nombre='$nombre', ctm_descripcion='$descripcion', ctm_imagen='$imagen', ctm_id_nivel='$nivel', ctm_estado='$estado' WHERE ctm_id='$id'");
-		validarError();
+		echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar una modificacion (UPDATE) de un registro especifico de la tabla Niveles
@@ -111,7 +111,7 @@
 		$id 		= $data["id"];
 		$estado		= $data["estado"];
 		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_metodo SET ctm_estado='$estado' WHERE ctm_id='$id'");
-		validarError();
+		echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar un eliminado logico (UPDATE) de un registro especifico de la tabla Niveles
@@ -120,33 +120,6 @@
 		$id 		= $data["id"];
 		$eliminado 	= $data["eliminado"];
 		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_metodo SET ctm_eliminado='$eliminado' WHERE ctm_id='$id'");
-		validarError();
-	}
-
-	#Funcion para armar en formato JSON el retorno de los CRUD
-	function codificarJSON($codificar){
-		$datos = array();
-	  	while($res=mysqli_fetch_array($codificar))
-		{
-				$datos[] = $res;
-		}
-		echo json_encode($datos);
-	}
-
-	#Funcion para validar query (1-Error)
-	function validarError(){
-		global $conexion;
-		if(mysqli_errno($conexion)!=0){
-			echo json_encode(0);
-		}
-		else		{
-			echo json_encode(1);
-		}
-	}
-
-	function validarErrorPostgrest(){
-		if(pg_last_error()!=""){
-			echo json_encode(1);
-		}
+		echo validarError($conexion, true, $resultado);
 	}
 ?>

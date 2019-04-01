@@ -15,15 +15,6 @@
     	$usuario 	= $data["email"];
 		$password   = $data["id"];
 		$resultado= pg_query("SELECT * FROM decidim_users WHERE email='$usuario' AND id='$password'");
-		codificarJSON($resultado);
-	}
-
-	function codificarJSON($codificar){
-		$datos = array();
-	  	while($res=pg_fetch_array($codificar))
-		{
-				$datos[] = $res;
-		}
-		echo json_encode($datos);
+		echo validarError($conexion, false, $resultado);
 	}
 ?>

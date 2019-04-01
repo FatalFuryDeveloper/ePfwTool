@@ -29,7 +29,7 @@
     	global $conexion, $data;
 		$eliminado 	= $data["eliminado"];
 		$resultado= mysqli_query($conexion,"SELECT * FROM catalogo_tipo_usuario WHERE cau_eliminado='$eliminado'");
-		codificarJSON($resultado);
+		echo validarError($conexion, false, $resultado);
 	}
 
 	#Funcion para realizar una consulta (SELECT) de un registro especifico de la tabla Usuarios
@@ -37,7 +37,7 @@
 		global $conexion, $data;
 		$id 	= $data["id"];
 		$resultado  = mysqli_query($conexion,"SELECT * FROM catalogo_tipo_usuario WHERE cau_id='$id' ");
-		codificarJSON($resultado);
+		echo validarError($conexion, false, $resultado);
 	}
 
 	#Funcion para realizar una insercion (INSERT) en la tabla Usuarios
@@ -48,7 +48,7 @@
 		$estado 	= $data["estado"];
 		$eliminado 	= $data["eliminado"];
 		$resultado  = mysqli_query($conexion,"INSERT INTO catalogo_tipo_usuario (cau_nombre, cau_descripcion, cau_estado, cau_eliminado )VALUES ('$nombre', '$descripcion', '$estado', '$eliminado') ");
-		validarError();
+		echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar una modificacion (UPDATE) de un registro especifico de la tabla Usuarios
@@ -60,7 +60,7 @@
 		$estado 	= $data["estado"];
 		$eliminado 	= $data["eliminado"];
 		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_tipo_usuario SET cau_nombre='$nombre', cau_descripcion='$descripcion', cau_estado='$estado' WHERE cau_id='$id'");
-		validarError();
+		echo validarError($conexion, true, $resultado);
 	}
 
 	#Funcion para realizar una modificacion (UPDATE) de un registro especifico de la tabla Niveles
@@ -69,7 +69,7 @@
 		$id 		= $data["id"];
 		$estado		= $data["estado"];
 		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_tipo_usuario SET cau_estado='$estado' WHERE cau_id='$id'");
-		validarError();
+		echo validarError($conexion, true, $resultado);
 	}
 
 
@@ -79,27 +79,6 @@
 		$id 		= $data["id"];
 		$eliminado 	= $data["eliminado"];
 		$resultado 	= mysqli_query($conexion,"UPDATE catalogo_tipo_usuario SET cau_eliminado='$eliminado' WHERE cau_id='$id'");
-		validarError();
-	}
-
-	#Funcion para armar en formato JSON el retorno de los CRUD
-	function codificarJSON($codificar){
-		$datos = array();
-	  	while($res=mysqli_fetch_array($codificar))
-		{
-				$datos[] = $res;
-		}
-		echo json_encode($datos);
-	}
-
-	#Funcion para validar query (1-Error)
-	function validarError(){
-		global $conexion;
-		if(mysqli_errno($conexion)!=0){
-			echo json_encode(0);
-		}
-		else		{
-			echo json_encode(1);
-		}
+		echo validarError($conexion, true, $resultado);
 	}
 ?>
