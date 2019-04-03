@@ -1,14 +1,14 @@
 {
     "node": true, // Enable globals available when code is running inside of the NodeJS runtime environment.
     "browser": true, // Standard browser globals e.g. `window`, `document`.
-	"jasmine": true,
+    "jasmine": true,
     "esnext": true, // Allow ES.next specific features such as `const` and `let`.
     "bitwise": false, // Prohibit bitwise operators (&, |, ^, etc.).
     "camelcase": false, // Permit only camelcase for `var` and `object indexes`.
     "curly": false, // Require {} for every new block or scope.
     "eqeqeq": true, // Require triple equals i.e. `===`.
     "immed": true, // Require immediate invocations to be wrapped in parens e.g. `( function(){}() );`
- 	"latedef" : "nofunc", // avoid the inspection for function declarations (not expressions), true Prohibit variable use before definition.
+    "latedef" : "nofunc", // avoid the inspection for function declarations (not expressions), true Prohibit variable use before definition.
     "newcap": true, // Require capitalization of all constructor functions e.g. `new F()`.
     "noarg": true, // Prohibit use of `arguments.caller` and `arguments.callee`.
     "regexp": true, // Prohibit `.` and `[^...]` in regular expressions.
@@ -17,17 +17,17 @@
     "strict": true, // Require `use strict` pragma in every file.
     "trailing": true, // Prohibit trailing whitespaces.
     "smarttabs": false, // Suppresses warnings about mixed tabs and spaces
-	"maxcomplexity":"10", //control cyclomatic complexity throughout your code
-	"globals": { // Globals variables.
+    "maxcomplexity":"10", //control cyclomatic complexity throughout your code
+    "globals": { // Globals variables.
         "angular": true,
-		"jQuery": true,
-		"$": false,
-		"kendo":true
+        "jQuery": true,
+        "$": false,
+        "kendo":true
     },
     "predef": [ // Extra globals.
-		"jasmine",
-		"describe",
-		"xdescribe",
+        "jasmine",
+        "describe",
+        "xdescribe",
         "exports",
         "module",
         "before",
@@ -35,14 +35,14 @@
         "after",
         "afterEach",
         "it",
-		"inject",
+        "inject",
     "expect"
     ],
     "indent": 4, // Specify indentation spacing
     "maxlen": 120, // Max line lenght
     "devel": false, // Allow development statements e.g. `console.log();`.
     "noempty": true, // Prohibit use of empty blocks.
-	"evil": false, //si eval debe ser permitido
-	"nonew":true,  //no se puede usar new para crear objetos
-	"sub": true  // Desactivar dot notation
+    "evil": false, //si eval debe ser permitido
+    "nonew":true,  //no se puede usar new para crear objetos
+    "sub": true  // Desactivar dot notation
 }

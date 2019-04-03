@@ -1,12 +1,12 @@
 {
-  "name": "sri-web-modulo",
+  "name": "epfwtool-web-modulo",
   "version": "1.0.0",
   "description": "modulo base web",
   "main": "GruntFile.js",
   "scripts": {
     "postinstall": "bower install"
   },
-  "author": "Servicio de Rentas Internas",
+  "author": "FatalFuryDeveloper",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.12.4",

@@ -2,62 +2,46 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="sri">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Servicio de Rentas Internas">
+    <meta name="author" content="FatalFuryDeveloper">
+    <title ng-bind="::pageTitle()"></title>
+    <!--RECURSOS CSS PROPIOS Y DE TERCEROS-->
+    <!--bower:css-->
+    <!--endbower-->
+    <!-- injector:css -->
+    <!-- endinjector -->
     <link rel="shortcut icon" href="recursos/imagenes/icono-sri.jpg" />
-
-	<title ng-bind="::pageTitle()"></title>
-
-<!--RECURSOS CSS PROPIOS Y DE TERCEROS-->
-
-	<!--bower:css-->
-
-	<!--endbower-->
-
-	<!-- injector:css -->
-	<!-- endinjector -->
-
-	<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
-
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
 </head>
 <body  class="serviciosenlinea">
-<!-- @endif -->
+    <!-- @endif -->
+    <!-- CONTENIDO MODULO -->
+    <!-- @if NODE_ENV='prod' -->
+    <div ng-app="saludo" ng-controller="administracionControlador">
+        <div>
+            <p translate>MDO_TITULO</p>
+        </div>
+        <a ui-sref="sri-web.saludo.saludar">Saludar FatalFuryDeveloper</a>
+        <div data-ui-view></div>
+    </div>
+    <!-- @endif -->    
+    <!-- FIN CONTENIDO MODULO -->   
+    <!-- @if NODE_ENV='desa' -->
+    <!--CONTENIDO DESARROLLO-->
+    <div ng-controller="PrincipalControlador">
+        <div ui-view="">
 
-<!-- CONTENIDO MODULO -->
-	<!-- @if NODE_ENV='prod' -->	
-		<div ng-app="saludo" ng-controller="administracionControlador">
-			<div >	 	
-				<p  translate>MDO_TITULO</p>
-			</div>
-	        <a ui-sref="sri-web.saludo.saludar">Saludar AAA</a>
-	        <div data-ui-view></div>   
-	    </div>       
-	<!-- @endif -->    
-<!-- FIN CONTENIDO MODULO -->	
-
-
-<!-- @if NODE_ENV='desa' -->
-<!--CONTENIDO DESARROLLO-->
-
-	<div ng-controller="PrincipalControlador">
-			<div ui-view="">
-	
-			</div>	
-	</div>
-
-<!--RECURSOS JAVASCRIPT PROPIOS Y DE TERCEROS-->
-
-	<!-- bower:js -->
-
-	<!-- endbower -->
-
-	<!-- injector:js -->
-
-	<!-- endinjector -->
+        </div>
+    </div>
+    <!--RECURSOS JAVASCRIPT PROPIOS Y DE TERCEROS-->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- injector:js -->
+    <!-- endinjector -->
 </body>
 </html>
 <!-- @endif -->
