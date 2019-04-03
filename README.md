@@ -6,7 +6,6 @@
 # Tabla de Contenido
 * [Introducción](#introduccion)
 * [Modulos](#modulos)
-* [Requerimientos](#requerimientos)
 * [Instalación](#instalacion)
 * [Manual de Usuario del Sistema ePfwTool](#manual-de-usuario-del-sistema-ePfwTool)
 
@@ -33,9 +32,19 @@ La herramienta es web, con una interfaz responsiva y adaptable a cualquier dispo
 | [Gestor Usuario](https://github.com/FatalFuryDeveloper/ePfwTool/blob/master/Aplicacion/webapp/recursos/js/controladores/GestorUsuarioControlador.js)                    | El modulo gestor de usuarios, es el encargado de administrar (Crear, Modificar, Eliminar, Listar, Buscar) usuarios de procesos de participación.                                                                                                    |
 | [Registrar Usuario](https://github.com/FatalFuryDeveloper/ePfwTool/blob/master/Aplicacion/webapp/recursos/js/controladores/RegistrarUsuarioControlador.js)              | El modulo registrar usuario, es el encargado de dar de alta un usuario para poder realizar sesion en el sistema ePfwTool.                                                                                                                           |
 
-## Requerimientos
 
 ## Instalación
+### Requerimientos
+Para la instalacion de la aplicacion se requiere lo siguiente:
+* NodeJS
+* Grunt
+* WampServer o XampServer (Opcional)
+
+### Estructura Fuentes ePfwtool
+- **Aplicacion** .- Contiene las fuentes de la Aplicacion ePfwTool
+- **BaseDatos** .- Contiene el script para la creacion de la base de datos del sistema ePfwTool
+- **Manual** .- Contiene la documentacion del Manual de Usuario del Sistema ePfwTool
+
 
 ## Manual de Usuario del Sistema ePfwTool
 El objetivo primordial del **[Manual de Usuario del Sistema ePfwTool](https://github.com/FatalFuryDeveloper/ePfwTool/blob/master/Manual/Manual_Usuario_Sistema_Participacion_Ciudadana.docx)** es ayudar y guiar al usuario a utilizar el Sistema de Participación Ciudadana, obteniendo información relevante para poder despejar las dudas existentes en cuanto a la utilización de la aplicación.
