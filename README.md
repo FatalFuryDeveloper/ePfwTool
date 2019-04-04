@@ -54,18 +54,18 @@ Procedemos a crear una variable de Entorno.
 * Inicie la aplicación WampServer o XampServer que instalo.
 * Abra una terminal o consola del sistema 
 * En la consola escriba el siguiente comando, reemplazando la variable **<<MYSQL_HOME>>** con el path de su instalacion mysql:
- * ```cmd SET PATH=%PATH%;<<MYSQL_HOME>> ```
- * **Nota**: <<Server_HOME>> es el path de instalacion del Mysql, Reemplazar con el path de su instalacion, las aplicaciones WampServer y XampServer contienen en sus fuentes una instalacion de mysql.
-  * Ejemplo: ```cmd SET PATH=%PATH%;C:\wamp64\bin\mysql\mysql5.7.24\bin ```
+```cmd SET PATH=%PATH%;<<MYSQL_HOME>> ```
+**Nota**: <<Server_HOME>> es el path de instalacion del Mysql, Reemplazar con el path de su instalacion, las aplicaciones WampServer y XampServer contienen en sus fuentes una instalacion de mysql.
+Ejemplo: ```cmd SET PATH=%PATH%;C:\wamp64\bin\mysql\mysql5.7.24\bin ```
 * Ubiquese en el directorio *BaseDatos* de las fuentes del ePfwTool, puede hacer uso del comando **cd** para moverse por la consola
 * Digite la siguiente linea en la consola: 
- *```cmd createBDD.cmd HOST SCRIPT USERNAME PASSWORD ```
- * **Nota**: Los argumentos del script son los siguiente:
+```cmd createBDD.cmd HOST SCRIPT USERNAME PASSWORD ```
+**Nota**: Los argumentos del script son los siguiente:
   * HOST    : Nombre o IP del Servidor de Base de Datos
   * SCRIPT  : Nombre del Script de la BDD
   * USERNAME: Usuario de la BDD
   * PASSWORD: Clave del Usuario de BDD
- * Ejemplo:```cmd createBDD.cmd localhost bd_participacion.sql root 123 ```
+Ejemplo:```cmd createBDD.cmd localhost bd_participacion.sql root 123 ```
 * Instalacion de la BDD completa.
 
 #### 2. Instalación Manual
