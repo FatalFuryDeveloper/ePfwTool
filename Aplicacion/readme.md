@@ -5,7 +5,7 @@
 ## Información
 Este directorio contiene las fuentes del sistema ePfwTool.
 
-## Estructura Directorio BaseDatos
+## Estructura Directorio Aplicacion
 - **server** .- Directorio que contiene un servidor express para ejecutar ePfwTool
 - **webapp** .- Directorio que contiene las fuentes de la aplicacion ePfwTool
 - **.bowerrc** .- Archivo de configuracion del directorio a copiar las dependecias de bower
@@ -13,6 +13,7 @@ Este directorio contiene las fuentes del sistema ePfwTool.
 - **bower.json** .- Archivo de configuracion BOWER
 - **GruntFile.js** .- Archivo de configuracion GRUNT
 - **index-tpl.html** .- Pagina de Inicio Para pruebas de ePfwTool
+- **installEPFWTOOL.cmd** .- Script de Instalación automatica del ePfwTool
 - **karma.conf.js** .- Archivo de configuracion KARMA
 - **package-lock.json** .- Archivo de configuracion de dependencias del sistema
 - **package.json** .- Archivo de configuracion de dependencias del sistema
@@ -33,7 +34,8 @@ Existen diferentes formas de Instalar la aplicacion, pero nos enfocaremos en 2 f
   **Nota**: **<<WAMPSERVER_HOME>>** es el path de instalacion del Servidor, Reemplazar con el path de su instalacion.
 
   **Ejemplo: ``` SET WAMPSERVER_HOME=C:\wamp64; ```**
-  
+* Ejecute el script **installEPFWTOOL.cmd**
+* Instalacion del sistema ePfwTool completa.
 ### 2. Instalación Manual
 * Copiamos el directorio **Aplicacion**
 * Pegamos en el directorio **root apache**. si instalo WampServer el path es <<WAMPSERVER_HOME>>/www/
@@ -41,18 +43,19 @@ Existen diferentes formas de Instalar la aplicacion, pero nos enfocaremos en 2 f
 
 ## Ejecucion de ePfwTool
 * Inicie el servidor instalado (WampServer o XampServer u otro).
+* ```grunt show```
 
---------------------  LINEA DE COMANDOS PARA EJECUCIÓN ------------
+# Agregar Nuevas funcionalidades al Sistema ePfwTool
+Cuando se modifica los archivos de configuraciones, o agrega nueva funcionalidad, se debe descargar las dependecias descritas en los archivos de configuraciones BOWER, PACKAGE, escriba el siguiente comando desde una consola en el directorio actual.. 
+```npm install```
+## Levantar Servidor EXPRESS
+Para levantar el sistema ePfwTool con el servidor express, escriba el siguiente comando desde una consola en el directorio actual.
+```grunt show```
 
-npm install
-***** GRUNT *****
-* PARA LEVANTAR SERVIDOR EXPRESS
-grunt show
+## Generar Reporte JSHINT
+Para generar un reporte de errores, advertencias, recomendaciones sobre los archivos JavaScript, escriba el siguiente comando desde una consola en el directorio actual.
+```grunt jshint```
 
-* PARA REALIZAR REPORTE JSHINT
-grunt jshint
-
-* PARA REALIZAR TEST
-grunt test
-grunt karma
-
+## Ejecutar Pruebas Unitarias
+Para ejecutar pruebas unitarias de los ficheros javascript del ePfwTool, escriba el siguiente comando desde una consola en el directorio actual.
+```grunt test```
