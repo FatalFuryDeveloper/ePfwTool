@@ -390,7 +390,7 @@ INSERT IGNORE INTO `participante_proceso` (`pra_id`, `pra_id_proceso`, `pra_id_p
 DROP TABLE IF EXISTS `proceso`;
 CREATE TABLE IF NOT EXISTS `proceso` (
   `pro_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Campo identificador (Clave Primaria) del proceso',
-  `pro_titulo` varchar(100) NOT NULL COMMENT 'Campo titulo del proceso',
+  `pro_titulo` text NOT NULL COMMENT 'Campo titulo del proceso',
   `pro_subtitulo` text NOT NULL COMMENT 'Campo subtitulo del proceso',
   `pro_descripcion` text NOT NULL COMMENT 'Campo descripcion del proceso',
   `pro_objetivo` text NOT NULL,
