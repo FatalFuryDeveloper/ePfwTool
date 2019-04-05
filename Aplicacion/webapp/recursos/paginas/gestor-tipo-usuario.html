@@ -1,150 +1,150 @@
-<div 	data-ng-controller="GestorTipoUsuarioControlador as tipoUsuCtrl"
-		data-ng-init="tipoUsuCtrl.init()"
-		class="container">
+<div    data-ng-controller="GestorTipoUsuarioControlador as tipoUsuCtrl"
+        data-ng-init="tipoUsuCtrl.init()"
+        class="container">
 <!--Seccion Encabezado -->
-	<div class="page-header">
-		<hgroup>
-			<h1 data-translate>{{tipoUsuCtrl.lbl.pag.tiu.titulo}}</h1>
-			<h2 data-translate>{{tipoUsuCtrl.lbl.pag.tiu.subtitulo}}</h2>
-			<p> </p>
-		</hgroup>
-	</div>
+    <div class="page-header">
+        <hgroup>
+            <h1 data-translate>{{tipoUsuCtrl.lbl.pag.tiu.titulo}}</h1>
+            <h2 data-translate>{{tipoUsuCtrl.lbl.pag.tiu.subtitulo}}</h2>
+            <p> </p>
+        </hgroup>
+    </div>
 <!--Seccion Notificaciones -->
-	<div class="row">
-		<div class="col-lg-12 col-md-12 col-xs-12">
-			<uib-alert 	id="idAlerta"
-						name="idAlerta"
-						data-ng-repeat="alert in tipoUsuCtrl.alerts| orderBy:'type'"
-						type="{{alert.type}}"
-						close="tipoUsuCtrl.cerrarAlerta($index)">
-				<span data-translate>{{alert.msg}}</span>
-			</uib-alert>
-		</div>
-	</div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-xs-12">
+            <uib-alert  id="idAlerta"
+                        name="idAlerta"
+                        data-ng-repeat="alert in tipoUsuCtrl.alerts| orderBy:'type'"
+                        type="{{alert.type}}"
+                        close="tipoUsuCtrl.cerrarAlerta($index)">
+                <span data-translate>{{alert.msg}}</span>
+            </uib-alert>
+        </div>
+    </div>
 <!--Seccion Contenido -->
-    <form	class="page form-horizontal"
-			id="frmAdministrar"
-			name="frmAdministrar"
-			novalidate>
-		<fieldset>
-			<!--<legend>Formulario Área</legend>-->
+    <form   class="page form-horizontal"
+            id="frmAdministrar"
+            name="frmAdministrar"
+            novalidate>
+        <fieldset>
+            <!--<legend>Formulario Área</legend>-->
             <h2 data-translate>{{tipoUsuCtrl.lbl.lbl.formulariotipousuario}}</h2>
             <p data-translate>{{tipoUsuCtrl.lbl.lbl.formularioinformativo}}</p>
-			<div class="form-group">
-				<label	id="lblUsuario"
-						name="lblUsuario"
-						for="lblUsuario"
-						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
-					<span data-translate>{{tipoUsuCtrl.lbl.lbl.tipousuario}}</span>:
-				</label>
-				<div class="col-lg-5 col-md-6 col-xs-12">
-					<div class="input-group">
-						<input	id="txtUsuario"
-								name="txtUsuario"
-								type="text"
-								tabindex="1"
-								accesskey="u"
-								autofocus
-								maxlength="100"
-								class="k-textbox"
-								data-ng-model="tipoUsuCtrl.txtUsuario"
-								data-ng-blur="tipoUsuCtrl.validar()"
-								placeholder="{{inicioCtrl.traducirTexto(tipoUsuCtrl.lbl.plh.tipousuario)}}"/>
-						<div class="input-group-addon informacion">
-		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
-		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(tipoUsuCtrl.lbl.tol.tipousuario)}}"
-		                       data-tooltip-placement="top"
-		                       data-tooltip-class="mensaje-informacion"></i>
-		                </div>
-		            </div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label 	id="lblDescripcion"
-						name="lblDescripcion"
-						for="lblDescripcion"
-						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
-					<span data-translate>{{tipoUsuCtrl.lbl.lbl.descripcion}}</span>:
-				</label>
-				<div class="col-lg-5 col-md-6 col-xs-12">
-					<div class="input-group">
-						<textarea id="txtDescripcion"
-								name="txtDescripcion"
-								type="text"
-								tabindex="2"
-								class="k-textbox"
-								rows="6"
-								data-ng-model="tipoUsuCtrl.txtDescripcion"
-								data-ng-blur="tipoUsuCtrl.validar()"
-								placeholder="{{inicioCtrl.traducirTexto(tipoUsuCtrl.lbl.plh.descripcion)}}"/>
-						<div class="input-group-addon informacion">
-		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
-		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(tipoUsuCtrl.lbl.tol.descripcion)}}"
-		                       data-tooltip-placement="top"
-		                       data-tooltip-class="mensaje-informacion"></i>
-		                </div>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label 	id="lblEstado"
-						name="lblEstado"
-						for="lblEstado"
-						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
-						<span data-translate>{{tipoUsuCtrl.lbl.lbl.estado}}</span>:
-				</label>
-				<div class="col-lg-5 col-md-6 col-xs-12">
-					<div class="input-group">
-						<select id="cmbEstado"
-								name="cmbEstado"
-								tabindex="3"
-								kendo-drop-down-list="dropdownlist"
-								k-option-label="'{{inicioCtrl.traducirTexto(tipoUsuCtrl.lbl.plh.estado)}}'"
-								k-options="tipoUsuCtrl.optionsEstado"
-								k-data-source="tipoUsuCtrl.cmbDsEstado"
-								data-ng-blur="tipoUsuCtrl.validar()"
-								k-ng-model="tipoUsuCtrl.cmbEstado"/>
-						<div class="input-group-addon informacion">
-		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
-		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(tipoUsuCtrl.lbl.tol.estado)}}"
-		                       data-tooltip-placement="top"
-		                       data-tooltip-class="mensaje-informacion"></i>
-		                </div>
-					</div>
-				</div>
-			</div>
+            <div class="form-group">
+                <label  id="lblUsuario"
+                        name="lblUsuario"
+                        for="lblUsuario"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                    <span data-translate>{{tipoUsuCtrl.lbl.lbl.tipousuario}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <input  id="txtUsuario"
+                                name="txtUsuario"
+                                type="text"
+                                tabindex="1"
+                                accesskey="u"
+                                autofocus
+                                maxlength="100"
+                                class="k-textbox"
+                                data-ng-model="tipoUsuCtrl.txtUsuario"
+                                data-ng-blur="tipoUsuCtrl.validar()"
+                                placeholder="{{inicioCtrl.traducirTexto(tipoUsuCtrl.lbl.plh.tipousuario)}}"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(tipoUsuCtrl.lbl.tol.tipousuario)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  id="lblDescripcion"
+                        name="lblDescripcion"
+                        for="lblDescripcion"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                    <span data-translate>{{tipoUsuCtrl.lbl.lbl.descripcion}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <textarea id="txtDescripcion"
+                                name="txtDescripcion"
+                                type="text"
+                                tabindex="2"
+                                class="k-textbox"
+                                rows="6"
+                                data-ng-model="tipoUsuCtrl.txtDescripcion"
+                                data-ng-blur="tipoUsuCtrl.validar()"
+                                placeholder="{{inicioCtrl.traducirTexto(tipoUsuCtrl.lbl.plh.descripcion)}}"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(tipoUsuCtrl.lbl.tol.descripcion)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  id="lblEstado"
+                        name="lblEstado"
+                        for="lblEstado"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                        <span data-translate>{{tipoUsuCtrl.lbl.lbl.estado}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <select id="cmbEstado"
+                                name="cmbEstado"
+                                tabindex="3"
+                                kendo-drop-down-list="dropdownlist"
+                                k-option-label="'{{inicioCtrl.traducirTexto(tipoUsuCtrl.lbl.plh.estado)}}'"
+                                k-options="tipoUsuCtrl.optionsEstado"
+                                k-data-source="tipoUsuCtrl.cmbDsEstado"
+                                data-ng-blur="tipoUsuCtrl.validar()"
+                                k-ng-model="tipoUsuCtrl.cmbEstado"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(tipoUsuCtrl.lbl.tol.estado)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
 <!--Seccion Botones -->
-			<div class="button-form">
-				<button id="btnAceptar"
-						name="btnAceptar"
-						tabindex="4"
-						class="k-button k-primary"
-						data-ng-model="tipoUsuCtrl.btnAceptar"
-						data-ng-disabled="tipoUsuCtrl.desBtnAceptar"
-						data-ng-click="tipoUsuCtrl.aceptar()"
-						data-translate>{{tipoUsuCtrl.boton1}}
-				</button>
-				<button id="btnLimpiar"
-						name="btnLimpiar"
-						tabindex="5"
-						class="k-button k-primary"
-						data-ng-click="tipoUsuCtrl.limpiarFiltro()"
-						data-translate>{{tipoUsuCtrl.boton2}}
-				</button>
-			</div>
-		</fieldset>
-	</form>
-	<br>
+            <div class="button-form">
+                <button id="btnAceptar"
+                        name="btnAceptar"
+                        tabindex="4"
+                        class="k-button k-primary"
+                        data-ng-model="tipoUsuCtrl.btnAceptar"
+                        data-ng-disabled="tipoUsuCtrl.desBtnAceptar"
+                        data-ng-click="tipoUsuCtrl.aceptar()"
+                        data-translate>{{tipoUsuCtrl.boton1}}
+                </button>
+                <button id="btnLimpiar"
+                        name="btnLimpiar"
+                        tabindex="5"
+                        class="k-button k-primary"
+                        data-ng-click="tipoUsuCtrl.limpiarFiltro()"
+                        data-translate>{{tipoUsuCtrl.boton2}}
+                </button>
+            </div>
+        </fieldset>
+    </form>
+    <br>
 <!--Seccion Tabla -->
-	<div class="table-responsive">
-		<table	id="tblAdministrar"
-				name="tblAdministrar"
-				class="table table-responsive table-bordered table-striped table-hover"
-				data-datatable=""
-				data-dt-options="tipoUsuCtrl.dtAdministrarOptions"
-				data-dt-columns="tipoUsuCtrl.dtAdministrarColumns"
-				data-dt-instance="tipoUsuCtrl.dtAdministrar">
-			<thead class="cabecera-principal text-center"></thead>
-		</table>
-	</div>
+    <div class="table-responsive">
+        <table  id="tblAdministrar"
+                name="tblAdministrar"
+                class="table table-responsive table-bordered table-striped table-hover"
+                data-datatable=""
+                data-dt-options="tipoUsuCtrl.dtAdministrarOptions"
+                data-dt-columns="tipoUsuCtrl.dtAdministrarColumns"
+                data-dt-instance="tipoUsuCtrl.dtAdministrar">
+            <thead class="cabecera-principal text-center"></thead>
+        </table>
+    </div>
 </div>

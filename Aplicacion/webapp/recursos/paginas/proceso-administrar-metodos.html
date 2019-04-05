@@ -1,28 +1,28 @@
-<form	class="form-horizontal"
-		id="frmAdministrar"
-		name="frmAdministrar"
-		novalidate>
-	<fieldset>
-		<!--<legend>Formulario Área</legend>-->
+<form   class="form-horizontal"
+        id="frmAdministrar"
+        name="frmAdministrar"
+        novalidate>
+    <fieldset>
+        <!--<legend>Formulario Área</legend>-->
         <h2 data-translate>{{pronuevo.lbl.lbl.formulariometodo}}</h2>
         <p data-translate>{{pronuevo.lbl.lbl.formularioinformativo}}</p>
         <div class="form-group" data-ng-repeat="nivel in pronuevo.niveles">
-			<label	id="lblNivel"
-					name="lblNivel"
-					for="lblNivel"
-					class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">
-				<span data-translate>{{nivel.ctn_nombre}}</span>:
-			</label>
-			<div class="col-lg-offset-4 col-md-offset-4 col-lg-5 col-md-6 col-xs-12"  data-ng-repeat="metodo in pronuevo.metodos" ng-if="metodo.ctm_id_nivel == nivel.ctn_id" >
-        		<label>
-	                <input 	type="checkbox"
-	                		ng-checked="exists(metodo, selected)"
-	                       	data-ng-click="toggle(metodo, selected)"/>
-					<img src="recursos/imagenes/metodos/{{metodo.ctm_imagen}}.jpg" width="100" height="100"">
-	                {{ metodo.ctm_nombre }}
-	              </label>
-			</div>
-			<hr/>
-		</div>
-	</fieldset>
+            <label  id="lblNivel"
+                    name="lblNivel"
+                    for="lblNivel"
+                    class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">
+                <span data-translate>{{nivel.ctn_nombre}}</span>:
+            </label>
+            <div class="col-lg-offset-4 col-md-offset-4 col-lg-5 col-md-6 col-xs-12"  data-ng-repeat="metodo in pronuevo.metodos" ng-if="metodo.ctm_id_nivel == nivel.ctn_id" >
+                <label>
+                    <input  type="checkbox"
+                            ng-checked="exists(metodo, selected)"
+                            data-ng-click="toggle(metodo, selected)"/>
+                    <img src="recursos/imagenes/metodos/{{metodo.ctm_imagen}}.jpg" width="100" height="100"">
+                    {{ metodo.ctm_nombre }}
+                  </label>
+            </div>
+            <hr/>
+        </div>
+    </fieldset>
 </form>

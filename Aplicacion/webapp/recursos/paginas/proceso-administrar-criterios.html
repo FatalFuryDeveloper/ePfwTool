@@ -1,200 +1,200 @@
 <div ng-show="pronuevo.mostrarFormularioCriterio">
-	<form	class="form-horizontal"
-			id="frmAdministrar"
-			name="frmAdministrar"
-			novalidate>
-		<fieldset>
-			<!--<legend>Formulario Área</legend>-->
+    <form   class="form-horizontal"
+            id="frmAdministrar"
+            name="frmAdministrar"
+            novalidate>
+        <fieldset>
+            <!--<legend>Formulario Área</legend>-->
             <h2 data-translate>{{pronuevo.lbl.lbl.formulariocriterio}}</h2>
             <p data-translate>{{pronuevo.lbl.lbl.formularioinformativo}}</p>
-			<div class="form-group">
-				<label 	id="lblFaseCriterio"
-						name="lblFaseCriterio"
-						for="lblFaseCriterio"
-						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
-						<span data-translate>{{pronuevo.lbl.lbl.fase}}</span>:
-				</label>
-				<div class="col-lg-5 col-md-6 col-xs-12">
-					<div class="input-group">
-						<select id="cmbFaseCriterio"
-								name="cmbFaseCriterio"
-								tabindex="1"
-								kendo-drop-down-list="dropdownlist"
-								k-option-label="'{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.opcion)}}'"
-								k-options="pronuevo.optionsFaseCriterio"
-								k-data-source="pronuevo.cmbDsFaseCriterio"
-								data-ng-blur="pronuevo.validarComboFaseCriterio()"
-								k-ng-model="pronuevo.cmbFaseCriterio"/>
-						<div class="input-group-addon informacion">
-		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
-		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.fase)}}"
-		                       data-tooltip-placement="top"
-		                       data-tooltip-class="mensaje-informacion"/>
-			            </div>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label	id="lblObjetivoCriterio"
-						name="lblObjetivoCriterio"
-						for="lblObjetivoCriterio"
-						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
-					<span data-translate>{{pronuevo.lbl.lbl.objetivo}}</span>:
-				</label>
-				<div class="col-lg-5 col-md-6 col-xs-12">
-					<div class="input-group">
-						<textarea 	id="txtObjetivoCriterio"
-								name="txtObjetivoCriterio"
-								class="k-textbox"
-								tabindex="2"
-								readonly="true"
-								rows="6"
-								data-ng-disabled="pronuevo.criterioDesactivado"
-								data-ng-model="pronuevo.txtObjetivoCriterio"
-								data-translate
-								placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.objetivo)}}"/>
-						<div class="input-group-addon informacion">
-		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
-		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.objetivo)}}"
-		                       data-tooltip-placement="top"
-		                       data-tooltip-class="mensaje-informacion"/>
-			            </div>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label	id="lblCriterio"
-						name="lblCriterio"
-						for="lblCriterio"
-						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
-					<span data-translate>{{pronuevo.lbl.lbl.criterio}}</span>:
-				</label>
-				<div class="col-lg-5 col-md-6 col-xs-12">
-					<div class="input-group">
-						<textarea 	id="txtCriterio"
-								name="txtCriterio"
-								class="k-textbox"
-								tabindex="3"
-								rows="3"
-								data-ng-disabled="pronuevo.criterioDesactivado"
-								data-ng-blur="pronuevo.validarCriterio()"
-								data-ng-model="pronuevo.txtCriterio"
-								data-translate
-								placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.criterio)}}"/>
-						<div class="input-group-addon informacion">
-		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
-		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.criterio)}}"
-		                       data-tooltip-placement="top"
-		                       data-tooltip-class="mensaje-informacion"/>
-			            </div>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label	id="lblIndicadorCriterio"
-						name="lblIndicadorCriterio"
-						for="lblIndicadorCriterio"
-						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
-					<span data-translate>{{pronuevo.lbl.lbl.indicador}}</span>:
-				</label>
-				<div class="col-lg-5 col-md-6 col-xs-12">
-					<div class="input-group">
-						<input	id="txtIndicadorCriterio"
-								name="txtIndicadorCriterio"
-								type="text"
-								tabindex="4"
-								accesskey="i"
-								maxlength="100"
-								class="k-textbox"
-								data-ng-disabled="pronuevo.criterioDesactivado"
-								data-ng-model="pronuevo.txtIndicadorCriterio"
-								data-ng-blur="pronuevo.validarCriterio()"
-								placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.indicador)}}"/>
-						<div class="input-group-addon informacion">
-		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
-		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.indicador)}}"
-		                       data-tooltip-placement="top"
-		                       data-tooltip-class="mensaje-informacion"/>
-			            </div>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label	id="lblRangoCriterio"
-						name="lblRangoCriterio"
-						for="lblRangoCriterio"
-						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
-					<span data-translate>{{pronuevo.lbl.lbl.rango}}</span>:
-				</label>
-				<div class="col-lg-5 col-md-6 col-xs-12">
-					<div class="input-group">
-						<input	id="txtRangoCriterio"
-								name="txtRangoCriterio"
-								type="text"
-								tabindex="5"
-								accesskey="t"
-								autofocus
-								maxlength="100"
-								class="k-textbox"
-								data-ng-disabled="pronuevo.criterioDesactivado"
-								data-ng-blur="pronuevo.validarCriterio()"
-								data-ng-model="pronuevo.txtRangoCriterio"
-								placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.rango)}}"/>
-						<div class="input-group-addon informacion">
-		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
-		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.rango)}}"
-		                       data-tooltip-placement="top"
-		                       data-tooltip-class="mensaje-informacion"/>
-			            </div>
-					</div>
-				</div>
-			</div>
-	<!--Seccion Botones -->
-			<div class="button-form">
-				<button id="btnAceptarAgregarParticipante"
-						name="btnAceptarAgregarParticipante"
-						tabindex="6"
-						class="k-button k-primary"
-						data-ng-model="pronuevo.btnAceptarCriterio"
-						data-ng-disabled="pronuevo.desBtnCriterioDesabilitado"
-						data-ng-click="pronuevo.aceptarAgregarCriterio()"
-						data-translate>{{pronuevo.lbl.btn.agregar}}
-				</button>
-				<button id="btnCancelarNuevoParticipante"
-					name="btnCancelarNuevoParticipante"
-					class="k-button k-primary"
-					tabindex="7"
-					data-ng-click="pronuevo.cancelarCriterio()"
-					data-translate>{{pronuevo.lbl.btn.cancelar}}
-				</button>
-				<button id="btnLimpiarNuevoParticipante"
-						name="btnLimpiarNuevoParticipante"
-						tabindex="8"
-						class="k-button k-primary"
-						data-ng-click="pronuevo.limpiarFiltroCriterio()"
-						data-translate>{{pronuevo.lbl.btn.limpiar}}
-				</button>
-			</div>
-		</fieldset>
-	</form>
+            <div class="form-group">
+                <label  id="lblFaseCriterio"
+                        name="lblFaseCriterio"
+                        for="lblFaseCriterio"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                        <span data-translate>{{pronuevo.lbl.lbl.fase}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <select id="cmbFaseCriterio"
+                                name="cmbFaseCriterio"
+                                tabindex="1"
+                                kendo-drop-down-list="dropdownlist"
+                                k-option-label="'{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.opcion)}}'"
+                                k-options="pronuevo.optionsFaseCriterio"
+                                k-data-source="pronuevo.cmbDsFaseCriterio"
+                                data-ng-blur="pronuevo.validarComboFaseCriterio()"
+                                k-ng-model="pronuevo.cmbFaseCriterio"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.fase)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  id="lblObjetivoCriterio"
+                        name="lblObjetivoCriterio"
+                        for="lblObjetivoCriterio"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                    <span data-translate>{{pronuevo.lbl.lbl.objetivo}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <textarea   id="txtObjetivoCriterio"
+                                name="txtObjetivoCriterio"
+                                class="k-textbox"
+                                tabindex="2"
+                                readonly="true"
+                                rows="6"
+                                data-ng-disabled="pronuevo.criterioDesactivado"
+                                data-ng-model="pronuevo.txtObjetivoCriterio"
+                                data-translate
+                                placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.objetivo)}}"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.objetivo)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  id="lblCriterio"
+                        name="lblCriterio"
+                        for="lblCriterio"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                    <span data-translate>{{pronuevo.lbl.lbl.criterio}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <textarea   id="txtCriterio"
+                                name="txtCriterio"
+                                class="k-textbox"
+                                tabindex="3"
+                                rows="3"
+                                data-ng-disabled="pronuevo.criterioDesactivado"
+                                data-ng-blur="pronuevo.validarCriterio()"
+                                data-ng-model="pronuevo.txtCriterio"
+                                data-translate
+                                placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.criterio)}}"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.criterio)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  id="lblIndicadorCriterio"
+                        name="lblIndicadorCriterio"
+                        for="lblIndicadorCriterio"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                    <span data-translate>{{pronuevo.lbl.lbl.indicador}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <input  id="txtIndicadorCriterio"
+                                name="txtIndicadorCriterio"
+                                type="text"
+                                tabindex="4"
+                                accesskey="i"
+                                maxlength="100"
+                                class="k-textbox"
+                                data-ng-disabled="pronuevo.criterioDesactivado"
+                                data-ng-model="pronuevo.txtIndicadorCriterio"
+                                data-ng-blur="pronuevo.validarCriterio()"
+                                placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.indicador)}}"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.indicador)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  id="lblRangoCriterio"
+                        name="lblRangoCriterio"
+                        for="lblRangoCriterio"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                    <span data-translate>{{pronuevo.lbl.lbl.rango}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <input  id="txtRangoCriterio"
+                                name="txtRangoCriterio"
+                                type="text"
+                                tabindex="5"
+                                accesskey="t"
+                                autofocus
+                                maxlength="100"
+                                class="k-textbox"
+                                data-ng-disabled="pronuevo.criterioDesactivado"
+                                data-ng-blur="pronuevo.validarCriterio()"
+                                data-ng-model="pronuevo.txtRangoCriterio"
+                                placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.rango)}}"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.rango)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!--Seccion Botones -->
+            <div class="button-form">
+                <button id="btnAceptarAgregarParticipante"
+                        name="btnAceptarAgregarParticipante"
+                        tabindex="6"
+                        class="k-button k-primary"
+                        data-ng-model="pronuevo.btnAceptarCriterio"
+                        data-ng-disabled="pronuevo.desBtnCriterioDesabilitado"
+                        data-ng-click="pronuevo.aceptarAgregarCriterio()"
+                        data-translate>{{pronuevo.lbl.btn.agregar}}
+                </button>
+                <button id="btnCancelarNuevoParticipante"
+                    name="btnCancelarNuevoParticipante"
+                    class="k-button k-primary"
+                    tabindex="7"
+                    data-ng-click="pronuevo.cancelarCriterio()"
+                    data-translate>{{pronuevo.lbl.btn.cancelar}}
+                </button>
+                <button id="btnLimpiarNuevoParticipante"
+                        name="btnLimpiarNuevoParticipante"
+                        tabindex="8"
+                        class="k-button k-primary"
+                        data-ng-click="pronuevo.limpiarFiltroCriterio()"
+                        data-translate>{{pronuevo.lbl.btn.limpiar}}
+                </button>
+            </div>
+        </fieldset>
+    </form>
 </div>
 
 <div data-ng-show="pronuevo.mostrarTablaCriterio">
-	<div class="barra-herramientas">
+    <div class="barra-herramientas">
         <a  data-ng-click="pronuevo.agregarCriterio()">
-        	<i class="icon-nuevo icono-verde icono-generales"/>
+            <i class="icon-nuevo icono-verde icono-generales"/>
            <span data-translate>{{pronuevo.lbl.bar.agregar}}</span>
         </a>
-	</div>
-	<div class="table-responsive">
-		<table	id="tblAdministrarCriterios"
-				name="tblAdministrarCriterios"
-				class="table table-responsive table-bordered table-striped table-hover"
-				data-datatable=""
-				data-dt-options="pronuevo.dtAdministrarCriteriosOptions"
-				data-dt-columns="pronuevo.dtAdministrarCriteriosColumns"
-				data-dt-instance="pronuevo.dtAdministrarCriterios">
-			<thead class="cabecera-principal text-center"></thead>
-		</table>
-	</div>
+    </div>
+    <div class="table-responsive">
+        <table  id="tblAdministrarCriterios"
+                name="tblAdministrarCriterios"
+                class="table table-responsive table-bordered table-striped table-hover"
+                data-datatable=""
+                data-dt-options="pronuevo.dtAdministrarCriteriosOptions"
+                data-dt-columns="pronuevo.dtAdministrarCriteriosColumns"
+                data-dt-instance="pronuevo.dtAdministrarCriterios">
+            <thead class="cabecera-principal text-center"></thead>
+        </table>
+    </div>
 </div>

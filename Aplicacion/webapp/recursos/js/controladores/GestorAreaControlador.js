@@ -9,24 +9,24 @@
  */
 (function(angular) {
 
- 	'use strict';
+    'use strict';
 
     /* Definición del controlador en un modulo especifico */
- 	angular.module('sri').controller('GestorAreaControlador',GestorAreaControlador);
+    angular.module('sri').controller('GestorAreaControlador',GestorAreaControlador);
 
     /* Parametros a inyectar en la Funcion Principal*/
- 	GestorAreaControlador.$inject = ['$rootScope', '$scope', '$uibModal', '$state', '$translate', '$timeout',
+    GestorAreaControlador.$inject = ['$rootScope', '$scope', '$uibModal', '$state', '$translate', '$timeout',
         'I18nFactory', '$http', '$q', '$compile', 'DTOptionsBuilder', 'DTColumnBuilder', 'SistemaConstanteValue',
         'ComunServicio', 'TablaFactory'];
 
     /* Funcion Principal. */
- 	function GestorAreaControlador($rootScope, $scope, $uibModal, $state, $translate, $timeout,
+    function GestorAreaControlador($rootScope, $scope, $uibModal, $state, $translate, $timeout,
         i18nFactory, $http,  $q, $compile, DTOptionsBuilder, DTColumnBuilder, SistemaConstanteValue,
         ComunServicio, TablaFactory) {
- 		/***********************************************************************************
+        /***********************************************************************************
          ******************************** DECLARACION DE VARIABLES *************************
          ***********************************************************************************/
- 		var vm = this;
+        var vm = this;
         /* Variables de Etiquetas a Traducir */
         vm.lbl              = SistemaConstanteValue;
 
@@ -78,10 +78,10 @@
         vm.armarTrama       = armarTrama;
         vm.transferirMensaje= transferirMensaje;
 
- 		/***********************************************************************************
+        /***********************************************************************************
          *********************************** FUNCIONES *************************************
          ***********************************************************************************/
- 		/* Funcion que detecta un cambio de idioma o traduccion */
+        /* Funcion que detecta un cambio de idioma o traduccion */
         $rootScope.$on('$translateChangeSuccess', inicializar);
 
         /**
@@ -382,5 +382,5 @@
             vm.boton2           = vm.lbl.btn.limpiar;
             vm.eliminado        = 0;
         }
-	}
+    }
 }(window.angular));

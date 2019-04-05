@@ -1,7 +1,7 @@
 /**
  * @type    controller
  * @name    GestorFaseControlador
- * @desc    Es el controlador para Administrar Areas de Procesos del Sistema
+ * @desc    Es el controlador para Administrar Fases de Procesos de Participacion Ciudadana
  * @autor   Mauro Xavier Rivera Rasury (fatalfurydeveloper)
  * @email   fatalfurydeveloper@gmail.com
  * @since   01-09-2018
@@ -9,25 +9,25 @@
  */
 (function(angular) {
 
- 	'use strict';
+    'use strict';
 
     /* Definición del controlador en un modulo especifico */
- 	angular.module('sri').controller('GestorFaseControlador',GestorFaseControlador);
+    angular.module('sri').controller('GestorFaseControlador',GestorFaseControlador);
 
     /* Parametros a inyectar en la Funcion Principal*/
- 	GestorFaseControlador.$inject = ['$rootScope', '$scope', '$uibModal', '$state', '$translate', '$timeout',
+    GestorFaseControlador.$inject = ['$rootScope', '$scope', '$uibModal', '$state', '$translate', '$timeout',
         'I18nFactory', '$http', '$q', '$compile', 'DTOptionsBuilder', 'DTColumnBuilder', 'SistemaConstanteValue',
         'ComunServicio', 'SesionFactory', 'TablaFactory'];
 
     /* Funcion Principal. */
- 	function GestorFaseControlador($rootScope, $scope, $uibModal, $state, $translate, $timeout,
+    function GestorFaseControlador($rootScope, $scope, $uibModal, $state, $translate, $timeout,
         i18nFactory, $http,  $q, $compile, DTOptionsBuilder, DTColumnBuilder, SistemaConstanteValue,
         ComunServicio, SesionFactory, TablaFactory) {
 
- 		/***********************************************************************************
+        /***********************************************************************************
          ******************************** DECLARACION DE VARIABLES *************************
          ***********************************************************************************/
- 		   var vm = this;
+           var vm = this;
         /* Variables de Etiquetas a Traducir */
         vm.lbl              = SistemaConstanteValue;
 
@@ -82,10 +82,9 @@
         vm.armarTrama       = armarTrama;
         vm.transferirMensaje= transferirMensaje;
 
- 		/***********************************************************************************
+        /***********************************************************************************
          *********************************** FUNCIONES *************************************
          ***********************************************************************************/
-         //var logarea = document.getElementById("logarea");
 
           $(document).ready(function() {
             RowSorter('table[attr-sample=tablaFases]', {
@@ -130,7 +129,7 @@
             }
         }
 
- 		     /* Funcion que detecta un cambio de idioma o traduccion */
+             /* Funcion que detecta un cambio de idioma o traduccion */
         $rootScope.$on('$translateChangeSuccess', inicializar);
 
         /**
@@ -290,7 +289,7 @@
         };
 
         /**
-         * @description Funcion para ejecutar CRUD de tabla Area
+         * @description Funcion para ejecutar CRUD de tabla Fase
          * @returns void
          */
         function ejecutarCambioServicio(datos,success,error){
@@ -303,7 +302,7 @@
         }
 
         /**
-         * @description Funcion para ejecutar CRUD de tabla Area
+         * @description Funcion para ejecutar CRUD de tabla Fase
          * @returns void
          */
         function ejecutarServicio(datos,success,error){
@@ -318,7 +317,7 @@
         }
 
         /**
-         * @description Funcion para consultar registros de tabla Area
+         * @description Funcion para consultar registros de tabla Fase
          * @returns void
          */
         function consultarRegistros(funcion){
@@ -334,7 +333,7 @@
 
 
         /**
-         * @description Funcion para insertar registro en tabla Area
+         * @description Funcion para insertar registro en tabla Fase
          * @returns void
          */
         function insertarRegistro(funcion){
@@ -344,7 +343,7 @@
         }
 
          /**
-         * @description Funcion para actualizar registros de tabla Area
+         * @description Funcion para actualizar registros de tabla Fase
          * @returns void
          */
         function actualizarRegistro(funcion){
@@ -403,7 +402,7 @@
         };
 
         /**
-         * @description Funcion para armar la trama a consumir del Areas de procesos
+         * @description Funcion para armar la trama a consumir del Fases de procesos
          * @void
          */
         function armarTrama(metodo,url,funcion){
@@ -450,5 +449,5 @@
             vm.boton2           = vm.lbl.btn.limpiar;
             vm.eliminado        = 0;
         }
-	}
+    }
 }(window.angular));

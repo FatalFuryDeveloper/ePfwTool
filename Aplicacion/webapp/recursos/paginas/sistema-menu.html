@@ -1,81 +1,81 @@
   <aside class="navbar-default" role="navigation">
         <div class="sidebar-nav navbar-collapse">
              <ul class="sidebar-menu nav iteMenu" id="side-menu"> <!--data-menu-items="menuitems"-->
-             	<li class="sidebar-search">
-					<div class="input-group" role="search">
-						<input 	id="txtBuscar"
-								name="txtBuscar"
-								type="text"
-								class="form-control input-search"
-								data-ng-change="inicioCtrl.colapsarMenu()"
-								data-translate-attr-placeholder="APP.MASCARA.BUSCAR"
-								data-ng-model="model.buscaMenu" />
-						<span  class="input-group-btn" ><span class="glyphicon glyphicon-search boton-search"/></span>
-					</div>
-				</li>
+                <li class="sidebar-search">
+                    <div class="input-group" role="search">
+                        <input  id="txtBuscar"
+                                name="txtBuscar"
+                                type="text"
+                                class="form-control input-search"
+                                data-ng-change="inicioCtrl.colapsarMenu()"
+                                data-translate-attr-placeholder="APP.MASCARA.BUSCAR"
+                                data-ng-model="model.buscaMenu" />
+                        <span  class="input-group-btn" ><span class="glyphicon glyphicon-search boton-search"/></span>
+                    </div>
+                </li>
 
-				<li data-ng-class={{item.ngclass}}
-					data-ng-repeat="item in (filteredOptions = (items | filter:model.buscaMenu))">
-					<!-- opciones sin subitems  -->
-					<a 	data-ui-sref="{{item.url}}"
-						role="button"
-						tabindex="0"
-						data-toggle="collapse"
-						data-parent="#accordion"
-						aria-expanded="true"
-						aria-controls="collapse1"
-						data-ng-show="!item.subItems">
-							<i class="{{item.icono}} alineacionIconoMenu"></i>
-							<span class="alinearTextoMenu" data-translate>{{item.nombre}}</span>
-					</a>
-					<!-- opciones con subitems data-ui-sref="{{item.url}}"-->
-					<a
-						role="button"
-						tabindex="0"
-						data-toggle="collapse"
-						data-ng-click="check(item.id);showDetail(item.id);colapsarMenu()"
-						data-ng-init="active==null"
-						data-ng-show="item.subItems.length">
-							<i class="{{item.icono}} alineacionIconoMenu"></i>
-							<span class="alinearTextoMenu" data-translate>{{item.nombre}}</span>
-							<span data-ng-hide="model.active==item.id" class="glyphicon glyphicon-chevron-down  flecha-menu"></span>
-							<span data-ng-show="model.active==item.id" class="glyphicon glyphicon-chevron-up  flecha-menu"></span>
-					</a>
+                <li data-ng-class={{item.ngclass}}
+                    data-ng-repeat="item in (filteredOptions = (items | filter:model.buscaMenu))">
+                    <!-- opciones sin subitems  -->
+                    <a  data-ui-sref="{{item.url}}"
+                        role="button"
+                        tabindex="0"
+                        data-toggle="collapse"
+                        data-parent="#accordion"
+                        aria-expanded="true"
+                        aria-controls="collapse1"
+                        data-ng-show="!item.subItems">
+                            <i class="{{item.icono}} alineacionIconoMenu"></i>
+                            <span class="alinearTextoMenu" data-translate>{{item.nombre}}</span>
+                    </a>
+                    <!-- opciones con subitems data-ui-sref="{{item.url}}"-->
+                    <a
+                        role="button"
+                        tabindex="0"
+                        data-toggle="collapse"
+                        data-ng-click="check(item.id);showDetail(item.id);colapsarMenu()"
+                        data-ng-init="active==null"
+                        data-ng-show="item.subItems.length">
+                            <i class="{{item.icono}} alineacionIconoMenu"></i>
+                            <span class="alinearTextoMenu" data-translate>{{item.nombre}}</span>
+                            <span data-ng-hide="model.active==item.id" class="glyphicon glyphicon-chevron-down  flecha-menu"></span>
+                            <span data-ng-show="model.active==item.id" class="glyphicon glyphicon-chevron-up  flecha-menu"></span>
+                    </a>
 
-					<div 	data-ng-if="model.buscaMenu"
-							data-uib-collapse="model.collapseVar==item.id" >
-						<ul class="panel-collapse in collapse"
-							role="tabpanel"
-							aria-labelledby="heading1"
-							data-ng-show="item.subItems.length">
-							<li data-ui-sref-active="active"
-								id="itemSubMenu"
-								data-ng-repeat="subItem in item.subItems | filter:model.buscaMenu">
-								<a 	data-ng-click="inicioCtrl.colapsarMenu()"
-								    data-ui-sref="{{subItem.url}}"
-									tabindex="0"">
-								<span class="alineacionIconoMenu alinearTextoMenu" data-translate>{{subItem.nombre}}</span>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<div 	data-ng-if="!model.buscaMenu"
-							data-uib-collapse="model.collapseVar!=item.id">
-					    <ul class="panel-collapse in collapse"
-					    	role="tabpanel"
-							aria-labelledby="heading1"
-							data-ng-show="item.subItems.length">
-							<li data-ui-sref-active="active"
-								data-ng-repeat="subItem in item.subItems | filter:model.buscaMenu">
-								<a 	data-ui-sref={{subItem.url}}
-									tabindex="0"
-									data-ng-click="limpiarAlertas();inicioCtrl.colapsarMenu()">
-									<span class="alinearTextoMenu" data-translate>{{subItem.nombre}}</span>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</li>
+                    <div    data-ng-if="model.buscaMenu"
+                            data-uib-collapse="model.collapseVar==item.id" >
+                        <ul class="panel-collapse in collapse"
+                            role="tabpanel"
+                            aria-labelledby="heading1"
+                            data-ng-show="item.subItems.length">
+                            <li data-ui-sref-active="active"
+                                id="itemSubMenu"
+                                data-ng-repeat="subItem in item.subItems | filter:model.buscaMenu">
+                                <a  data-ng-click="inicioCtrl.colapsarMenu()"
+                                    data-ui-sref="{{subItem.url}}"
+                                    tabindex="0"">
+                                <span class="alineacionIconoMenu alinearTextoMenu" data-translate>{{subItem.nombre}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div    data-ng-if="!model.buscaMenu"
+                            data-uib-collapse="model.collapseVar!=item.id">
+                        <ul class="panel-collapse in collapse"
+                            role="tabpanel"
+                            aria-labelledby="heading1"
+                            data-ng-show="item.subItems.length">
+                            <li data-ui-sref-active="active"
+                                data-ng-repeat="subItem in item.subItems | filter:model.buscaMenu">
+                                <a  data-ui-sref={{subItem.url}}
+                                    tabindex="0"
+                                    data-ng-click="limpiarAlertas();inicioCtrl.colapsarMenu()">
+                                    <span class="alinearTextoMenu" data-translate>{{subItem.nombre}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
              </ul>
         </div>
  </aside>

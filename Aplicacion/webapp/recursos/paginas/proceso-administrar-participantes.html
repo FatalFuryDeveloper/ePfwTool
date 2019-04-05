@@ -1,280 +1,280 @@
 <div ng-show="pronuevo.mostrarFormularioNuevoParticipante">
-	<form	class="form-horizontal"
-			id="frmAdministrar"
-			name="frmAdministrar"
-			novalidate>
-		<fieldset>
-			<!--<legend>Formulario Área</legend>-->
+    <form   class="form-horizontal"
+            id="frmAdministrar"
+            name="frmAdministrar"
+            novalidate>
+        <fieldset>
+            <!--<legend>Formulario Área</legend>-->
             <h2 data-translate>{{pronuevo.lbl.lbl.formularioparticipante}}</h2>
             <p data-translate>{{pronuevo.lbl.lbl.formularioinformativo}}</p>
-			<div class="form-group">
-				<label	id="lblParticipante"
-						name="lblParticipante"
-						for="lblParticipante"
-						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
-					<span data-translate>{{pronuevo.lbl.lbl.participante}}</span>:
-				</label>
-				<div class="col-lg-5 col-md-6 col-xs-12">
-					<div class="input-group">
-						<input	id="txtParticipante"
-								name="txtParticipante"
-								type="text"
-								tabindex="1"
-								accesskey="u"
-								autofocus
-								mixlength="5"
-								maxlength="100"
-								class="k-textbox"
-								data-ng-model="pronuevo.txtParticipante"
-								data-ng-blur="pronuevo.validarNuevoParticipante()"
-								placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.participante)}}"/>
-						<div class="input-group-addon informacion">
-		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
-		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.participante)}}"
-		                       data-tooltip-placement="top"
-		                       data-tooltip-class="mensaje-informacion"/>
-			            </div>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label	id="lblEmail"
-						name="lblEmail"
-						for="lblEmail"
-						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
-					<span data-translate>{{pronuevo.lbl.lbl.email}}</span>:
-				</label>
-				<div class="col-lg-5 col-md-6 col-xs-12">
-					<div class="input-group">
-						<input	id="txtEmailParticipante"
-								name="txtEmailParticipante"
-								type="text"
-								tabindex="2"
-								mixlength="7"
-								maxlength="100"
-								data-validar-directiva="pronuevo.expRegular2"
-								data-valor-final="pronuevo.expRegularFinal2"
-								class="k-textbox"
-								data-ng-model="pronuevo.txtEmailParticipante"
-								data-ng-blur="pronuevo.validarEmail();pronuevo.validarNuevoParticipante()"
-								placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.email)}}"/>
-						<div class="input-group-addon informacion">
-		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
-		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.email)}}"
-		                       data-tooltip-placement="top"
-		                       data-tooltip-class="mensaje-informacion"/>
-			            </div>
-					</div>
-				</div>
-				<div>
-					<span 	class="mensaje-error-solido col-sm-12 col-xs-12"
-							data-ng-show="pronuevo.tooltipEmailRegistrado"
-							data-translate>{{pronuevo.lbl.lbl.emailregistrado}}
-					</span>
-					<span 	class="mensaje-error-solido col-sm-12 col-xs-12"
-							data-ng-show="pronuevo.tooltipEmailIncorrecto"
-							data-translate>{{pronuevo.lbl.lbl.emailincorrecto}}
-					</span>
-				</div>
-			</div>
-			<div class="form-group">
-				<label 	id="lblTipoParticipante"
-						name="lblTipoParticipante"
-						for="lblTipoParticipante"
-						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
-						<span data-translate>{{pronuevo.lbl.lbl.tipoparticipante}}</span>:
-				</label>
-				<div class="col-lg-5 col-md-6 col-xs-12">
-					<div class="input-group">
-						<select id="cmbTipoParticipante"
-								name="cmbTipoParticipante"
-								tabindex="3"
-								kendo-drop-down-list="dropdownlist"
-								k-option-label="'{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.opcion)}}'"
-								k-options="pronuevo.optionsTipoParticipante"
-								k-data-source="pronuevo.cmbDsTipoParticipante"
-								data-ng-blur="pronuevo.validarNuevoParticipante()"
-								k-ng-model="pronuevo.cmbTipoParticipante"/>
-						<div class="input-group-addon informacion">
-		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
-		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.tipoparticipante)}}"
-		                       data-tooltip-placement="top"
-		                       data-tooltip-class="mensaje-informacion"/>
-			            </div>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label 	id="lblEstadoParticipante"
-						name="lblEstadoParticipante"
-						for="lblEstadoParticipante"
-						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
-						<span data-translate>{{pronuevo.lbl.lbl.estado}}</span>:
-				</label>
-				<div class="col-lg-5 col-md-6 col-xs-12">
-					<div class="input-group">
-						<select id="cmbEstadoParticipante"
-								name="cmbEstadoParticipante"
-								tabindex="4"
-								kendo-drop-down-list="dropdownlist"
-								k-option-label="'{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.opcion)}}'"
-								k-options="pronuevo.optionsEstado"
-								k-data-source="pronuevo.cmbDsEstado"
-								data-ng-blur="pronuevo.validarNuevoParticipante()"
-								k-ng-model="pronuevo.cmbEstadoParticipante"/>
-						<div class="input-group-addon informacion">
-		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
-		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.estado)}}"
-		                       data-tooltip-placement="top"
-		                       data-tooltip-class="mensaje-informacion"/>
-			            </div>
-					</div>
-				</div>
-			</div>
-	<!--Seccion Botones -->
-			<div class="button-form">
-				<button id="btnAceptarAgregarParticipante"
-						name="btnAceptarAgregarParticipante"
-						tabindex="5"
-						class="k-button k-primary"
-						data-ng-model="pronuevo.btnAceptarNuevoParticipante"
-						data-ng-disabled="pronuevo.desBtnAceptarNuevoParticipante"
-						data-ng-click="pronuevo.aceptarNuevoParticipante()"
-						data-translate>{{pronuevo.lbl.btn.agregar}}
-				</button>
-				<button id="btnCancelarNuevoParticipante"
-						name="btnCancelarNuevoParticipante"
-						tabindex="6"
-						class="k-button k-primary"
-						data-ng-click="pronuevo.cancelarParticipante()"
-						data-translate>{{pronuevo.lbl.btn.cancelar}}
-				</button>
-				<button id="btnLimpiar"
-						name="btnLimpiar"
-						tabindex="7"
-						class="k-button k-primary"
-						data-ng-click="pronuevo.limpiarFiltroParticipante()"
-						data-translate>{{pronuevo.lbl.btn.limpiar}}
-				</button>
-			</div>
-		</fieldset>
-	</form>
+            <div class="form-group">
+                <label  id="lblParticipante"
+                        name="lblParticipante"
+                        for="lblParticipante"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                    <span data-translate>{{pronuevo.lbl.lbl.participante}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <input  id="txtParticipante"
+                                name="txtParticipante"
+                                type="text"
+                                tabindex="1"
+                                accesskey="u"
+                                autofocus
+                                mixlength="5"
+                                maxlength="100"
+                                class="k-textbox"
+                                data-ng-model="pronuevo.txtParticipante"
+                                data-ng-blur="pronuevo.validarNuevoParticipante()"
+                                placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.participante)}}"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.participante)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  id="lblEmail"
+                        name="lblEmail"
+                        for="lblEmail"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                    <span data-translate>{{pronuevo.lbl.lbl.email}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <input  id="txtEmailParticipante"
+                                name="txtEmailParticipante"
+                                type="text"
+                                tabindex="2"
+                                mixlength="7"
+                                maxlength="100"
+                                data-validar-directiva="pronuevo.expRegular2"
+                                data-valor-final="pronuevo.expRegularFinal2"
+                                class="k-textbox"
+                                data-ng-model="pronuevo.txtEmailParticipante"
+                                data-ng-blur="pronuevo.validarEmail();pronuevo.validarNuevoParticipante()"
+                                placeholder="{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.email)}}"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.email)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"/>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span   class="mensaje-error-solido col-sm-12 col-xs-12"
+                            data-ng-show="pronuevo.tooltipEmailRegistrado"
+                            data-translate>{{pronuevo.lbl.lbl.emailregistrado}}
+                    </span>
+                    <span   class="mensaje-error-solido col-sm-12 col-xs-12"
+                            data-ng-show="pronuevo.tooltipEmailIncorrecto"
+                            data-translate>{{pronuevo.lbl.lbl.emailincorrecto}}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  id="lblTipoParticipante"
+                        name="lblTipoParticipante"
+                        for="lblTipoParticipante"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                        <span data-translate>{{pronuevo.lbl.lbl.tipoparticipante}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <select id="cmbTipoParticipante"
+                                name="cmbTipoParticipante"
+                                tabindex="3"
+                                kendo-drop-down-list="dropdownlist"
+                                k-option-label="'{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.opcion)}}'"
+                                k-options="pronuevo.optionsTipoParticipante"
+                                k-data-source="pronuevo.cmbDsTipoParticipante"
+                                data-ng-blur="pronuevo.validarNuevoParticipante()"
+                                k-ng-model="pronuevo.cmbTipoParticipante"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.tipoparticipante)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  id="lblEstadoParticipante"
+                        name="lblEstadoParticipante"
+                        for="lblEstadoParticipante"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                        <span data-translate>{{pronuevo.lbl.lbl.estado}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <select id="cmbEstadoParticipante"
+                                name="cmbEstadoParticipante"
+                                tabindex="4"
+                                kendo-drop-down-list="dropdownlist"
+                                k-option-label="'{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.opcion)}}'"
+                                k-options="pronuevo.optionsEstado"
+                                k-data-source="pronuevo.cmbDsEstado"
+                                data-ng-blur="pronuevo.validarNuevoParticipante()"
+                                k-ng-model="pronuevo.cmbEstadoParticipante"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.estado)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!--Seccion Botones -->
+            <div class="button-form">
+                <button id="btnAceptarAgregarParticipante"
+                        name="btnAceptarAgregarParticipante"
+                        tabindex="5"
+                        class="k-button k-primary"
+                        data-ng-model="pronuevo.btnAceptarNuevoParticipante"
+                        data-ng-disabled="pronuevo.desBtnAceptarNuevoParticipante"
+                        data-ng-click="pronuevo.aceptarNuevoParticipante()"
+                        data-translate>{{pronuevo.lbl.btn.agregar}}
+                </button>
+                <button id="btnCancelarNuevoParticipante"
+                        name="btnCancelarNuevoParticipante"
+                        tabindex="6"
+                        class="k-button k-primary"
+                        data-ng-click="pronuevo.cancelarParticipante()"
+                        data-translate>{{pronuevo.lbl.btn.cancelar}}
+                </button>
+                <button id="btnLimpiar"
+                        name="btnLimpiar"
+                        tabindex="7"
+                        class="k-button k-primary"
+                        data-ng-click="pronuevo.limpiarFiltroParticipante()"
+                        data-translate>{{pronuevo.lbl.btn.limpiar}}
+                </button>
+            </div>
+        </fieldset>
+    </form>
 </div>
 <!--Seccion Tabla -->
 <div ng-show="pronuevo.mostrarFormularioAgregarParticipante">
-	<form	class="form-horizontal"
-			id="frmAdministrar"
-			name="frmAdministrar"
-			novalidate>
-		<fieldset>
-			<!--<legend>Formulario Área</legend>-->
+    <form   class="form-horizontal"
+            id="frmAdministrar"
+            name="frmAdministrar"
+            novalidate>
+        <fieldset>
+            <!--<legend>Formulario Área</legend>-->
             <h2 data-translate>{{pronuevo.lbl.lbl.formularioparticipante}}</h2>
             <p data-translate>{{pronuevo.lbl.lbl.formularioinformativo}}</p>
-			<div class="form-group">
-				<label 	id="lblTipoParticipante"
-						name="lblTipoParticipante"
-						for="lblTipoParticipante"
-						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
-						<span data-translate>{{pronuevo.lbl.lbl.tipoparticipante}}</span>:
-				</label>
-				<div class="col-lg-5 col-md-6 col-xs-12">
-					<div class="input-group">
-						<select id="cmbTipoParticipante"
-								name="cmbTipoParticipante"
-								tabindex="8"
-								kendo-drop-down-list="dropdownlist"
-								k-option-label="'{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.opcion)}}'"
-								k-options="pronuevo.optionsTipoParticipante"
-								k-data-source="pronuevo.cmbDsTipoParticipante"
-								data-ng-blur="pronuevo.validarComboTipoParticipante()"
-								k-ng-model="pronuevo.cmbTipoParticipanteAgregar"/>
-						<div class="input-group-addon informacion">
-		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
-		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.tipoparticipante)}}"
-		                       data-tooltip-placement="top"
-		                       data-tooltip-class="mensaje-informacion"/>
-			            </div>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label	id="lblParticipante"
-						name="lblParticipante"
-						for="lblParticipante"
-						class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
-					<span data-translate>{{pronuevo.lbl.lbl.participante}}</span>:
-				</label>
-				<div class="col-lg-5 col-md-6 col-xs-12">
-					<div class="input-group">
-						<select id="cmbAgregarParticipante"
-								name="cmbAgregarParticipante"
-								tabindex="9"
-								kendo-drop-down-list="dropdownlist"
-								ng-disabled="pronuevo.cmbAgregarParticipanteDesabilitado"
-								k-option-label="'{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.opcion)}}'"
-								k-options="pronuevo.optionsParticipante"
-								k-data-source="pronuevo.cmbDsParticipanteAgregar"
-								data-ng-blur="pronuevo.validarAgregarParticipante()"
-								k-ng-model="pronuevo.cmbAgregarParticipante"/>
-						<div class="input-group-addon informacion">
-		                    <i class="icon-informacion-importante icono-tamanio icono-celeste"
-		                       data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.participante)}}"
-		                       data-tooltip-placement="top"
-		                       data-tooltip-class="mensaje-informacion"/>
-			            </div>
-					</div>
-				</div>
-			</div>
-	<!--Seccion Botones -->
-			<div class="button-form">
-				<button id="btnAceptarAgregarParticipante"
-						name="btnAceptarAgregarParticipante"
-						tabindex="10"
-						class="k-button k-primary"
-						data-ng-model="pronuevo.btnAceptarAgregarParticipante"
-						data-ng-disabled="pronuevo.desBtnAceptarAgregarParticipante"
-						data-ng-click="pronuevo.aceptarAgregarParticipante()"
-						data-translate>{{pronuevo.lbl.btn.agregar}}
-				</button>
-				<button id="btnCancelarNuevoParticipante"
-						name="btnCancelarNuevoParticipante"
-						tabindex="11"
-						class="k-button k-primary"
-						data-ng-click="pronuevo.cancelarParticipante()"
-						data-translate>{{pronuevo.lbl.btn.cancelar}}
-				</button>
-				<button id="btnLimpiarNuevoParticipante"
-						name="btnLimpiarNuevoParticipante"
-						tabindex="12"
-						class="k-button k-primary"
-						data-ng-click="pronuevo.limpiarFiltroParticipante()"
-						data-translate>{{pronuevo.lbl.btn.limpiar}}
-				</button>
-			</div>
-		</fieldset>
-	</form>
+            <div class="form-group">
+                <label  id="lblTipoParticipante"
+                        name="lblTipoParticipante"
+                        for="lblTipoParticipante"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                        <span data-translate>{{pronuevo.lbl.lbl.tipoparticipante}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <select id="cmbTipoParticipante"
+                                name="cmbTipoParticipante"
+                                tabindex="8"
+                                kendo-drop-down-list="dropdownlist"
+                                k-option-label="'{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.opcion)}}'"
+                                k-options="pronuevo.optionsTipoParticipante"
+                                k-data-source="pronuevo.cmbDsTipoParticipante"
+                                data-ng-blur="pronuevo.validarComboTipoParticipante()"
+                                k-ng-model="pronuevo.cmbTipoParticipanteAgregar"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.tipoparticipante)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  id="lblParticipante"
+                        name="lblParticipante"
+                        for="lblParticipante"
+                        class="col-lg-offset-2 col-md-offset-2 col-lg-2 col-md-2 col-xs-12">*
+                    <span data-translate>{{pronuevo.lbl.lbl.participante}}</span>:
+                </label>
+                <div class="col-lg-5 col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <select id="cmbAgregarParticipante"
+                                name="cmbAgregarParticipante"
+                                tabindex="9"
+                                kendo-drop-down-list="dropdownlist"
+                                ng-disabled="pronuevo.cmbAgregarParticipanteDesabilitado"
+                                k-option-label="'{{inicioCtrl.traducirTexto(pronuevo.lbl.plh.opcion)}}'"
+                                k-options="pronuevo.optionsParticipante"
+                                k-data-source="pronuevo.cmbDsParticipanteAgregar"
+                                data-ng-blur="pronuevo.validarAgregarParticipante()"
+                                k-ng-model="pronuevo.cmbAgregarParticipante"/>
+                        <div class="input-group-addon informacion">
+                            <i class="icon-informacion-importante icono-tamanio icono-celeste"
+                               data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.lbl.tol.participante)}}"
+                               data-tooltip-placement="top"
+                               data-tooltip-class="mensaje-informacion"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!--Seccion Botones -->
+            <div class="button-form">
+                <button id="btnAceptarAgregarParticipante"
+                        name="btnAceptarAgregarParticipante"
+                        tabindex="10"
+                        class="k-button k-primary"
+                        data-ng-model="pronuevo.btnAceptarAgregarParticipante"
+                        data-ng-disabled="pronuevo.desBtnAceptarAgregarParticipante"
+                        data-ng-click="pronuevo.aceptarAgregarParticipante()"
+                        data-translate>{{pronuevo.lbl.btn.agregar}}
+                </button>
+                <button id="btnCancelarNuevoParticipante"
+                        name="btnCancelarNuevoParticipante"
+                        tabindex="11"
+                        class="k-button k-primary"
+                        data-ng-click="pronuevo.cancelarParticipante()"
+                        data-translate>{{pronuevo.lbl.btn.cancelar}}
+                </button>
+                <button id="btnLimpiarNuevoParticipante"
+                        name="btnLimpiarNuevoParticipante"
+                        tabindex="12"
+                        class="k-button k-primary"
+                        data-ng-click="pronuevo.limpiarFiltroParticipante()"
+                        data-translate>{{pronuevo.lbl.btn.limpiar}}
+                </button>
+            </div>
+        </fieldset>
+    </form>
 </div>
 
 <div data-ng-show="pronuevo.mostrarTablaParticipante">
-	<div class="barra-herramientas">
+    <div class="barra-herramientas">
         <a  data-ng-click="pronuevo.agregarParticipante()">
-        	<i class="icon-nuevo icono-verde icono-generales"/>
+            <i class="icon-nuevo icono-verde icono-generales"/>
            <span data-translate>{{pronuevo.lbl.bar.agregar}}</span>
         </a>
         <a  data-ng-click="pronuevo.nuevoParticipante()">
-        	<i class="glyphicon glyphicon-file icono-verde icono-generales"/>
+            <i class="glyphicon glyphicon-file icono-verde icono-generales"/>
            <span data-translate>{{pronuevo.lbl.bar.nuevo}}</span>
         </a>
-	</div>
-	<div class="table-responsive">
-		<table	id="tblAdministrar"
-				name="tblAdministrar"
-				class="table table-responsive table-bordered table-striped table-hover"
-				data-datatable=""
-				data-dt-options="pronuevo.dtAdministrarOptions"
-				data-dt-columns="pronuevo.dtAdministrarColumns"
-				data-dt-instance="pronuevo.dtAdministrar">
-			<thead class="cabecera-principal text-center"></thead>
-		</table>
-	</div>
+    </div>
+    <div class="table-responsive">
+        <table  id="tblAdministrar"
+                name="tblAdministrar"
+                class="table table-responsive table-bordered table-striped table-hover"
+                data-datatable=""
+                data-dt-options="pronuevo.dtAdministrarOptions"
+                data-dt-columns="pronuevo.dtAdministrarColumns"
+                data-dt-instance="pronuevo.dtAdministrar">
+            <thead class="cabecera-principal text-center"></thead>
+        </table>
+    </div>
 </div>

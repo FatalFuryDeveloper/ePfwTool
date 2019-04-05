@@ -9,21 +9,21 @@
  */
 (function(angular) {
 
-	'use strict';
+    'use strict';
 
-	angular.module("sri").factory('UploadFileFactory', UploadFileFactory);
+    angular.module("sri").factory('UploadFileFactory', UploadFileFactory);
 
-	UploadFileFactory.$inject = [ '$parse' ];
+    UploadFileFactory.$inject = [ '$parse' ];
 
-	function UploadFileFactory($parse) {
-		return{
-			link: function($scope, element, attrs){
-				element.on("change", function(event){
-					var files = event.target.files;
-					$parse(attrs.fileInput).assign($scope, element[0].files);
-					$scope.$apply();
-				});
-			}
-		};
-	}
+    function UploadFileFactory($parse) {
+        return{
+            link: function($scope, element, attrs){
+                element.on("change", function(event){
+                    var files = event.target.files;
+                    $parse(attrs.fileInput).assign($scope, element[0].files);
+                    $scope.$apply();
+                });
+            }
+        };
+    }
 }(window.angular));

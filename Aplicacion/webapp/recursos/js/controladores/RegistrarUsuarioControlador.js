@@ -9,23 +9,23 @@
  */
 (function(angular) {
 
- 	'use strict';
+    'use strict';
 
     /* Definición del controlador en un modulo especifico */
- 	angular.module('sri').controller('RegistrarUsuarioControlador',RegistrarUsuarioControlador);
+    angular.module('sri').controller('RegistrarUsuarioControlador',RegistrarUsuarioControlador);
 
     /* Parametros a inyectar en la Funcion Principal*/
- 	RegistrarUsuarioControlador.$inject = ['$rootScope', '$scope', '$state', '$translate', '$timeout',
+    RegistrarUsuarioControlador.$inject = ['$rootScope', '$scope', '$state', '$translate', '$timeout',
         'I18nFactory', '$q', 'SistemaConstanteValue', 'ComunServicio'];
 
     /* Funcion Principal. */
- 	function RegistrarUsuarioControlador($rootScope, $scope, $state, $translate, $timeout,
+    function RegistrarUsuarioControlador($rootScope, $scope, $state, $translate, $timeout,
         i18nFactory,  $q, SistemaConstanteValue, ComunServicio) {
 
- 		/***********************************************************************************
+        /***********************************************************************************
          ******************************** DECLARACION DE VARIABLES *************************
          ***********************************************************************************/
- 		var vm = this;
+        var vm = this;
         /* Variables de Etiquetas a Traducir */
         vm.lbl              = SistemaConstanteValue;
 
@@ -60,10 +60,10 @@
         vm.armarTrama           = armarTrama;
         vm.enviarMail           = enviarMail;
 
- 		/***********************************************************************************
+        /***********************************************************************************
          *********************************** FUNCIONES *************************************
          ***********************************************************************************/
- 		/* Funcion que detecta un cambio de idioma o traduccion */
+        /* Funcion que detecta un cambio de idioma o traduccion */
         $rootScope.$on('$translateChangeSuccess', inicializar);
 
         /**
@@ -259,5 +259,5 @@
             vm.txtClave             = "";
             vm.txtConfirmarClave    = "";
         }
-	}
+    }
 }(window.angular));

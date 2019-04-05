@@ -1,36 +1,36 @@
-<div 	data-ng-controller="ProcesoListaControlador as proCtrl"
-		data-ng-init="proCtrl.init()"
-		class="container">
+<div    data-ng-controller="ProcesoListaControlador as proCtrl"
+        data-ng-init="proCtrl.init()"
+        class="container">
 <!--Seccion Encabezado -->
-	<div class="page-header">
-		<hgroup>
-			<h1 data-translate>{{proCtrl.lbl.pag.prl.titulo}}</h1>
-			<h2 data-translate>{{proCtrl.lbl.pag.prl.subtitulo}}</h2>
-			<p> </p>
-		</hgroup>
-	</div>
+    <div class="page-header">
+        <hgroup>
+            <h1 data-translate>{{proCtrl.lbl.pag.prl.titulo}}</h1>
+            <h2 data-translate>{{proCtrl.lbl.pag.prl.subtitulo}}</h2>
+            <p> </p>
+        </hgroup>
+    </div>
 <!--Seccion Notificaciones -->
-	<div class="row">
-		<div class="col-lg-12 col-md-12 col-xs-12">
-			<uib-alert 	id="idAlerta"
-						name="idAlerta"
-						data-ng-repeat="alert in proCtrl.alerts| orderBy:'type'"
-						type="{{alert.type}}"
-						close="proCtrl.cerrarAlerta($index)">
-				<span data-translate>{{alert.msg}}</span>
-			</uib-alert>
-		</div>
-	</div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-xs-12">
+            <uib-alert  id="idAlerta"
+                        name="idAlerta"
+                        data-ng-repeat="alert in proCtrl.alerts| orderBy:'type'"
+                        type="{{alert.type}}"
+                        close="proCtrl.cerrarAlerta($index)">
+                <span data-translate>{{alert.msg}}</span>
+            </uib-alert>
+        </div>
+    </div>
 <!--Seccion Tabla -->
-	<div class="table-responsive">
-		<table	id="tblAdministrar"
-				name="tblAdministrar"
-				class="table table-responsive table-bordered table-striped table-hover"
-				data-datatable=""
-				data-dt-options="proCtrl.dtAdministrarOptions"
-				data-dt-columns="proCtrl.dtAdministrarColumns"
-				data-dt-instance="proCtrl.dtAdministrar">
-			<thead class="cabecera-principal text-center"></thead>
-		</table>
-	</div>
+    <div class="table-responsive">
+        <table  id="tblAdministrar"
+                name="tblAdministrar"
+                class="table table-responsive table-bordered table-striped table-hover"
+                data-datatable=""
+                data-dt-options="proCtrl.dtAdministrarOptions"
+                data-dt-columns="proCtrl.dtAdministrarColumns"
+                data-dt-instance="proCtrl.dtAdministrar">
+            <thead class="cabecera-principal text-center"></thead>
+        </table>
+    </div>
 </div>
