@@ -4,7 +4,7 @@
 
 ## Información
 La base de datos del sistema ePfwTool corre bajo **[Mysql](https://dev.mysql.com/doc/refman/8.0/en/introduction.html)**.
-<img src="./Aplicacion/webapp/recursos/imagenes/documentacion/mysql.pnh" alt="Logo Mysql" width="300" align="center" >
+<img src="../Aplicacion/webapp/recursos/imagenes/documentacion/mysql.png" alt="Logo Mysql" width="300" align="center" >
 
 ### Estructura Fuentes Base de Datos
 - **bd_participacion.sql** .- Script Mysql de la Base de Datos de ePfwTool.
