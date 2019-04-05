@@ -85,7 +85,6 @@ module.exports = function (config) {
         exclude: [
         ],
 
-
         // Preprocesar los archivos coincidentes antes de proveerlos en el navegador. Preprocessors disponible en: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
             'recursos/js/controladores/*.js': ['coverage'],

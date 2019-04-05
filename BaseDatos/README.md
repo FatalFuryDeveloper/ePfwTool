@@ -26,7 +26,7 @@ Para la instalación automatica se necesita tener instalado [WampServer](http://
   **Nota**: **<<Server_HOME>>** es el path de instalacion del Mysql, Reemplazar con el path de su instalacion, las aplicaciones WampServer y XampServer contienen en sus fuentes una instalacion de mysql.
 
   **Ejemplo: ``` SET PATH=%PATH%;C:\wamp64\bin\mysql\mysql5.7.24\bin ```**
-* Digite la siguiente linea en la consola: 
+* Procedemos a ejecutar el script para crear la base de datos, escriba siguiente comando en la consola: 
 
   **``` createBDD.cmd HOST SCRIPT USERNAME PASSWORD ```**
 
@@ -34,7 +34,7 @@ Para la instalación automatica se necesita tener instalado [WampServer](http://
   * **HOST**    : Nombre o IP del Servidor de Base de Datos
   * **SCRIPT**  : Nombre del Script de la BDD
   * **USERNAME**: Usuario de la BDD
-  * **PASSWORD**: Clave del Usuario de BDD
+  * **PASSWORD**: Clave del Usuario de BDD, por defecto de instalación la clave no existe, si es asi no es necesario escribir este argumento
 
-**Ejemplo:``` createBDD.cmd localhost bd_participacion.sql root 123 ```**
+  **Ejemplo:``` createBDD.cmd localhost bd_participacion.sql root 123 ```**
 * Instalacion de la BDD completa.

@@ -18,7 +18,7 @@ La herramienta es web, con una interfaz responsiva y adaptable a cualquier dispo
 
 | Modulo                                                                                                                                                                  | Descripción                                                                                                                                                                                                                                         |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Configuración Cuenta](https://github.com/FatalFuryDeveloper/ePfwTool/blob/master/Aplicacion/webapp/recursos/js/controladores/ConfiguracionCuentaControlador.js)        | El modulo configuracion de la cuenta, es el encargado de administrar los datos de la cuenta del usuario (Modificar Nombres, clave, imagen entre otros datos)                                                                                        |
+| [Configuración Cuenta](./Aplicacion/webapp/recursos/js/controladores/ConfiguracionCuentaControlador.js)        | El modulo configuracion de la cuenta, es el encargado de administrar los datos de la cuenta del usuario (Modificar Nombres, clave, imagen entre otros datos)                                                                                        |
 | [Inicio Sesión](https://github.com/FatalFuryDeveloper/ePfwTool/blob/master/Aplicacion/webapp/recursos/js/controladores/InicioSesionControlador.js)                      | El modulo inicio sesion, es el encargado de validar datos del usuario para realizar sesion en el sistema ePfwtool                                                                                                                                   |
 | [Gestor Área](https://github.com/FatalFuryDeveloper/ePfwTool/blob/master/Aplicacion/webapp/recursos/js/controladores/GestorAreaControlador.js)                          | El modulo gestor de áreas, es el encargado de administrar (Crear, Modificar, Eliminar, Listar, Buscar) áreas de procesos de participación.                                                                                                          |
 | [Gestor Fase](https://github.com/FatalFuryDeveloper/ePfwTool/blob/master/Aplicacion/webapp/recursos/js/controladores/GestorFaseControlador.js)                          | El modulo gestor de fases, es el encargado de administrar (Crear, Modificar, Eliminar, Listar, Buscar) el catálogo de fases predefinidas de procesos de participación.                                                                              |
@@ -46,30 +46,8 @@ Para la instalacion de la aplicacion se requiere los siguientes aplicaciones:
 - **Manual** .- Contiene la documentacion del Manual de Usuario del Sistema ePfwTool
 
 ### Instalacion Base de Datos
-Existen diferentes formas de levantar la BDD, pero nos enfocaremos en 2 formas:
+Para instalar la base de Datos de ePfwTool, ver **[Intructivo de instalacion de la base de datos ePfwTool](./BaseDatos)**
 
-#### 1. Instalación Automatica
-Para la instalación automatica se necesita tener instalado [WampServer](http://www.wampserver.com/en/) o [XampServer](https://www.apachefriends.org/es/index.html)
-Procedemos a crear una variable de Entorno.
-* Inicie la aplicación WampServer o XampServer que instalo.
-* Abra una terminal o consola del sistema 
-* En la consola escriba el siguiente comando, reemplazando la variable **<<MYSQL_HOME>>** con el path de su instalacion mysql:
-```cmd SET PATH=%PATH%;<<MYSQL_HOME>> ```
-**Nota**: <<Server_HOME>> es el path de instalacion del Mysql, Reemplazar con el path de su instalacion, las aplicaciones WampServer y XampServer contienen en sus fuentes una instalacion de mysql.
-Ejemplo: ```cmd SET PATH=%PATH%;C:\wamp64\bin\mysql\mysql5.7.24\bin ```
-* Ubiquese en el directorio *BaseDatos* de las fuentes del ePfwTool, puede hacer uso del comando **cd** para moverse por la consola
-* Digite la siguiente linea en la consola: 
-```cmd createBDD.cmd HOST SCRIPT USERNAME PASSWORD ```
-**Nota**: Los argumentos del script son los siguiente:
-  * HOST    : Nombre o IP del Servidor de Base de Datos
-  * SCRIPT  : Nombre del Script de la BDD
-  * USERNAME: Usuario de la BDD
-  * PASSWORD: Clave del Usuario de BDD
-Ejemplo:```cmd createBDD.cmd localhost bd_participacion.sql root 123 ```
-* Instalacion de la BDD completa.
-
-#### 2. Instalación Manual
- 
 
 ## Manual de Usuario del Sistema ePfwTool
 El objetivo primordial del **[Manual de Usuario del Sistema ePfwTool](https://github.com/FatalFuryDeveloper/ePfwTool/blob/master/Manual/Manual_Usuario_Sistema_Participacion_Ciudadana.docx)** es ayudar y guiar al usuario a utilizar el Sistema de Participación Ciudadana, obteniendo información relevante para poder despejar las dudas existentes en cuanto a la utilización de la aplicación.

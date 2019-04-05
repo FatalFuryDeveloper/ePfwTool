@@ -1,5 +1,13 @@
+//***************************************************************
+//                    HISTORIAL DE CAMBIOS                     **
+//   FECHA        AUTOR                RAZON                   **
+//   04/04/2019  FatalFuryDeveloper    Creacion                **
+//                                                             **
+//***************************************************************
+//                     PROPOSITO                               **
+//   Archivo de Configuracion Grunt                            **
+//***************************************************************
 module.exports = function (grunt) {
-    //Configuracion del proyecto
     grunt.initConfig({
         jshint : {
             all : [ 'webapp/recursos/js/**/*.js' ],
