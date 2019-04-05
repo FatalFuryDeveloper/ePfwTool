@@ -38,3 +38,8 @@ Para la instalación automatica se necesita tener instalado [WampServer](http://
 
   **Ejemplo:``` createBDD.cmd localhost bd_participacion.sql root 123 ```**
 * Instalacion de la BDD completa.
+
+### 2. Instalación Manual
+* Inicie el administrador de mysql, si instalo **WampServer** inicie **phpmyadmin**
+* Importe el Script Mysql **(bd_participacion.sql)**
+* Instalacion de la BDD completa.
