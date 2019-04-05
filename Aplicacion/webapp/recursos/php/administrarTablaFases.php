@@ -1,4 +1,18 @@
 <?php
+######################################################################
+## Tabla       # catalogo_fase                                      ##
+## Descripcion # Contiene el Catalogo de Fases de Procesos          ##
+##             # de Participacion                                   ##
+######################################################################
+## Nombre Campo           # Tipo Dato     # Nulo   # Relacion       ##
+######################################################################
+## ctf_id                 # int(11)       #  No    # Primary Key    ##
+## ctf_nombre             # varchar(100)  #  No    #                ##
+## ctf_descripcion        # text          #  No    #                ##
+## ctf_estado             # varchar(10)   #  No    #                ##
+## ctf_eliminado          # tinyint(1)    #  No    #                ##
+## ctf_orden              # int(2)        #  No    #                ##
+######################################################################
     include('conexion.php');
     $conexion   = conexionMysqli();
     $data       = json_decode(file_get_contents('php://input'), true);

@@ -1,4 +1,17 @@
 <?php
+######################################################################
+## Tabla       # catalogo_tipo_participante                         ##
+## Descripcion # Contiene el catalogo de tipos de participantes de  ##
+##             # Procesos de Participacion                          ##
+######################################################################
+## Nombre Campo           # Tipo Dato     # Nulo   # Relacion       ##
+######################################################################
+## ctp_id                 # int(11)       #  No    # Primary Key    ##
+## ctp_nombre             # varchar(100)  #  No    #                ##
+## ctp_descripcion        # text          #  No    #                ##
+## ctp_estado             # varchar(10)   #  No    #                ##
+## ctp_eliminado          # tinyint(1)    #  No    #                ##
+######################################################################
     include('conexion.php');
     $conexion   = conexionMysqli();
     $data       = json_decode(file_get_contents('php://input'), true);

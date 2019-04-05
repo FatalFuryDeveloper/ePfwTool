@@ -1,4 +1,23 @@
 <?php
+######################################################################
+## Tabla       # proceso                                            ##
+## Descripcion # Contiene los Procesos de Participacion##
+######################################################################
+## Nombre Campo           # Tipo Dato     # Nulo   # Relacion       ##
+######################################################################
+## pro_id                 # int(11)       #  No    # Primary Key    ##
+## pro_titulo             # varchar(100)  #  No    #                ##
+## pro_subtitulo          # text          #  No    #                ##
+## pro_descripcion        # text          #  No    #                ##
+## pro_objetivo           # text          #  No    #                ##
+## pro_alcance            # text          #  No    #                ##
+## pro_fecha_inicio       # date          #  No    #                ##
+## pro_fecha_fin          # date          #  No    #                ##
+## pro_estado             # varchar(10)   #  No    #                ##
+## pro_eliminado          # tinyint(1)    #  No    #                ##
+## pro_id_area            # int(11)       #  No    #                ##
+## pro_id_usuario         # int(11)       #  No    #                ##
+######################################################################
     include('conexion.php');
     $conexion   = conexionMysqli();
     $data       = json_decode(file_get_contents('php://input'), true);

@@ -1,4 +1,19 @@
 <?php
+######################################################################
+## Tabla       # participante                                       ##
+## Descripcion # Contiene participantes de Procesos de Participacion##
+######################################################################
+## Nombre Campo           # Tipo Dato     # Nulo   # Relacion       ##
+######################################################################
+## par_id                 # int(11)       #  No    # Primary Key    ##
+## par_nombre             # varchar(100)  #  No    #                ##
+## par_email              # varchar(100)  #  No    #                ##
+## par_predefinido        # tinyint(1)    #  No    #                ##
+## par_estado             # varchar(10)   #  No    #                ##
+## par_eliminado          # tinyint(1)    #  No    #                ##
+## par_id_usu             # int(11)       #  No    #                ##
+## par_id_tip             # int(11)       #  No    #                ##
+######################################################################
     include('conexion.php');
     $conexion   = conexionMysqli();
     $data       = json_decode(file_get_contents('php://input'), true);

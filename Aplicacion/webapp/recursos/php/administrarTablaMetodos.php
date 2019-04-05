@@ -1,4 +1,19 @@
 <?php
+######################################################################
+## Tabla       # catalogo_metodo                                    ##
+## Descripcion # Contiene el Catalogo de Metodos de Procesos        ##
+##             # de Participacion                                   ##
+######################################################################
+## Nombre Campo           # Tipo Dato     # Nulo   # Relacion       ##
+######################################################################
+## ctm_id                 # int(11)       #  No    # Primary Key    ##
+## ctm_nombre             # varchar(100)  #  No    #                ##
+## ctm_descripcion        # text          #  No    #                ##
+## ctm_imagen             # varchar(100)  #  No    #                ##
+## ctm_id_nivel           # int(11)       #  No    #                ##
+## ctf_estado             # varchar(10)   #  No    #                ##
+## ctf_eliminado          # tinyint(1)    #  No    #                ##
+######################################################################
     include('conexion.php');
     $conexion   = conexionMysqli();
     $data       = json_decode(file_get_contents('php://input'), true);

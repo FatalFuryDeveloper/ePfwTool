@@ -1,4 +1,16 @@
 <?php
+######################################################################
+## Tabla       # catalogo_area                                      ##
+## Descripcion # Contiene las areas de Procesos de Participacion    ##
+######################################################################
+## Nombre Campo           # Tipo Dato     # Nulo   # Relacion       ##
+######################################################################
+## cta_id                 # int(11)       #  No    # Primary Key    ##
+## cta_nombre             # varchar(100)  #  No    #                ##
+## cta_descripcion        # text          #  No    #                ##
+## cta_estado             # varchar(10)   #  No    #                ##
+## cta_eliminado          # tinyint(1)    #  No    #                ##
+######################################################################
     include('conexion.php');
     $conexion   = conexionMysqli();
     $data       = json_decode(file_get_contents('php://input'), true);

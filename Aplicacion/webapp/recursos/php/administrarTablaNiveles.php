@@ -1,4 +1,17 @@
 <?php
+######################################################################
+## Tabla       # catalogo_nivel                                     ##
+## Descripcion # Contiene el Catalogo de Niveles de Procesos        ##
+##             # de Participacion                                   ##
+######################################################################
+## Nombre Campo           # Tipo Dato     # Nulo   # Relacion       ##
+######################################################################
+## ctn_id                 # int(11)       #  No    # Primary Key    ##
+## ctn_nombre             # varchar(100)  #  No    #                ##
+## ctn_descripcion        # text          #  No    #                ##
+## ctn_estado             # varchar(10)   #  No    #                ##
+## ctn_eliminado          # tinyint(1)    #  No    #                ##
+######################################################################
     include('conexion.php');
     $conexion   = conexionMysqli();
     $data       = json_decode(file_get_contents('php://input'), true);

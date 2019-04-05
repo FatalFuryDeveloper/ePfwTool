@@ -1,4 +1,17 @@
 <?php
+######################################################################
+## Tabla       # catalogo_tarea                                     ##
+## Descripcion # Contiene las tareas de Procesos de Participacion   ##
+######################################################################
+## Nombre Campo           # Tipo Dato     # Nulo   # Relacion       ##
+######################################################################
+## ctt_id                 # int(11)       #  No    # Primary Key    ##
+## ctt_nombre             # varchar(100)  #  No    #                ##
+## ctt_descripcion        # text          #  No    #                ##
+## ctt_estado             # varchar(10)   #  No    #                ##
+## ctt_orden              # int(2)        #  No    #                ##
+## ctt_eliminado          # tinyint(1)    #  No    #                ##
+######################################################################
     include('conexion.php');
     $conexion   = conexionMysqli();
     $data       = json_decode(file_get_contents('php://input'), true);
