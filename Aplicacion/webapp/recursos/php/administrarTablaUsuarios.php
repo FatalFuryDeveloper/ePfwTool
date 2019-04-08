@@ -1,4 +1,18 @@
 <?php
+######################################################################
+## Tabla       # usuario                                            ##
+## Descripcion # Contiene los usuarios de Procesos de Participacion ##
+######################################################################
+## Nombre Campo           # Tipo Dato     # Nulo   # Relacion       ##
+######################################################################
+## usu_id                 # int(11)       #  No    # Primary Key    ##
+## usu_usuario            # varchar(100)  #  No    #                ##
+## usu_email              # varchar(100)  #  No    #                ##
+## usu_clave              # varchar(100)  #  No    #                ##
+## usu_estado             # varchar(10)   #  No    #                ##
+## usu_eliminado          # tinyint(1)    #  No    #                ##
+## usu_id_tipo_usuario    # int(11)       #  No    #                ##
+######################################################################
     include('conexion.php');
     $conexion   = conexionMysqli();
     $data       = json_decode(file_get_contents('php://input'), true);

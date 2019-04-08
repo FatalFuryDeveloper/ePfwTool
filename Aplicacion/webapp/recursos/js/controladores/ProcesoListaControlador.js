@@ -1,10 +1,10 @@
-/**
+s/**
  * @type    controller
  * @name    ProcesoListaControlador
  * @desc    Es el controlador para Administrar Areas de Procesos del Sistema
  * @autor   Mauro Xavier Rivera Rasury (fatalfurydeveloper)
  * @email   fatalfurydeveloper@gmail.com
- * @since   01-09-2018
+ * @since   01-04-2019
  * @version 1.0
  */
 (function(angular) {

@@ -1,4 +1,17 @@
 <?php
+######################################################################
+## Tabla       # catalogo_tipo_usuario                              ##
+## Descripcion # Contiene el catalogo de tipos de usuarios de       ##
+##             # Procesos de Participacion                          ##
+######################################################################
+## Nombre Campo           # Tipo Dato     # Nulo   # Relacion       ##
+######################################################################
+## cau_id                 # int(11)       #  No    # Primary Key    ##
+## cau_nombre             # varchar(100)  #  No    #                ##
+## cau_descripcion        # text          #  No    #                ##
+## cau_estado             # varchar(10)   #  No    #                ##
+## cau_eliminado          # tinyint(1)    #  No    #                ##
+######################################################################
     include('conexion.php');
     $conexion   = conexionMysqli();
     $data       = json_decode(file_get_contents('php://input'), true);

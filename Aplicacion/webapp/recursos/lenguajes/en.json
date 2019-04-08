@@ -363,7 +363,8 @@
         "NIVEL"                                 : "Level",
         "NIVELES"                               : "Levels",
         "DESCRIPCION"                           : "Description",
-        "ESTADO"                                : "State"
+        "ESTADO"                                : "State",
+        "INTEGRADO"                             : "Integrate"
     },
     "TOL":{
         "ACTIVAR"                               : "Activate",

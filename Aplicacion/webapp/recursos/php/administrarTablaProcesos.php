@@ -17,6 +17,7 @@
 ## pro_eliminado          # tinyint(1)    #  No    #                ##
 ## pro_id_area            # int(11)       #  No    #                ##
 ## pro_id_usuario         # int(11)       #  No    #                ##
+## pro_integrado          # varchar(2)    #  No    #                ##
 ######################################################################
     include('conexion.php');
     $conexion   = conexionMysqli();
@@ -67,6 +68,9 @@
             break;
         case "cambiarEstado":
             cambiarEstado();
+            break;
+        case "cambiarEstadoIntegracion":
+            cambiarEstadoIntegracion();
             break;
         case "eliminar":
             eliminar();
@@ -144,7 +148,7 @@
         $eliminado      = $data["eliminado"];
         $area           = $data["area"];
         $usuario        = $data["usuario"];
-        $resultado  = mysqli_query($conexion,"INSERT INTO proceso (pro_titulo, pro_subtitulo, pro_descripcion, pro_objetivo, pro_alcance, pro_fecha_inicio, pro_fecha_fin, pro_estado, pro_eliminado, pro_id_area, pro_id_usuario) VALUES ('$titulo', '$subtitulo', '$descripcion', '$objetivo', '$alcance', '$fechainicio', '$fechafin', '$estado', '$eliminado', '$area', '$usuario')");
+        $resultado  = mysqli_query($conexion,"INSERT INTO proceso (pro_titulo, pro_subtitulo, pro_descripcion, pro_objetivo, pro_alcance, pro_fecha_inicio, pro_fecha_fin, pro_estado, pro_eliminado, pro_id_area, pro_id_usuario, pro_integrado) VALUES ('$titulo', '$subtitulo', '$descripcion', '$objetivo', '$alcance', '$fechainicio', '$fechafin', '$estado', '$eliminado', '$area', '$usuario', 'NO')");
         echo mysqli_insert_id($conexion);
         #echo validarError($conexion, true, $resultado);
     }
@@ -237,6 +241,15 @@
         $id         = $data["id"];
         $estado     = $data["estado"];
         $resultado  = mysqli_query($conexion,"UPDATE proceso SET pro_estado='$estado' WHERE pro_id='$id'");
+        echo validarError($conexion, true, $resultado);
+    }
+
+    #Funcion para realizar una modificacion (UPDATE) de un registro especifico de la tabla Niveles
+    function cambiarEstadoIntegracion(){
+        global $conexion, $data;
+        $id         = $data["id"];
+        $integrado  = $data["integrado"];
+        $resultado  = mysqli_query($conexion,"UPDATE proceso SET pro_integrado='$integrado' WHERE pro_id='$id'");
         echo validarError($conexion, true, $resultado);
     }
 

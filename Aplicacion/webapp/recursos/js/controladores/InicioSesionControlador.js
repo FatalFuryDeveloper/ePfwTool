@@ -4,7 +4,7 @@
  * @desc    Es el controlador QUE inicia sesion en el sistema.
  * @autor   Mauro Xavier Rivera Rasury (fatalfurydeveloper)
  * @email   fatalfurydeveloper@gmail.com
- * @since   01-09-2018
+ * @since   01-04-2019
  * @version 1.0
  */
 (function(angular) {

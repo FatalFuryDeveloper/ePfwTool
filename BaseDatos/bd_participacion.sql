@@ -401,6 +401,7 @@ CREATE TABLE IF NOT EXISTS `proceso` (
   `pro_eliminado` tinyint(1) NOT NULL COMMENT 'Campo para identificar si el registro esta eliminado',
   `pro_id_area` int(11) NOT NULL,
   `pro_id_usuario` int(11) NOT NULL,
+  `pro_integrado` varchar(2) NOT NULL COMMENT 'Campo que indica si proceso fue integrado a sistema externo',
   PRIMARY KEY (`pro_id`),
   KEY `pro_id_area` (`pro_id_area`),
   KEY `pro_id_usuario` (`pro_id_usuario`)
@@ -411,10 +412,10 @@ CREATE TABLE IF NOT EXISTS `proceso` (
 --
 
 INSERT IGNORE INTO `proceso` (`pro_id`, `pro_titulo`, `pro_subtitulo`, `pro_descripcion`, `pro_objetivo`, `pro_alcance`, `pro_fecha_inicio`, `pro_fecha_fin`, `pro_estado`, `pro_eliminado`, `pro_id_area`, `pro_id_usuario`) VALUES
-(35, 'As parameters we can pass the page width and height in the units defined in the docuent constructor.', 'As parameters we can pass the page width and height in the units defined in the docuent constructor.', 'As parameters we can pass the page width and height in the units defined in the docuent constructor. Adding pages moves us to this page, so many operations will be executed on that page. If we want to go to another page we can use the setPage function.', '', 'As parameters we can pass the page width and height in the units defined in the docuent constructor. Adding pages moves us to this page, so many operations will be executed on that page. If we want to go to another page we can use the setPage function.', '2018-08-01', '2018-08-02', 'Activo', 0, 1, 3),
-(45, 'mauro', 'mauro', 'mauro', 'mauro', 'mauro', '2018-09-01', '2018-09-01', 'Activo', 1, 1, 3),
-(46, 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', '2018-09-01', '2018-09-01', 'Inactivo', 0, 1, 22),
-(47, 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', '2018-09-01', '2018-09-01', 'Activo', 0, 1, 3);
+(35, 'As parameters we can pass the page width and height in the units defined in the docuent constructor.', 'As parameters we can pass the page width and height in the units defined in the docuent constructor.', 'As parameters we can pass the page width and height in the units defined in the docuent constructor. Adding pages moves us to this page, so many operations will be executed on that page. If we want to go to another page we can use the setPage function.', '', 'As parameters we can pass the page width and height in the units defined in the docuent constructor. Adding pages moves us to this page, so many operations will be executed on that page. If we want to go to another page we can use the setPage function.', '2018-08-01', '2018-08-02', 'Activo', 0, 1, 3, 'NO'),
+(45, 'mauro', 'mauro', 'mauro', 'mauro', 'mauro', '2018-09-01', '2018-09-01', 'Activo', 1, 1, 3, 'NO'),
+(46, 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', '2018-09-01', '2018-09-01', 'Inactivo', 0, 1, 22, 'NO'),
+(47, 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', '2018-09-01', '2018-09-01', 'Activo', 0, 1, 3, 'NO');
 
 -- --------------------------------------------------------
 

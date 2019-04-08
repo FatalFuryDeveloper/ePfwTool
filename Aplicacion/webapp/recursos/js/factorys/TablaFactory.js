@@ -291,7 +291,8 @@
         function tablaProceso () {
             return [
                 //{campo:vm.lbl.bd.are.id, etiqueta:vm.lbl.tbl.id, clase:"text-center", width:10, render:""},
-                {campo:vm.lbl.bd.pro.titulo, etiqueta:vm.lbl.tbl.proceso,clase:"", width:80, render:""},
+                {campo:vm.lbl.bd.pro.titulo, etiqueta:vm.lbl.tbl.proceso,clase:"", width:70, render:""},
+                {campo:vm.lbl.bd.pro.integrado, etiqueta:vm.lbl.tbl.integrado, clase:"text-center", width:10, render:""},
                 {campo:vm.lbl.bd.pro.estado, etiqueta:vm.lbl.tbl.estado, clase:"text-center", width:10, render:""},
                 {campo:null, etiqueta:vm.lbl.tbl.acciones, clase:"text-center", width:10, render:"accionesHtml"}
             ];
@@ -590,10 +591,11 @@
          * @returns {Objeto} [accionesHtml] [acciones de la tabla]
          */
         function accionesTablaProceso(data) {
-            return '<a class="btn" data-ng-click="pronuevo.exportarConsul('+data[vm.lbl.bd.pro.id]+')"> '+
-                    '<i  class="glyphicon glyphicon-export icono-celeste" '+
-                    'data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.acciones.integrardecidim)}}"' +
-                    'data-tooltip-placement="top" tooltip-class="mensaje-ayuda-contextual"></i></a>'+
+            return  '<a class="btn" data-ng-if="\'' + data[vm.lbl.bd.pro.integrado] + '\' === \'NO\'" ' +
+                    'data-ng-click="pronuevo.exportarConsul(' + data[vm.lbl.bd.pro.id]+' )">' +
+                    '<i class="glyphicon glyphicon-export icono-celeste" '+
+                    'data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.acciones.integrardecidim)}}" ' +
+                    'data-tooltip-placement="top" tooltip-class="mensaje-ayuda-contextual"></i></a>' +
                     '<a class="btn" data-ng-click="pronuevo.verPDF('+data[vm.lbl.bd.pro.id]+')"> '+
                     '<i  class="glyphicon glyphicon-download-alt icono-celeste" '+
                     'data-uib-tooltip="{{inicioCtrl.traducirTexto(pronuevo.acciones.descargar)}}"' +

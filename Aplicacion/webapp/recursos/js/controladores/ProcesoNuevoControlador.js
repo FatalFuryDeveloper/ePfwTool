@@ -4,7 +4,7 @@
  * @desc    Es el controlador para Administrar metodos de Procesos del Sistema
  * @autor   Mauro Xavier Rivera Rasury (fatalfurydeveloper)
  * @email   fatalfurydeveloper@gmail.com
- * @since   01-09-2018
+ * @since   01-04-2019
  * @version 1.0
  */
 (function(angular) {
@@ -47,6 +47,7 @@
         vm.datosTabla       = [];
         vm.eliminado        = 0;
         vm.integracion      = 0;
+        vm.integrado        = "NO";
 
         /* Variables para llamar a funciones */
         vm.consultar        = consultarProceso;
@@ -65,6 +66,9 @@
         vm.nuevoProceso = function(){
             vm.mostrarTablaProceso = false;
             vm.mostrarNuevoProceso = true;
+            vm.contadorWizar       = 1;
+            borrarProcesoGeneral();
+            $('#rootwizard a[href="#tab1"]').tab('show')
         };
 
         /**
@@ -91,7 +95,6 @@
          * @returns void
          */
         vm.editarProceso = function(id){
-            console.log(id);
             vm.fechaCorrecta        = true;
             vm.fechaInicioProceso   = true;
             vm.fechaInicioFase      = true;
@@ -248,6 +251,7 @@
          * @returns void
          */
         vm.exportarConsul = function(id){
+            vm.id = id;
             vm.integracion = 1;
             vm.verPDF(id);
         };
@@ -262,7 +266,7 @@
             var datos = armarTramaProcesoConsul(vm.lbl.tip.post,vm.rutaConsul,vm.lbl.fun.insertarProceso);
             ComunServicio.invocarPeticion(datos).then(function (respuesta) {
                 //console.log("respuesta"+JSON.stringify(respuesta));
-                if(respuesta.data.length > 0){
+                if(respuesta.data.length > 0 && respuesta.data[0].id !== undefined){
                     vm.idProcesoConsul = respuesta.data[0].id;
                     vm.slugProcesoConsul = respuesta.data[0].slug;
                     //console.log("respuesta"+JSON.stringify(vm.idProcesoConsul));
@@ -279,6 +283,8 @@
                             insertarComponenteSql(vm.lbl.fun.insertarComponente,value);
                         });
                     }
+                    vm.integrado = "SI"
+                    actualizarRegistroEstadoProceso(vm.lbl.fun.cambiarEstadoIntegracion);
                 }else{
                     agregarAlerta(vm.lbl.msj.tip.danger,vm.lbl.msj.pro.existe);
                 }
@@ -869,21 +875,6 @@
         vm.insertarNuevoParticipante = insertarNuevoParticipante;
         vm.aceptarNuevoParticipante  = aceptarNuevoParticipante;
 
-
-        vm.pruebaPDF = function () {
-            /*
-             vm.datosProceso={"titulo":"prueba","subtitulo":"prueba","descripcion":"prueba","alcance":"prueba","fechainicio":"2018-09-01","fechafin":"2018-09-01",
-             "area":"Presupuesto","estado":"Inactivo","fases":[{"fase":"Introduccion","descripcion":"Fase Inicial","fechaInicio":"2018-09-04","fechaFin":"2018-09-04","estado":"Activo","orden":"1","tipo":"Item","tareas":[{"tarea":"Tarea Inicial","descripcion":"Tarea Inicial","fechaInicio":"2018-09-04","fechaFin":"2018-09-04","estado":"Activo","orden":"1","tipo":"Tarea Inicial"},{"tarea":"Tarea Secundaria","descripcion":"Tarea Secundaria","fechaInicio":"2018-09-04","fechaFin":"2018-09-04","estado":"Activo","orden":"2","tipo":"Tarea Secundaria"}],"criterios":[{"id":1,"fase":"Introduccion","objetivo":"Fase Inicial","orden":"1","criterio":"hola","indicador":"hola","rango":"hola"},{"id":1,"fase":"Introduccion","objetivo":"Fase Inicial","orden":"1","criterio":"hola","indicador":"hola","rango":"hola"}]},{"fase":"Intermedio","descripcion":"Fase Intermedia","fechaInicio":"2018-09-04","fechaFin":"2018-09-04","estado":"Activo","orden":"2","tipo":"Item","tareas":[{"tarea":"Tarea Secundaria","descripcion":"Tarea Secundaria","fechaInicio":"2018-09-04","fechaFin":"2018-09-04","estado":"Activo","orden":"2","tipo":"Tarea Secundaria"},{"tarea":"Tarea Inicial","descripcion":"Tarea Inicial","fechaInicio":"2018-09-04","fechaFin":"2018-09-04","estado":"Activo","orden":"1","tipo":"Tarea Inicial"}],"criterios":[]}],"participantes":[{"0":"40","1":"46","2":"3","3":"Inactivo","4":"0","5":"3","6":"Mauro","7":"experto@ejemplo.com","8":"0","9":"Inactivo","10":"0","11":"3","12":"1","13":"1","14":"Individual","15":"Rol personal del participante","16":"Activo","17":"0","pra_id":"40","pra_id_proceso":"46","pra_id_participante":"3","pra_estado":"Inactivo","pra_eliminado":"0","par_id":"3","par_nombre":"Mauro","par_email":"experto@ejemplo.com","par_predefinido":"0","par_estado":"Inactivo","par_eliminado":"0","par_id_usu":"3","par_id_tip":"1","ctp_id":"1","ctp_nombre":"Individual","ctp_descripcion":"Rol personal del participante","ctp_estado":"Activo","ctp_eliminado":"0"}],"metodos":[{"0":"40","1":"46","2":"6","3":"Activo","4":"0","5":"6","6":"Encuesta","7":"Encuesta","8":"Encuesta","9":"1","10":"Activo","11":"0","mep_id":"40","mep_id_proceso":"46","mep_id_metodo":"6","mep_estado":"Activo","mep_eliminado":"0","ctm_id":"6","ctm_nombre":"Encuesta","ctm_descripcion":"Encuesta","ctm_imagen":"Encuesta","ctm_id_nivel":"1","ctm_estado":"Activo","ctm_eliminado":"0"},{"0":"41","1":"46","2":"7","3":"Activo","4":"0","5":"7","6":"Blog","7":"Blog","8":"Blog","9":"1","10":"Activo","11":"0","mep_id":"41","mep_id_proceso":"46","mep_id_metodo":"7","mep_estado":"Activo","mep_eliminado":"0","ctm_id":"7","ctm_nombre":"Blog","ctm_descripcion":"Blog","ctm_imagen":"Blog","ctm_id_nivel":"1","ctm_estado":"Activo","ctm_eliminado":"0"},{"0":"43","1":"46","2":"11","3":"Activo","4":"0","5":"11","6":"Encuentro","7":"Encuentro","8":"Encuentro","9":"2","10":"Activo","11":"0","mep_id":"43","mep_id_proceso":"46","mep_id_metodo":"11","mep_estado":"Activo","mep_eliminado":"0","ctm_id":"11","ctm_nombre":"Encuentro","ctm_descripcion":"Encuentro","ctm_imagen":"Encuentro","ctm_id_nivel":"2","ctm_estado":"Activo","ctm_eliminado":"0"},{"0":"42","1":"46","2":"12","3":"Activo","4":"0","5":"12","6":"Debate","7":"Debates","8":"Debate","9":"1","10":"Activo","11":"0","mep_id":"42","mep_id_proceso":"46","mep_id_metodo":"12","mep_estado":"Activo","mep_eliminado":"0","ctm_id":"12","ctm_nombre":"Debate","ctm_descripcion":"Debates","ctm_imagen":"Debate","ctm_id_nivel":"1","ctm_estado":"Activo","ctm_eliminado":"0"}]};
-            */
-
-            /*
-             vm.doc = PDFFactory.generarPDF(vm.datosProceso, vm.datosPDF, "Mauro");
-             var string = vm.doc.output('bloburi');
-             $('.pruebaPDF').attr('src', string);
-            */
-        };
-
-
         /**
          * description Funcion que genera el pdf.
          * @return void
@@ -929,7 +920,7 @@
                     //vm.validarFases();
                     //console.log("onNext:"+vm.contadorWizar);
                     switch (vm.contadorWizar) {
-                        case 1: vm.pruebaPDF();vm.validarInformacionGeneral(); break;
+                        case 1: vm.validarInformacionGeneral(); break;
                         case 2: vm.validarFases();break;
                         case 3: vm.validarParticipantes();break;
                         case 4: vm.validarMetodos();break;
@@ -2111,6 +2102,18 @@
             });
         }
 
+        /**
+         * @description Funcion para ejecutar CRUD de tabla Area
+         * @returns void
+         */
+        function actualizarEstadoProceso(datos,success,error){
+            ComunServicio.invocarPeticion(datos).then(function () {
+                consultar();
+            },function() {
+                agregarAlerta(vm.lbl.msj.tip.danger,error);
+            });
+        }
+
          /**
          * @description Funcion para insertar registro en tabla Area
          * @returns void
@@ -2233,6 +2236,15 @@
         function actualizarRegistro(funcion){
             var datos = armarTramaProceso(vm.lbl.tip.post,vm.rutaPHP,funcion);
             ejecutarServicio(datos,vm.lbl.msj.act.success,vm.lbl.msj.act.error);
+        }
+
+        /**
+         * @description Funcion para actualizar registros de tabla Area
+         * @returns void
+         */
+        function actualizarRegistroEstadoProceso(funcion){
+            var datos = armarTramaProceso(vm.lbl.tip.post,vm.rutaPHP,funcion);
+            actualizarEstadoProceso(datos,vm.lbl.msj.act.success,vm.lbl.msj.act.error);
         }
 
 
@@ -2377,6 +2389,7 @@
                     estado      : vm.datosProceso.estado,
                     eliminado   : vm.eliminadoParticipante,
                     area        : vm.datosProceso.idarea,
+                    integrado   : vm.integrado,
                     usuario     : SesionFactory.getId()
                 }
             };
@@ -2576,6 +2589,7 @@
             vm.cmbAreaProceso           = "";
             vm.cmbEstadoProceso         = "";
             vm.eliminadoParticipante    = 0;
+            vm.integrado                = "NO"
         }
 
         /**

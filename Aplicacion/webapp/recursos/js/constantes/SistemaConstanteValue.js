@@ -69,6 +69,7 @@
                 estado              : "pro_estado",
                 eliminado           : "pro_eliminado",
                 area                : "pro_id_area",
+                integrado           : "pro_integrado"
             },
             tar:{
                 id                  : "ctt_id",
@@ -150,6 +151,7 @@
             modificarProceso        : "modificarProceso",
             modificarCriterio       : "modificarCriterio",
             cambiarestado           : "cambiarEstado",
+            cambiarEstadoIntegracion: "cambiarEstadoIntegracion",
             cambiarfase             : "cambiarFase",
             eliminar                : "eliminar",
             eliminarProceso         : "eliminarProceso",
@@ -452,7 +454,8 @@
             tipoparticipante        : "TBL.TIPOPARTICIPANTE",
             email                   : "TBL.EMAIL",
             participante            : "TBL.PARTICIPANTE",
-            proceso                 : "TBL.PROCESO"
+            proceso                 : "TBL.PROCESO",
+            integrado               : "TBL.INTEGRADO"
         },
         tol:{
             activar                 : "TOL.ACTIVAR",
