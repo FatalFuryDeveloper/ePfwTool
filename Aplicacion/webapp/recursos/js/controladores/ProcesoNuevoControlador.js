@@ -64,6 +64,7 @@
          * @returns void
          */
         vm.nuevoProceso = function(){
+            vm.mostrarBtnGuardarProceso = false;
             vm.mostrarTablaProceso = false;
             vm.mostrarNuevoProceso = true;
             vm.contadorWizar       = 1;
@@ -2561,6 +2562,10 @@
         function borrarProcesoGeneral() {
             vm.datosProceso = [];
             vm.dtAdministrarProceso.reloadData();
+            vm.mostrarBtnGuardarProceso = false;
+            vm.doc  = new jsPDF('p','in');
+            var string = vm.doc.output('bloburi');
+            $('.preview-pane').attr('src', string);
             borrarFiltrosProceso();
             borrarFiltrosFase();
             borrarFiltrosTarea();
