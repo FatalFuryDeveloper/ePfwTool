@@ -14,6 +14,9 @@
     angular.module("sri").factory('PDFFactory', function (SistemaConstanteValue){
          var vm = this;
         vm.lbl          = SistemaConstanteValue;
+        vm.imgData = new Image();               /* Instancia para crear imagen */
+        vm.imgData.crossOrigin = 'Anonymous';   /* Definicion de Origen Imagen */
+        vm.imgData.src = "recursos/imagenes/logo.jpg"; /* Definicion ruta imagen */
 
         var servicio = {
             generarPDF     : generarPDF
@@ -32,9 +35,7 @@
             vm.ejeY          = 3.2;                 /* Posicion ejeY */
             vm.tamanoLimite  = 4.5;                 /* Tamano de dimension del texto */
             vm.interlineado  = 0.5;                 /* Tamano de interlineado del texto */
-            vm.imgData = new Image();               /* Instancia para crear imagen */
-            vm.imgData.crossOrigin = 'Anonymous';   /* Definicion de Origen Imagen */
-            vm.imgData.src = "recursos/imagenes/logo.jpg"; /* Definicion ruta imagen */
+
             vm.doc           = new jsPDF('p','in'); /* Instancia del PDF a crear */
 
             /* Propiedades o Metadatos del PDF*/
@@ -227,6 +228,7 @@
             for (var i = 1; i <= vm.doc.internal.getNumberOfPages(); i++) {
                 vm.doc.setPage(i)
                 /* Header */
+
                 vm.doc.addImage(vm.imgData, 'JPEG', 0.5, 0.3, 7.2, 2.0);
                 /* Footer */
                 var empresa = "Participacion Ciudadana @2019" ;
